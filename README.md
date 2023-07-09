@@ -35,6 +35,23 @@ The IoT whiteboard project enhances educational value by promoting interactive l
 [Bill of Materials](https://github.com/Forsyth-Creations/IOT_Arm/blob/main/BOM.xlsx)
 
 
+## Plan of Action:
+
+### Step 1: Baseline integration of all actuators and sensors
+
+- [ ] Mercury
+
+
+### Step 2: Consolidate circuits onto one board
+
+
+### Step 3: Write server code to allow for IOT implementation (No third-party tools)
+
+
+### Step 4: Integrate automatic software updates
+
+
+
 ## Useful Links
 
 None Yet!
