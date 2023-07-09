@@ -39,19 +39,31 @@ The IoT whiteboard project enhances educational value by promoting interactive l
 
 ### Step 1: Baseline integration of all actuators and sensors
 
-- [ ] Mercury
-
+- [x] Place Purchase order for BOM
+- [ ] Draw up hardware architecture diagram
+- [ ] Begin to code system integration tests
+- [ ] Begin to design physical housing and system
 
 ### Step 2: Consolidate circuits onto one board
 
+- [ ] Upon completing integration, core elements should be consolidated to the motherboard. These are
+    - SD Card Reader
+    - Motor Drivers
+    - USB C Connector
+
+    Note: the intention is to leave the NodeMCU as a pop-on, using female dupont connectors. This will make swapping it in and out to code easier. However, the eventual goal is to have this interface with an on-board USB-C connector, to bring the interface into the 21st century. Additionally, updating the software will eventually only take a push to Github, and a software release which the arm will pull in
+
+- [ ] Order the motherboard for the system, await arrival
 
 ### Step 3: Write server code to allow for IOT implementation (No third-party tools)
 
+- [ ] Use FastAPI to create a simply pythin script which the two arms can use to communicate with one another. Even better, making a point-to-point system with no server would be nice, but might need additional networking configurations to all data to get around network firewalls. Thus the server makes more sense. 
 
 ### Step 4: Integrate automatic software updates
 
-
+- [ ] Go through integration hell, get it done and working. The idea for this is to use binary transfer to download the software from the release repo, then pull the firmware.bin onto the microcontroller to run. I may need an external EEPROM, or I can save configs to the SD card. May be easier to save to the SD card for the time being
 
 ## Useful Links
 
-None Yet!
+- Binary Transfer
+    - https://www.aranacorp.com/en/generating-and-uploading-bin-files-to-an-esp8266/
