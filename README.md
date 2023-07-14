@@ -67,3 +67,6 @@ The IoT whiteboard project enhances educational value by promoting interactive l
 
 - Binary Transfer
     - https://www.aranacorp.com/en/generating-and-uploading-bin-files-to-an-esp8266/
+
+- Erase Flash Memory:
+    - https://randomnerdtutorials.com/esp8266-nodemcu-erase-flash-memory/
