@@ -24,20 +24,26 @@ ApiCaller::ApiCaller(const char *ssid, const char *password, const char *endpoin
     Serial.println(WiFi.localIP());
 }
 
-StaticJsonDocument<200> ApiCaller::post(String body)
+// Write me a post script
+StaticJsonDocument<200> ApiCaller::post(String route, StaticJsonDocument<200> body)
 {
     StaticJsonDocument<200> doc;
+    String fullEndpoint = this->endpoint + String(route);
+
+    Serial.println("Making request to " + fullEndpoint);
 
     if (WiFi.status() == WL_CONNECTED)
     {
         HTTPClient http;
         WiFiClient client;
 
-        http.begin(client, this->endpoint); // Specify the URL
+        http.begin(client, fullEndpoint); // Specify the URL
         // Make a post request, where the body is a json object
         http.addHeader("Content-Type", "application/json");
-        int httpCode = http.POST(body); // Send the request
-
+        // convert body into a string
+        String bodyString;
+        serializeJson(body, bodyString);
+        http.POST(bodyString); // Send the request
         // Use ArudinoJson to parse the response
         DeserializationError error = deserializeJson(doc, http.getString());
         if (error)
@@ -46,12 +52,6 @@ StaticJsonDocument<200> ApiCaller::post(String body)
             Serial.println(error.c_str());
             delay(2000);
             return doc;
-        }
-        else
-        {
-            // Get the value from the response
-            String value = doc["value"];
-            // Save the value to persistant memory
         }
         http.end(); // Close connection
     }

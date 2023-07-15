@@ -9,7 +9,7 @@ class ApiCaller {
     public:
         ApiCaller();
         ApiCaller(const char* ssid, const char* password, const char* endpoint);
-        StaticJsonDocument<200> post(String body);
+        StaticJsonDocument<200> post(String route, StaticJsonDocument<200> body);
         StaticJsonDocument<200> get(String route);
     private:
         const char* ssid;
