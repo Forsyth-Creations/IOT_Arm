@@ -25,3 +25,30 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.modal-window {
+  position: fixed;
+  background-color: rgba(255, 255, 255, .5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  pointer-events: all;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .modal-window div:not(:last-of-type) {
+  margin-bottom: 15px;
+} */
+
+.modalWindow {
+  background-color: rgb(255, 255, 255);
+  border-radius: .25em;
+  position: relative;
+  padding: 10px;
+  min-width: 80%;
+}

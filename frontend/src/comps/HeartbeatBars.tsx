@@ -26,7 +26,7 @@ export default function HeartbeatBars() {
             // set the mapping of uid to element
             setUidElementMap((uidElementMap) => {
                 const newMap = new Map(uidElementMap);
-                newMap.set(message.uid, <HeartbeatBar uid={message.uid} timestamp={newTimestamp}></HeartbeatBar>);
+                newMap.set(message.uid, <HeartbeatBar data = {message.data} uid={message.uid} timestamp={newTimestamp}></HeartbeatBar>);
                 return newMap;
             }
             );

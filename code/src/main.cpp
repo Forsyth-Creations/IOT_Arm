@@ -8,7 +8,7 @@
 #include "ApiCaller/apiCaller.h"
 #include "Configuration.h"
 
-const char* ssid = NEWTORK_SSID; // Write here your router's username
+const char* ssid = NETWORK_SSID; // Write here your router's username
 const char* password = NETWORK_PASSWORD; // Write here your router's password
 int count = 0;
 String uid;
@@ -58,6 +58,7 @@ void loop()
   Serial.println("Making heartbeat request to API");
   // Make me a json I can send
   StaticJsonDocument<200> body;
+  body["ip"] = WiFi.localIP().toString();
   StaticJsonDocument<200> response = apiCaller.post("/v1/heartbeat/" + uid,  body);
   Serial.println(response["message"].as<String>());
   delay(4000);    

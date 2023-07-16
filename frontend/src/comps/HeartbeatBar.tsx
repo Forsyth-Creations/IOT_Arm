@@ -5,16 +5,40 @@ import { useEffect, useState } from 'react';
 import { AiFillHeart } from 'react-icons/ai';
 import { FaExclamationTriangle } from 'react-icons/fa';
 
-export default function HeartbeatBar( props: { uid: string, timestamp: number}) {
+import axios from 'axios';
+
+import GenericModal from './GenericModal';
+
+export default function HeartbeatBar( props: { uid: string, timestamp: number, data : JSON}) {
 
     // see if the timestamp is older than 5 seconds
     // if it is, show a warning
     // if it isn't, show a heartbeat
     const [isOpen, setIsOpen] = useState(false);
+    const [showModal, setShowModal] = useState(false);
+
+    const openModal = () => {
+        setShowModal(true);
+      };
 
     const handleDropdownToggle = () => {
         setIsOpen(!isOpen);
       };
+
+    // Make a class to the backend to toggle an LED
+    const toggleLED = () => {
+        console.log("Toggling LED");
+        axios.post('http://localhost:8000/api/v1/toggleLED', {
+            uid: props.uid
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+      };
+
 
     const [isStale, setIsStale] = useState<boolean>(false);
 
@@ -40,7 +64,7 @@ export default function HeartbeatBar( props: { uid: string, timestamp: number}) 
             const now = new Date();
             const secondsSinceLastUpdate = (now.getTime() - props.timestamp) / 1000;
             console.log(secondsSinceLastUpdate)
-            if (secondsSinceLastUpdate > 5) {
+            if (secondsSinceLastUpdate > 8) {
                 setIsStale(true);
             } else {
                 setIsStale(false);
@@ -74,8 +98,20 @@ return (
         <div className="dropdown-content bg-slate-900 text-white w-11/12 p-4">
           <h1>UID: {props.uid}</h1>
           <h1>Timestamp: {formattedTime}</h1>
+          <h1>Data:</h1>
+          {props.data && Object.entries(props.data).map(([key, value]) => {
+            return (
+              <div className="flex flex-row">
+                <h1>{key} - {value}</h1>
+                </div>
+            );
+          })}
+          <button onClick = {openModal} className = "p-2 bg-blue-400 rounded mt-3 text-xs hover:bg-blue-500">Command</button>
         </div>
       )}
+      <GenericModal showModal={showModal} setShowModal={setShowModal} className = "">
+        <button onClick={toggleLED} className = "p-2 bg-blue-400 rounded mt-3 text-xs hover:bg-blue-500">Toggle LED</button>
+        </GenericModal>
     </div>
   );
 };

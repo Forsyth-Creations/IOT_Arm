@@ -1,6 +1,6 @@
 # Basic fast api
 
-from fastapi import FastAPI, WebSocket
+from fastapi import FastAPI, WebSocket, Request
 from fastapi.middleware.cors import CORSMiddleware
 import websockets
 import asyncio
@@ -77,12 +77,31 @@ async def api_uuid():
     return {"uid": uid}
 
 @app.post("/api/v1/heartbeat/{uid}")
-async def heartbeat(uid):
+async def heartbeat(uid, request: Request):
     # Emit a message on the websocket
+    # get data from the request
+    data = await request.json()
+
     messageDict = \
-          {"uid" : uid, 
-           "status": "alive",
-           "type": "heartbeat"}
+            {"type": "heartbeat",
+            "uid" : uid, 
+            "status": "alive",
+            "data": data,}
     await emit_message(json.dumps(messageDict))
     return {"message": f"Message emitted for {uid}"}
+
+# Toggle LED
+@app.post("/api/v1/toggleLED")
+async def toggleLED(request: Request):
+    # pull the uid from the request
+    data = await request.json()
+    uid = data["uid"]
+    print(f"{Fore.GREEN}Toggle LED for {uid}{Style.RESET_ALL}")
+
+    # Emit a message on the websocket
+    messageDict = \
+            {"type" : "toggleLED",
+            "uid" : uid}
+    await emit_message(json.dumps(messageDict))
+    return {"message": f"Toggle LED for {uid}"}
 
