@@ -30,7 +30,7 @@ StaticJsonDocument<200> ApiCaller::post(String route, StaticJsonDocument<200> bo
     StaticJsonDocument<200> doc;
     String fullEndpoint = this->endpoint + String(route);
 
-    Serial.println("Making request to " + fullEndpoint);
+    // Serial.println("Making request to " + fullEndpoint);
 
     if (WiFi.status() == WL_CONNECTED)
     {
@@ -45,14 +45,19 @@ StaticJsonDocument<200> ApiCaller::post(String route, StaticJsonDocument<200> bo
         serializeJson(body, bodyString);
         http.POST(bodyString); // Send the request
         // Use ArudinoJson to parse the response
-        DeserializationError error = deserializeJson(doc, http.getString());
-        if (error)
+        String response = http.getString();
+        if (response.length() > 0)
         {
-            Serial.print(F("deserializeJson() failed: "));
-            Serial.println(error.c_str());
-            delay(2000);
-            return doc;
+            DeserializationError error = deserializeJson(doc, response);
+            if (error)
+            {
+                Serial.print(F("deserializeJson() failed 'post': "));
+                Serial.println(error.c_str());
+                delay(2000);
+                return doc;
+            }
         }
+
         http.end(); // Close connection
     }
     return doc;
@@ -86,4 +91,10 @@ StaticJsonDocument<200> ApiCaller::get(String route)
         http.end(); // Close connection
     }
     return doc;
+}
+
+// return wifi object
+WiFiClient ApiCaller::getWifiClient()
+{
+    return this->client;
 }

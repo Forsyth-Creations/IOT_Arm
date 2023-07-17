@@ -41,7 +41,9 @@ class WebSocketConnection {
   }
 }
 
-const socket = new WebSocketConnection('ws://192.168.1.119:8000/ws');
+// generate a uid for each client
+const uid = () => Math.random().toString(36).slice(2);
+const socket = new WebSocketConnection('ws://192.168.1.119:8000/ws/' + uid());
 socket.connect();
 
 export default socket;

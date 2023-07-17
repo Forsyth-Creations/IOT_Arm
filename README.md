@@ -57,7 +57,7 @@ The IoT whiteboard project enhances educational value by promoting interactive l
 
 ### Step 3: Write server code to allow for IOT implementation (No third-party tools)
 
-- [ ] Use FastAPI to create a simply pythin script which the two arms can use to communicate with one another. Even better, making a point-to-point system with no server would be nice, but might need additional networking configurations to all data to get around network firewalls. Thus the server makes more sense. 
+- [x] Use FastAPI to create a simply python script which the two arms can use to communicate with one another. Even better, making a point-to-point system with no server would be nice, but might need additional networking configurations to all data to get around network firewalls. Thus the server makes more sense. 
 
 ### Step 4: Integrate automatic software updates
 

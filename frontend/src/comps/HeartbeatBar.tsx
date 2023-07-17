@@ -16,6 +16,7 @@ export default function HeartbeatBar( props: { uid: string, timestamp: number, d
     // if it isn't, show a heartbeat
     const [isOpen, setIsOpen] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [restartInProgress, setRestartInProgress] = useState(false);
 
     const openModal = () => {
         setShowModal(true);
@@ -29,6 +30,21 @@ export default function HeartbeatBar( props: { uid: string, timestamp: number, d
     const toggleLED = () => {
         console.log("Toggling LED");
         axios.post('http://localhost:8000/api/v1/toggleLED', {
+            uid: props.uid
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+      };
+
+    const handleRestart = () => {
+        console.log("Restarting device");
+        setIsStale(true);
+        setRestartInProgress(true);
+        axios.post('http://localhost:8000/api/v1/restart', {
             uid: props.uid
         })
         .then(function (response) {
@@ -66,6 +82,7 @@ export default function HeartbeatBar( props: { uid: string, timestamp: number, d
             console.log(secondsSinceLastUpdate)
             if (secondsSinceLastUpdate > 8) {
                 setIsStale(true);
+                setRestartInProgress(false);
             } else {
                 setIsStale(false);
             }
@@ -77,11 +94,10 @@ export default function HeartbeatBar( props: { uid: string, timestamp: number, d
 return (
     <div className="dropdown flex flex-col justify-center">
       <div
-        className={`min-width-80 flex flex-row justify-between align-middle bg-gray-300 p-4 border-2 rounded-md ${
+        className={`min-width-80 flex flex-row justify-between align-middle bg-gray-300 p-4 border-2 rounded-md border-stone-400 ${
           isOpen ? 'open' : ''
         }`}
-        onClick={handleDropdownToggle}
-      >
+        onClick={handleDropdownToggle}>
         <text className = "pointer-events-none">{props.uid}</text>
         <div className="flex flex-row items-center">
           <text className="text-xs pointer-events-none">Last Seen: {formattedTime}</text>
@@ -96,6 +112,7 @@ return (
       </div>
       {isOpen && (
         <div className="dropdown-content bg-slate-900 text-white w-11/12 p-4">
+          {isStale && restartInProgress && <h1 className = "text-yellow-600">Admin commanded restart... Standby</h1>}
           <h1>UID: {props.uid}</h1>
           <h1>Timestamp: {formattedTime}</h1>
           <h1>Data:</h1>
@@ -110,7 +127,10 @@ return (
         </div>
       )}
       <GenericModal showModal={showModal} setShowModal={setShowModal} className = "">
-        <button onClick={toggleLED} className = "p-2 bg-blue-400 rounded mt-3 text-xs hover:bg-blue-500">Toggle LED</button>
+        <div className = "flex flex-row">
+        <button onClick={toggleLED} className = "m-2 p-2 bg-blue-400 rounded mt-3 text-xs hover:bg-blue-500">Toggle LED</button>
+        <button onClick={handleRestart} className = "m-2 p-2 bg-red-400 rounded mt-3 text-xs hover:bg-red-500">Restart</button>
+        </div>
         </GenericModal>
     </div>
   );

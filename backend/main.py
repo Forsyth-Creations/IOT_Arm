@@ -1,22 +1,47 @@
 # Basic fast api
 
-from fastapi import FastAPI, WebSocket, Request
+from fastapi import FastAPI, WebSocket, Request, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-import websockets
-import asyncio
+
+# ConnectionClosedError
+from websockets.exceptions import ConnectionClosedError
 
 from colorama import Fore, Back, Style
 from pydantic import BaseModel
 from uuid import uuid4
 import json
 
+# Connection Manager
+class ConnectionManager:
+    def __init__(self):
+        self.active_connections: list[WebSocket] = []
+
+    async def connect(self, websocket: WebSocket):
+        await websocket.accept()
+        self.active_connections.append(websocket)
+
+    def disconnect(self, websocket: WebSocket):
+        self.active_connections.remove(websocket)
+
+    async def send_personal_message(self, message: str, websocket: WebSocket):
+        await websocket.send_text(message)
+
+    async def broadcast(self, message: str):
+        for connection in self.active_connections:
+            await connection.send_text(message)
+
+    def get_websocket(self, uid: str):
+        # Note: the uid should equal the client id
+        for connection in self.active_connections:
+            if connection.client_id == uid:
+                return connection
+
+
+manager = ConnectionManager()
+
 # Implement sessions with FastAPI
 
 app = FastAPI()
-
-# websocket clients
-
-websocket_clients = []
 
 # Create a class to define the data model
 class BasicPing(BaseModel):
@@ -31,25 +56,42 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-
 # --------- Deal with anyone that connects to the websocket ------------
+# https://fastapi.tiangolo.com/advanced/websockets/
 
-@app.websocket("/ws")
-async def websocket_endpoint(websocket: WebSocket):
-    await websocket.accept()
-    websocket_clients.append(websocket)
+@app.websocket("/ws/{client_id}")
+async def websocket_endpoint(websocket: WebSocket, client_id: str):
+    await manager.connect(websocket)
     try:
         while True:
-            _ = await websocket.receive_text()
-            print(f"{Fore.GREEN}Message received: {_}{Style.RESET_ALL}")
+            data = await websocket.receive_text()
+            # await manager.send_personal_message(f"You wrote: {data}", websocket)
+    except WebSocketDisconnect:
+        manager.disconnect(websocket)
+        # await manager.broadcast(f"Client #{client_id} left the chat")
+    except ConnectionClosedError:
+        print(f"{Fore.RED}Client #{client_id} left the chat{Style.RESET_ALL}")
     finally:
-        websocket_clients.remove(websocket)
+        print(f"{Fore.RED}NOTE{Fore.WHITE}:     Client disconnected{Style.RESET_ALL}")
 
-async def emit_message(message: str):
-    if len(websocket_clients) > 0:
-        for client in websocket_clients:
-            await client.send_text(message)
+
+async def broadcast_message(message: str):
+    # Use the manager to broadcast the message
+    try:
+        await manager.broadcast(message)
+    except ConnectionClosedError:
+        # Cannot broadcast to a closed connection
+        print(f"{Fore.RED}Cannot broadcast to a closed connection{Style.RESET_ALL}")
+
+async def send_personal_message(message: str, uid : str):
+    # Use the manager to send a personal message
+    # Get the websocket from the uid
+    websocket = manager.get_websocket(uid)
+    try:
+        await manager.send_personal_message(message, websocket)
+    except ConnectionClosedError:
+        # Cannot send to a closed connection
+        print(f"{Fore.RED}Cannot send to a closed connection{Style.RESET_ALL}")
 
 # -----------------------------------------------------------------------
 
@@ -87,8 +129,8 @@ async def heartbeat(uid, request: Request):
             "uid" : uid, 
             "status": "alive",
             "data": data,}
-    await emit_message(json.dumps(messageDict))
-    return {"message": f"Message emitted for {uid}"}
+    await broadcast_message(json.dumps(messageDict))
+    return {"message": f"Heartbeat accepted"}
 
 # Toggle LED
 @app.post("/api/v1/toggleLED")
@@ -96,12 +138,22 @@ async def toggleLED(request: Request):
     # pull the uid from the request
     data = await request.json()
     uid = data["uid"]
-    print(f"{Fore.GREEN}Toggle LED for {uid}{Style.RESET_ALL}")
-
     # Emit a message on the websocket
     messageDict = \
             {"type" : "toggleLED",
             "uid" : uid}
-    await emit_message(json.dumps(messageDict))
+    await send_personal_message(json.dumps(messageDict), uid)
     return {"message": f"Toggle LED for {uid}"}
 
+# restarting 
+@app.post("/api/v1/restart")
+async def restart(request: Request):
+    # pull the uid from the request
+    data = await request.json()
+    uid = data["uid"]
+    # Emit a message on the websocket
+    messageDict = \
+            {"type" : "restart",
+            "uid" : uid}
+    await broadcast_message(json.dumps(messageDict))
+    return {"message": f"Restarting {uid}"}

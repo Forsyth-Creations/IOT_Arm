@@ -3,65 +3,79 @@
 #include <ArduinoJson.h>
 #include <Preferences.h>
 
+#include <ArduinoWebsockets.h>
+#include <ESP8266WiFi.h>
+
+// ws://192.168.1.119:8000/ws
 
 // Local Deps
 #include "ApiCaller/apiCaller.h"
+#include "CoreComp/CoreComp.h"
 #include "Configuration.h"
 
-const char* ssid = NETWORK_SSID; // Write here your router's username
-const char* password = NETWORK_PASSWORD; // Write here your router's password
-int count = 0;
+// Create an instance of the ApiCaller class
+ApiCaller *apiCaller;
+CoreComp * coreComp;
 String uid;
 
-// Create an instance of the ApiCaller class
-ApiCaller apiCaller;
-Preferences preferences;
+using namespace websockets;
 
-// Save value to persistant memory
-void saveValue(String key, String value) {
-  preferences.putString(key.c_str(), value);
+WebsocketsClient client;
+
+void attemptReconnect()
+{
+  bool socket_connected = false;
+  Serial.println("Connecting to websocket");
+  while (!socket_connected)
+  {
+    // change the '-' to a '_' in the uid
+    // The full address needs to append the uid to the end of the WEBSOCKET_ADDRESS_PROPER
+    String fullAddress = String(WEBSOCKET_ADDRESS_PROPER) + "/" + uid;
+    socket_connected = client.connect(fullAddress);
+    delay(2000);
+    Serial.print(".");
+  }
+  
+  Serial.println("\nConnected to websocket");
 }
-
 
 void setup()
 {
   // Start the apiCaller
   Serial.begin(9600);
-  preferences.begin("my-app", false);
-  apiCaller = ApiCaller(ssid, password, "http://192.168.1.119:8000/api");
+  Serial.println("------------ Starting up ------------");
+  apiCaller = new ApiCaller(NETWORK_SSID, NETWORK_PASSWORD, API_ENDPOINT);
+  coreComp = new CoreComp(apiCaller);
+  coreComp->hardsaveUID();
 
-  // See if uid is in persistant memory
-  // If not, get a new uid from the API
-  // then save it to persistant memory
+  uid = coreComp->getUID();
 
-  String memUID = preferences.getString("uid", "empty");
-  if ( memUID == "empty")
-  {
-    Serial.println("No UID found in persistant memory");
-    StaticJsonDocument<200> response = apiCaller.get("/v1/uid");
-    uid = response["uid"].as<String>();
-    Serial.println("Got a new UID from the API: " + uid);
-    saveValue("uid", uid);
-  }
-  else {
-    Serial.println("Found UID in persistant memory");
-    uid = preferences.getString("uid", "empty");
-    Serial.println(uid);
-  }
+  // Setup callbacks
+  client.onMessage([&](WebsocketsMessage message)
+                   {
+        coreComp->UserCommandHandler(message.data());
+                   });
 
+
+  // access the client of websockets
+  attemptReconnect();
+  client.send("Hello Server from ESP8266");
+
+  // Testing websocket things
 }
 
 void loop()
 {
-  // Make a heartbeat request to the API every 5 seconds. End point must look like: /api/v1/heartbeat/{uid}
-
-  Serial.println("Making heartbeat request to API");
-  // Make me a json I can send
-  StaticJsonDocument<200> body;
-  body["ip"] = WiFi.localIP().toString();
-  StaticJsonDocument<200> response = apiCaller.post("/v1/heartbeat/" + uid,  body);
-  Serial.println(response["message"].as<String>());
-  delay(4000);    
-
-
+  if (client.available())
+  {
+    client.poll();
+  }
+  // If I lose connection, reconnect
+  if (!client.available())
+  {
+    Serial.println("Lost connection, reconnecting");
+    attemptReconnect();
+  }
+  coreComp->heartbeat();
+  delay(50);
 }

@@ -1,4 +1,5 @@
-// Write a basic class
+#ifndef API_CALLER_H
+#define API_CALLER_H
 
 #include <Arduino.h>
 #include <ArduinoJson.h>
@@ -11,6 +12,7 @@ class ApiCaller {
         ApiCaller(const char* ssid, const char* password, const char* endpoint);
         StaticJsonDocument<200> post(String route, StaticJsonDocument<200> body);
         StaticJsonDocument<200> get(String route);
+        WiFiClient getWifiClient();
     private:
         const char* ssid;
         const char* password;
@@ -18,3 +20,5 @@ class ApiCaller {
         WiFiClient client;
         HTTPClient http;
 };
+
+#endif // API_CALLER_H
