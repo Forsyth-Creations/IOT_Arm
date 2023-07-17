@@ -49,7 +49,7 @@ void CoreComp::heartbeat()
     }
 }
 
-void CoreComp::UserCommandHandler(WSInterfaceString message)
+String CoreComp::UserCommandHandler(WSInterfaceString message)
 {
     // Pull the "type" field out of the message
     StaticJsonDocument<200> doc;
@@ -59,10 +59,9 @@ void CoreComp::UserCommandHandler(WSInterfaceString message)
         Serial.print(F("deserializeJson() failed for socket command: "));
         Serial.println(error.c_str());
         delay(250);
-        return;
+        return "-error";
     }
     String type = doc["type"].as<String>();
-    Serial.println("Got message of type: " + type);
 
     // Check if the message type is toggleLED
     if (type == "toggleLED")
@@ -79,12 +78,20 @@ void CoreComp::UserCommandHandler(WSInterfaceString message)
             digitalWrite(LED_BUILTIN2, LOW);
         }
     }
-
+    else if (type == "restart")
+    {
+        forceRestart();
+    }
+    else if (type != "heartbeat") {
+        Serial.println("Unknown message type: " + type + ". Ignoring");
+        return '-' + type ;
+    }
+    return type;
 }
 
-void CoreComp::forceReset()
+void CoreComp::forceRestart()
 {
-    Serial.println("Resetting device");
+    Serial.println("Restarting device. Hang tight!");
     ESP.reset();
 }
 

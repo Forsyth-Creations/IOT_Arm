@@ -15,9 +15,9 @@ class CoreComp {
         void saveValue(String key, String value);
         void hardsaveUID();
         void heartbeat();
-        void UserCommandHandler(WSInterfaceString message);
+        String UserCommandHandler(WSInterfaceString message);
         String getUID();
-        void forceReset();
+        void forceRestart();
     private:
         Preferences* preferences;
         ApiCaller * apiCaller;

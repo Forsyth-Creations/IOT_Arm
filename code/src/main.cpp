@@ -53,8 +53,10 @@ void setup()
   // Setup callbacks
   client.onMessage([&](WebsocketsMessage message)
                    {
-        coreComp->UserCommandHandler(message.data());
-                   });
+      String status = coreComp->UserCommandHandler(message.data());
+      if (status != "heartbeat")
+        client.send("{'outcome' : '" + status + "'}");
+  });
 
 
   // access the client of websockets

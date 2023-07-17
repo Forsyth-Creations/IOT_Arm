@@ -16,8 +16,9 @@ class ConnectionManager:
     def __init__(self):
         self.active_connections: list[WebSocket] = []
 
-    async def connect(self, websocket: WebSocket):
+    async def connect(self, websocket: WebSocket, uid: str):
         await websocket.accept()
+        websocket.client_id = uid
         self.active_connections.append(websocket)
 
     def disconnect(self, websocket: WebSocket):
@@ -35,6 +36,11 @@ class ConnectionManager:
         for connection in self.active_connections:
             if connection.client_id == uid:
                 return connection
+            
+    # Wait for a socket response with a message
+    async def receive(self, websocket: WebSocket):
+        message = await websocket.receive_text()
+        return message
 
 
 manager = ConnectionManager()
@@ -61,11 +67,11 @@ app.add_middleware(
 
 @app.websocket("/ws/{client_id}")
 async def websocket_endpoint(websocket: WebSocket, client_id: str):
-    await manager.connect(websocket)
+    await manager.connect(websocket, client_id)
     try:
         while True:
             data = await websocket.receive_text()
-            # await manager.send_personal_message(f"You wrote: {data}", websocket)
+            print(f"{Fore.GREEN}Received data: {Fore.WHITE}{data}{Style.RESET_ALL}")
     except WebSocketDisconnect:
         manager.disconnect(websocket)
         # await manager.broadcast(f"Client #{client_id} left the chat")
@@ -155,5 +161,18 @@ async def restart(request: Request):
     messageDict = \
             {"type" : "restart",
             "uid" : uid}
-    await broadcast_message(json.dumps(messageDict))
+    await send_personal_message(json.dumps(messageDict), uid)
     return {"message": f"Restarting {uid}"}
+
+# get health data
+@app.post("/api/v1/health")
+async def health(request: Request):
+    # pull the uid from the request
+    data = await request.json()
+    uid = data["uid"]
+    # Emit a message on the websocket
+    messageDict = \
+            {"type" : "health",
+            "uid" : uid}
+    await send_personal_message(json.dumps(messageDict), uid)
+    return {"message": f"Health data for {uid}"}

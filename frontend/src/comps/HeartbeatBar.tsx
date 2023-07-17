@@ -55,6 +55,18 @@ export default function HeartbeatBar( props: { uid: string, timestamp: number, d
         });
       };
 
+    const handleGetHealthData = () => {
+        console.log("Getting health data");
+        axios.post('http://localhost:8000/api/v1/health', {
+            uid: props.uid
+        })
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+      };
 
     const [isStale, setIsStale] = useState<boolean>(false);
 
@@ -74,6 +86,15 @@ export default function HeartbeatBar( props: { uid: string, timestamp: number, d
     const year = now.getFullYear();
     const formattedTime = `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)} ${padZero(date)}/${padZero(month)}/${year}`;
 
+    // Set a timeout. When the timeout is reached, set restartInProgress to false
+    useEffect(() => {
+        if (restartInProgress) {
+            setTimeout(() => {
+                setRestartInProgress(false);
+            }, 10000);
+        }
+    }, [restartInProgress, setRestartInProgress]);
+
     // every few seconds, check if the timestamp is older than 5 seconds
     useEffect(() => {
         const interval = setInterval(() => {
@@ -82,17 +103,16 @@ export default function HeartbeatBar( props: { uid: string, timestamp: number, d
             console.log(secondsSinceLastUpdate)
             if (secondsSinceLastUpdate > 8) {
                 setIsStale(true);
-                setRestartInProgress(false);
             } else {
                 setIsStale(false);
             }
         }, 1000);
         return () => clearInterval(interval);
-    }, [props.timestamp, setIsStale]);
+    }, [props.timestamp, setIsStale, setRestartInProgress]);
 
 
 return (
-    <div className="dropdown flex flex-col justify-center">
+    <div className="dropdown flex flex-col justify-center mt-2">
       <div
         className={`min-width-80 flex flex-row justify-between align-middle bg-gray-300 p-4 border-2 rounded-md border-stone-400 ${
           isOpen ? 'open' : ''
@@ -111,8 +131,8 @@ return (
         </div>
       </div>
       {isOpen && (
-        <div className="dropdown-content bg-slate-900 text-white w-11/12 p-4">
-          {isStale && restartInProgress && <h1 className = "text-yellow-600">Admin commanded restart... Standby</h1>}
+        <div className="dropdown-content bg-slate-900 text-white w-11/12 p-4 rounded">
+          {restartInProgress && <h1 className = "text-yellow-600">Admin commanded restart... Standby</h1>}
           <h1>UID: {props.uid}</h1>
           <h1>Timestamp: {formattedTime}</h1>
           <h1>Data:</h1>
@@ -130,6 +150,8 @@ return (
         <div className = "flex flex-row">
         <button onClick={toggleLED} className = "m-2 p-2 bg-blue-400 rounded mt-3 text-xs hover:bg-blue-500">Toggle LED</button>
         <button onClick={handleRestart} className = "m-2 p-2 bg-red-400 rounded mt-3 text-xs hover:bg-red-500">Restart</button>
+        <button onClick={handleGetHealthData} className = "m-2 p-2 bg-green-400 rounded mt-3 text-xs hover:bg-green-500">Get Health Data</button>
+
         </div>
         </GenericModal>
     </div>
