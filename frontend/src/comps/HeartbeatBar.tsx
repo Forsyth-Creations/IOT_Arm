@@ -138,7 +138,8 @@ return (
           <h1>Data:</h1>
           {props.data && Object.entries(props.data).map(([key, value]) => {
             return (
-              <div className="flex flex-row">
+              <div key={key} 
+              className="flex flex-row">
                 <h1>{key} - {value}</h1>
                 </div>
             );

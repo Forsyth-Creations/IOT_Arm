@@ -6,10 +6,16 @@ class WebSocketConnection {
   }
 
   connect() {
-    this.socket = new WebSocket(this.url);
-    this.socket.onopen = this.handleOpen;
-    this.socket.onmessage = this.handleMessage;
-    this.socket.onclose = this.handleClose;
+    try {
+      this.socket = new WebSocket(this.url);
+      this.socket.onopen = this.handleOpen;
+      this.socket.onmessage = this.handleMessage;
+      this.socket.onclose = this.handleClose;
+    } catch (error) {
+      // Handle the error here
+      console.error('Failed to connect:', error);
+      // Optionally, you can trigger a callback or update the component state with the error information
+    }
   }
 
   handleOpen = () => {
@@ -43,7 +49,7 @@ class WebSocketConnection {
 
 // generate a uid for each client
 const uid = () => Math.random().toString(36).slice(2);
-const socket = new WebSocketConnection('ws://192.168.1.119:8000/ws/' + uid());
+const socket = new WebSocketConnection('ws://localhost:8000/ws/' + uid());
 socket.connect();
 
 export default socket;

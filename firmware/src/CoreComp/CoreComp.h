@@ -18,6 +18,7 @@ class CoreComp {
         String UserCommandHandler(WSInterfaceString message);
         String getUID();
         void forceRestart();
+        bool needsUpdate();
     private:
         Preferences* preferences;
         ApiCaller * apiCaller;
@@ -25,4 +26,6 @@ class CoreComp {
         long unsigned int heartbeatInterval = 5000;
         long unsigned int lastHeartbeat = 0;
         bool ledState = false;
+        long unsigned int lastFirmwareCheck = 0;
+        bool shouldUpdate = false;
 };

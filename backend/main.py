@@ -11,14 +11,28 @@ from pydantic import BaseModel
 from uuid import uuid4
 import json
 
+import requests
+import datetime
+
+class Cacher:
+    def __init__(self):
+        self.cache = {}
+
+    def get(self, key):
+        return self.cache.get(key)
+
+    def set(self, key, value):
+        self.cache[key] = value
+
 # Connection Manager
 class ConnectionManager:
     def __init__(self):
         self.active_connections: list[WebSocket] = []
 
-    async def connect(self, websocket: WebSocket, uid: str):
+    async def connect(self, websocket: WebSocket, uid: str, type = "client"):
         await websocket.accept()
         websocket.client_id = uid
+        websocket.client_type = type
         self.active_connections.append(websocket)
 
     def disconnect(self, websocket: WebSocket):
@@ -42,8 +56,19 @@ class ConnectionManager:
         message = await websocket.receive_text()
         return message
 
+    async def broadcast_to_servants(self, message: str):
+        for connection in self.active_connections:
+            if connection.client_type == "servant":
+                await connection.send_text(message)
+
+    async def broadcast_to_clients(self, message: str):
+        for connection in self.active_connections:
+            if connection.client_type == "client":
+                await connection.send_text(message)
+
 
 manager = ConnectionManager()
+cacher = Cacher()
 
 # Implement sessions with FastAPI
 
@@ -65,6 +90,7 @@ app.add_middleware(
 # --------- Deal with anyone that connects to the websocket ------------
 # https://fastapi.tiangolo.com/advanced/websockets/
 
+# This enpoint is intended for the client, as in a web browser
 @app.websocket("/ws/{client_id}")
 async def websocket_endpoint(websocket: WebSocket, client_id: str):
     await manager.connect(websocket, client_id)
@@ -74,7 +100,21 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
             print(f"{Fore.GREEN}Received data: {Fore.WHITE}{data}{Style.RESET_ALL}")
     except WebSocketDisconnect:
         manager.disconnect(websocket)
-        # await manager.broadcast(f"Client #{client_id} left the chat")
+    except ConnectionClosedError:
+        print(f"{Fore.RED}Client #{client_id} left the chat{Style.RESET_ALL}")
+    finally:
+        print(f"{Fore.RED}NOTE{Fore.WHITE}:     Client disconnected{Style.RESET_ALL}")
+
+# This enpoint is intended for the servant, as in the microcontroller
+@app.websocket("/ws/servant/{client_id}")
+async def websocket_endpoint(websocket: WebSocket, client_id: str):
+    await manager.connect(websocket, client_id, "servant")
+    try:
+        while True:
+            data = await websocket.receive_text()
+            print(f"{Fore.GREEN}Received data: {Fore.WHITE}{data}{Style.RESET_ALL}")
+    except WebSocketDisconnect:
+        manager.disconnect(websocket)
     except ConnectionClosedError:
         print(f"{Fore.RED}Client #{client_id} left the chat{Style.RESET_ALL}")
     finally:
@@ -135,7 +175,7 @@ async def heartbeat(uid, request: Request):
             "uid" : uid, 
             "status": "alive",
             "data": data,}
-    await broadcast_message(json.dumps(messageDict))
+    await manager.broadcast_to_clients(json.dumps(messageDict))
     return {"message": f"Heartbeat accepted"}
 
 # Toggle LED
@@ -178,11 +218,31 @@ async def health(request: Request):
     return {"message": f"Health data for {uid}"}
 
 # get latest firmware version for device
-@app.post("/api/v1/firmware/{type}")
-async def firmware(type):
-    # Get the latest released firmware version from the github repo
-    # https://github.com/Forsyth-Creations/IOT_Arm
-    # https://api.github.com/repos/Forsyth-Creations/IOT_Arm/releases/latest
-
+@app.get("/api/v1/firmware")
+async def firmware():
+    version = get_firmware_version()
     # Return the latest firmware version
-    return {"message": f"Latest firmware version for {type}"}
+    return {"version": f"{version}"}
+
+# get latest firmware version for device
+async def get_firmware_version():
+    # Get the latest released firmware version from the github repo
+    if cacher.get("firmware_checked") is None or cacher.get("firmware_checked") < datetime.datetime.now() - datetime.timedelta(seconds=30):
+        # if our cache is empty or the cache is older than 30 seconds
+        url = "https://api.github.com/repos/Forsyth-Creations/IOT_Arm/releases/latest"
+        response = requests.get(url)
+        cacher.set("firmware", response.json()["tag_name"])
+        cacher.set("firmware_checked", datetime.datetime.now())
+        return response.json()["tag_name"]
+    else:
+        return cacher.get("firmware")
+
+# Compare firmware version to the latest version
+@app.get("/api/v1/firmware/{version}")
+async def firmware(version: str):
+    # Get the latest released firmware version from the github repo
+    latest_version = await get_firmware_version()
+    if version == latest_version:
+        return {"message": f"false"}
+    else:
+        return {"message": f"true"}

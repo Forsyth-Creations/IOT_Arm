@@ -1,7 +1,14 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { BsXSquare } from 'react-icons/bs'
 
-const Modal = ({  showModal, 
+interface MyComponentProps {
+  showModal: boolean;
+  setShowModal: (showModal: boolean) => void;
+  children: React.ReactNode;
+  className: string
+}
+
+const Modal: React.FC<MyComponentProps> = ({  showModal, 
                   setShowModal, 
                   children, 
                 className}) => {

@@ -1,7 +1,7 @@
 // Write me something
 #include "CoreComp.h"
 
-CoreComp::CoreComp(ApiCaller * apiCaller)
+CoreComp::CoreComp(ApiCaller *apiCaller)
 {
     this->apiCaller = apiCaller;
     preferences = new Preferences();
@@ -43,8 +43,9 @@ void CoreComp::heartbeat()
         // Serial.println("Making heartbeat request to API");
         StaticJsonDocument<200> body;
         body["ip"] = WiFi.localIP().toString();
-        StaticJsonDocument<200> response = apiCaller->post("/v1/heartbeat/" + uid,  body);
-        // Serial.println(response["message"].as<String>());
+        body["firmware_version"] = FIRMWARE_VERSION;
+        body["needs_update"] = needsUpdate() ? "true" : "false";
+        apiCaller->post("/v1/heartbeat/" + uid, body);
         lastHeartbeat = millis();
     }
 }
@@ -52,6 +53,8 @@ void CoreComp::heartbeat()
 String CoreComp::UserCommandHandler(WSInterfaceString message)
 {
     // Pull the "type" field out of the message
+    Serial.println("Got message: " + message);
+
     StaticJsonDocument<200> doc;
     DeserializationError error = deserializeJson(doc, message);
     if (error)
@@ -59,7 +62,7 @@ String CoreComp::UserCommandHandler(WSInterfaceString message)
         Serial.print(F("deserializeJson() failed for socket command: "));
         Serial.println(error.c_str());
         delay(250);
-        return "-error";
+        return "-error: " + String(error.c_str());
     }
     String type = doc["type"].as<String>();
 
@@ -82,9 +85,10 @@ String CoreComp::UserCommandHandler(WSInterfaceString message)
     {
         forceRestart();
     }
-    else if (type != "heartbeat") {
+    else if (type != "heartbeat")
+    {
         Serial.println("Unknown message type: " + type + ". Ignoring");
-        return '-' + type ;
+        return '-' + type;
     }
     return type;
 }
@@ -98,4 +102,16 @@ void CoreComp::forceRestart()
 String CoreComp::getUID()
 {
     return uid;
+}
+
+bool CoreComp::needsUpdate()
+{
+    // Only check for firmware updates every 60 seconds
+    if (millis() - lastFirmwareCheck > 60000)
+    {
+        lastFirmwareCheck = millis();
+        StaticJsonDocument<200> response = apiCaller->get("/v1/firmware/" + String(FIRMWARE_VERSION));
+        shouldUpdate = response["message"].as<String>() == "True" ? true : false;
+    }
+    return shouldUpdate;
 }

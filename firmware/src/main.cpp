@@ -6,8 +6,6 @@
 #include <ArduinoWebsockets.h>
 #include <ESP8266WiFi.h>
 
-// ws://192.168.1.119:8000/ws
-
 // Local Deps
 #include "ApiCaller/apiCaller.h"
 #include "CoreComp/CoreComp.h"
@@ -79,5 +77,6 @@ void loop()
     attemptReconnect();
   }
   coreComp->heartbeat();
+  coreComp->needsUpdate();
   delay(50);
 }

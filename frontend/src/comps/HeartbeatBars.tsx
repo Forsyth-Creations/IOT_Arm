@@ -8,8 +8,6 @@ import HeartbeatBar from './HeartbeatBar';
 // when this data does stale, it needs to show a warning
 // when this data is fresh, it needs to show a heartbeat
 
-import { AiFillHeart } from 'react-icons/ai';
-
 export default function HeartbeatBars() {
     // create a dictionary of uid's and elements
     const [uidElementMap, setUidElementMap] = useState<Map<string, JSX.Element>>(new Map());
@@ -26,7 +24,7 @@ export default function HeartbeatBars() {
             // set the mapping of uid to element
             setUidElementMap((uidElementMap) => {
                 const newMap = new Map(uidElementMap);
-                newMap.set(message.uid, <HeartbeatBar data = {message.data} uid={message.uid} timestamp={newTimestamp}></HeartbeatBar>);
+                newMap.set(message.uid, <HeartbeatBar key={message.uid} data = {message.data} uid={message.uid} timestamp={newTimestamp}></HeartbeatBar>);
                 return newMap;
             }
             );
