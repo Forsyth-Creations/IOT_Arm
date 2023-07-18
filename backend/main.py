@@ -176,3 +176,13 @@ async def health(request: Request):
             "uid" : uid}
     await send_personal_message(json.dumps(messageDict), uid)
     return {"message": f"Health data for {uid}"}
+
+# get latest firmware version for device
+@app.post("/api/v1/firmware/{type}")
+async def firmware(type):
+    # Get the latest released firmware version from the github repo
+    # https://github.com/Forsyth-Creations/IOT_Arm
+    # https://api.github.com/repos/Forsyth-Creations/IOT_Arm/releases/latest
+
+    # Return the latest firmware version
+    return {"message": f"Latest firmware version for {type}"}
