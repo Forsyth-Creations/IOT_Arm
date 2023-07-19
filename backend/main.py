@@ -1,6 +1,6 @@
 # Basic fast api
 
-from fastapi import FastAPI, WebSocket, Request, WebSocketDisconnect
+from fastapi import FastAPI, WebSocket, Request, WebSocketDisconnect, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
 # ConnectionClosedError
@@ -13,6 +13,8 @@ import json
 
 import requests
 import datetime
+
+from pymongo import MongoClient
 
 class Cacher:
     def __init__(self):
@@ -69,6 +71,7 @@ class ConnectionManager:
 
 manager = ConnectionManager()
 cacher = Cacher()
+client = MongoClient("localhost", 27017)
 
 # Implement sessions with FastAPI
 
@@ -246,3 +249,42 @@ async def firmware(version: str):
         return {"message": f"false"}
     else:
         return {"message": f"true"}
+    
+# Assign a name to a specific uid and store it in the database
+@app.post("/api/v1/assignName")
+async def assignName(request: Request):
+    # pull the uid from the request
+    data = await request.json()
+    print(data)
+    uid = data["uid"]
+    name = data["name"]
+
+    print(f"{Fore.GREEN}Assigning name {name} to {uid}{Style.RESET_ALL}")
+
+    # Store the name and uid in the mongodb database
+    db = client["database"]
+    collection = db["uidMapping"]
+
+    # Check if the uid is already in the database
+    if collection.find_one({"uid": uid}) is None:
+        # Create a new entry
+        collection.insert_one({"uid": uid, "name": name})
+    else:
+        # Update the entry
+        collection.update_one({"uid": uid}, {"$set": {"name": name}})
+
+    print(f"{Fore.GREEN}Assigned name {name} to {uid}{Style.RESET_ALL}")
+
+# Get the name of a specific uid from the database
+@app.get("/api/v1/getName/{uid}")
+async def getName(uid: str):
+    print(f"{Fore.GREEN}Getting name for {uid}{Style.RESET_ALL}")
+    collection = client["database"]["uidMapping"]
+    # Check if the uid is already in the database
+    if collection.find_one({"uid": uid}) is None:
+        # Create a new entry
+        raise HTTPException(status_code=404, detail="Item not found")
+    else:
+        # Update the entry
+        return {"name": collection.find_one({"uid": uid})["name"]}
+    

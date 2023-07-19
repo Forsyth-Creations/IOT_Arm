@@ -8,11 +8,15 @@ services:
     network_mode: host
     # command: tail -f /dev/null
     command: uvicorn main:app --reload --port=8000
+    volumes:
+      - ./backend:/app
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
     network_mode: host
+    volumes:
+      - ./frontend:/app
     command: npm run dev
   mongodb:
     image: mongo

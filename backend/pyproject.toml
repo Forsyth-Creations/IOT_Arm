@@ -12,8 +12,10 @@ colorama = "^0.4.6"
 uuid = "^1.30"
 websockets = "^11.0.3"
 requests = "^2.31.0"
+pymongo = "^4.4.1"
 
 [tool.poetry.dev-dependencies]
+ipykernel = "^6.24.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
