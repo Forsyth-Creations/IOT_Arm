@@ -1,6 +1,6 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -52,3 +52,17 @@ body {
   padding: 10px;
   min-width: 80%;
 }
+
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* button {
+  padding-top: "2px";
+  padding-bottom: "2px";
+} */

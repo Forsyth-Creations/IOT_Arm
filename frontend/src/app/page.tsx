@@ -8,7 +8,7 @@ import HeartbeatBar from '../comps/HeartbeatBars';
 export default function MyPageComponent() {
 
   return (
-    <main className="flex min-h-screen flex-col p-8">
+    <main>
       <h1>Health Monitor</h1>
       <HeartbeatBar></HeartbeatBar>
     </main>

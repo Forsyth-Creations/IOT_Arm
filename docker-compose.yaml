@@ -24,7 +24,7 @@ services:
       - "27017:27017"
     volumes:
       - ./mongoData:/mongoData/db
-  reverse_proxy:
+  nginx:
     image: nginx
     network_mode: host
     volumes:
