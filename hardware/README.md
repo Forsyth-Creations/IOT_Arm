@@ -23,5 +23,18 @@ So there's a hierarchy ro these things. Note the following:
 
 TLDR: with EasyEDA you can download and import whatever you want (symbol, footprint, or the 3D model) into your project or the global scope of KiCad. Best practice is still to keep all project files local, as it makes it easier to share the project
 
+# Some Notes on Communication Schemes:
+
+- I2C
+    - Pins: **SCL, SDA**
+    ![I2C Diagram](assets/I2C-SDA-SCL-01.jpg "I2C Diagram")
 
 
+- SPI
+    - Pins: **Serial Clock (SCK), Master Out Slave In (MOSI, also known as SDO), and Master In Slave Out (MISO, also known as SDI), and SS (Slave select)**
+    ![SPI Diagram](assets/1200px-SPI_three_slaves.svg.png "SPI Diagram")
+    For this project, with so many SPI devices, having numerous SS will be critical
+
+- UART
+    - Pins: **RX and TX**
+    ![UART Diagram](assets/uart.webp "UART Diagram")
