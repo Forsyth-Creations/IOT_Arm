@@ -1,0 +1,2826 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)https://www.snapeda.com/about/import/#KiCad6 -->
+<html lang="en" class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--[if IE]><style>div { zoom: 1; /* trigger hasLayout */ }</style><![endif]-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/6109510d7e241b2aa8000382.js"></script><script type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/recaptcha__en.js" crossorigin="anonymous" integrity="sha384-b9SELWZnVzmBC2JQuzqxhjYwX3cGn1XOSrmOEVOOjy3Qh8tdZHIGc6SppRArvg0W"></script><script type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/owbpizd5"></script><script type="text/javascript" async="" id="inspsync" src="./Import Guide _ SnapEDA_files/inspectlet.js"></script><script type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/mixpanel-2-latest.min.js"></script><script type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/js"></script><script type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/js(1)"></script><script src="./Import Guide _ SnapEDA_files/lftracker_v1_JMvZ8gbVBqpa2pOd.js" async=""></script><script type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/ss.js"></script><script type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/js(2)"></script><script type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/js(3)"></script><script type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/analytics.min.js"></script><script async="" src="./Import Guide _ SnapEDA_files/analytics.js"></script><script async="" src="./Import Guide _ SnapEDA_files/gtm.js"></script><script type="text/javascript">(window.NREUM||(NREUM={})).init={ajax:{deny_list:["bam.nr-data.net"]}};(window.NREUM||(NREUM={})).loader_config={licenseKey:"40b3e098a7",applicationID:"29832197"};;/*! For license information please see nr-loader-rum-1.236.0.min.js.LICENSE.txt */
+(()=>{"use strict";var e,t,n={5763:(e,t,n)=>{n.d(t,{P_:()=>f,Mt:()=>p,C5:()=>s,DL:()=>m,OP:()=>_,lF:()=>E,Yu:()=>y,Dg:()=>g,CX:()=>c,GE:()=>b,sU:()=>j});var r=n(8632),i=n(9567);const o={beacon:r.ce.beacon,errorBeacon:r.ce.errorBeacon,licenseKey:void 0,applicationID:void 0,sa:void 0,queueTime:void 0,applicationTime:void 0,ttGuid:void 0,user:void 0,account:void 0,product:void 0,extra:void 0,jsAttributes:{},userAttributes:void 0,atts:void 0,transactionName:void 0,tNamePlain:void 0},a={};function s(e){if(!e)throw new Error("All info objects require an agent identifier!");if(!a[e])throw new Error("Info for ".concat(e," was never set"));return a[e]}function c(e,t){if(!e)throw new Error("All info objects require an agent identifier!");a[e]=(0,i.D)(t,o),(0,r.Qy)(e,a[e],"info")}var d=n(7056);const u=()=>{const e={blockSelector:"[data-nr-block]",maskInputOptions:{password:!0}};return{allow_bfcache:!0,privacy:{cookies_enabled:!0},ajax:{deny_list:void 0,enabled:!0,harvestTimeSeconds:10},distributed_tracing:{enabled:void 0,exclude_newrelic_header:void 0,cors_use_newrelic_header:void 0,cors_use_tracecontext_headers:void 0,allowed_origins:void 0},session:{domain:void 0,expiresMs:d.oD,inactiveMs:d.Hb},ssl:void 0,obfuscate:void 0,jserrors:{enabled:!0,harvestTimeSeconds:10},metrics:{enabled:!0},page_action:{enabled:!0,harvestTimeSeconds:30},page_view_event:{enabled:!0},page_view_timing:{enabled:!0,harvestTimeSeconds:30,long_task:!1},session_trace:{enabled:!0,harvestTimeSeconds:10},harvest:{tooManyRequestsDelay:60},session_replay:{enabled:!1,harvestTimeSeconds:60,sampleRate:.1,errorSampleRate:.1,maskTextSelector:"*",maskAllInputs:!0,get blockClass(){return"nr-block"},get ignoreClass(){return"nr-ignore"},get maskTextClass(){return"nr-mask"},get blockSelector(){return e.blockSelector},set blockSelector(t){e.blockSelector+=",".concat(t)},get maskInputOptions(){return e.maskInputOptions},set maskInputOptions(t){e.maskInputOptions={...t,password:!0}}},spa:{enabled:!0,harvestTimeSeconds:10}}},l={};function f(e){if(!e)throw new Error("All configuration objects require an agent identifier!");if(!l[e])throw new Error("Configuration for ".concat(e," was never set"));return l[e]}function g(e,t){if(!e)throw new Error("All configuration objects require an agent identifier!");l[e]=(0,i.D)(t,u()),(0,r.Qy)(e,l[e],"config")}function p(e,t){if(!e)throw new Error("All configuration objects require an agent identifier!");var n=f(e);if(n){for(var r=t.split("."),i=0;i<r.length-1;i++)if("object"!=typeof(n=n[r[i]]))return;n=n[r[r.length-1]]}return n}const h={accountID:void 0,trustKey:void 0,agentID:void 0,licenseKey:void 0,applicationID:void 0,xpid:void 0},v={};function m(e){if(!e)throw new Error("All loader-config objects require an agent identifier!");if(!v[e])throw new Error("LoaderConfig for ".concat(e," was never set"));return v[e]}function b(e,t){if(!e)throw new Error("All loader-config objects require an agent identifier!");v[e]=(0,i.D)(t,h),(0,r.Qy)(e,v[e],"loader_config")}const y=(0,r.mF)().o;var w=n(385),A=n(6818);const x={buildEnv:A.Re,bytesSent:{},queryBytesSent:{},customTransaction:void 0,disabled:!1,distMethod:A.gF,isolatedBacklog:!1,loaderType:void 0,maxBytes:3e4,offset:Math.floor(w._A?.performance?.timeOrigin||w._A?.performance?.timing?.navigationStart||Date.now()),onerror:void 0,origin:""+w._A.location,ptid:void 0,releaseIds:{},session:void 0,xhrWrappable:"function"==typeof w._A.XMLHttpRequest?.prototype?.addEventListener,version:A.q4},D={};function _(e){if(!e)throw new Error("All runtime objects require an agent identifier!");if(!D[e])throw new Error("Runtime for ".concat(e," was never set"));return D[e]}function j(e,t){if(!e)throw new Error("All runtime objects require an agent identifier!");D[e]=(0,i.D)(t,x),(0,r.Qy)(e,D[e],"runtime")}function E(e){return function(e){try{const t=s(e);return!!t.licenseKey&&!!t.errorBeacon&&!!t.applicationID}catch(e){return!1}}(e)}},9567:(e,t,n)=>{n.d(t,{D:()=>i});var r=n(50);function i(e,t){try{if(!e||"object"!=typeof e)return(0,r.Z)("Setting a Configurable requires an object as input");if(!t||"object"!=typeof t)return(0,r.Z)("Setting a Configurable requires a model to set its initial properties");const n=Object.create(Object.getPrototypeOf(t),Object.getOwnPropertyDescriptors(t)),o=0===Object.keys(n).length?e:n;for(let a in o)if(void 0!==e[a])try{"object"==typeof e[a]&&"object"==typeof t[a]?n[a]=i(e[a],t[a]):n[a]=e[a]}catch(e){(0,r.Z)("An error occurred while setting a property of a Configurable",e)}return n}catch(e){(0,r.Z)("An error occured while setting a Configurable",e)}}},6818:(e,t,n)=>{n.d(t,{Re:()=>i,gF:()=>o,q4:()=>r});const r="1.236.0",i="PROD",o="CDN"},385:(e,t,n)=>{n.d(t,{FN:()=>a,IF:()=>d,Nk:()=>l,Tt:()=>s,_A:()=>o,il:()=>r,pL:()=>c,v6:()=>i,w1:()=>u});const r="undefined"!=typeof window&&!!window.document,i="undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self.navigator instanceof WorkerNavigator||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis.navigator instanceof WorkerNavigator),o=r?window:"undefined"!=typeof WorkerGlobalScope&&("undefined"!=typeof self&&self instanceof WorkerGlobalScope&&self||"undefined"!=typeof globalThis&&globalThis instanceof WorkerGlobalScope&&globalThis),a=""+o?.location,s=/iPad|iPhone|iPod/.test(navigator.userAgent),c=s&&"undefined"==typeof SharedWorker,d=(()=>{const e=navigator.userAgent.match(/Firefox[/\s](\d+\.\d+)/);return Array.isArray(e)&&e.length>=2?+e[1]:0})(),u=Boolean(r&&window.document.documentMode),l=!!navigator.sendBeacon},1117:(e,t,n)=>{n.d(t,{w:()=>o});var r=n(50);const i={agentIdentifier:"",ee:void 0};class o{constructor(e){try{if("object"!=typeof e)return(0,r.Z)("shared context requires an object as input");this.sharedContext={},Object.assign(this.sharedContext,i),Object.entries(e).forEach((e=>{let[t,n]=e;Object.keys(i).includes(t)&&(this.sharedContext[t]=n)}))}catch(e){(0,r.Z)("An error occured while setting SharedContext",e)}}}},8e3:(e,t,n)=>{n.d(t,{L:()=>u,R:()=>c});var r=n(2177),i=n(1284),o=n(4322),a=n(3325);const s={};function c(e,t){const n={staged:!1,priority:a.p[t]||0};d(e),s[e].get(t)||s[e].set(t,n)}function d(e){e&&(s[e]||(s[e]=new Map))}function u(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"",t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:"feature";if(d(e),!e||!s[e].get(t))return a(t);s[e].get(t).staged=!0;const n=[...s[e]];function a(t){const n=e?r.ee.get(e):r.ee,a=o.X.handlers;if(n.backlog&&a){var s=n.backlog[t],c=a[t];if(c){for(var d=0;s&&d<s.length;++d)l(s[d],c);(0,i.D)(c,(function(e,t){(0,i.D)(t,(function(t,n){n[0].on(e,n[1])}))}))}delete a[t],n.backlog[t]=null,n.emit("drain-"+t,[])}}n.every((e=>{let[t,n]=e;return n.staged}))&&(n.sort(((e,t)=>e[1].priority-t[1].priority)),n.forEach((e=>{let[t]=e;a(t)})))}function l(e,t){var n=e[1];(0,i.D)(t[n],(function(t,n){var r=e[0];if(n[0]===r){var i=n[1],o=e[3],a=e[2];i.apply(o,a)}}))}},2177:(e,t,n)=>{n.d(t,{ee:()=>d});var r=n(8632),i=n(2210),o=n(1284),a=n(5763),s="nr@context";let c=(0,r.fP)();var d;function u(){}function l(){return new u}function f(){d.aborted=!0,d.backlog={}}c.ee?d=c.ee:(d=function e(t,n){var r={},c={},g={},p=!1;try{p=16===n.length&&(0,a.OP)(n).isolatedBacklog}catch(e){}var h={on:b,addEventListener:b,removeEventListener:y,emit:m,get:A,listeners:w,context:v,buffer:x,abort:f,aborted:!1,isBuffering:D,debugId:n,backlog:p?{}:t&&"object"==typeof t.backlog?t.backlog:{}};return h;function v(e){return e&&e instanceof u?e:e?(0,i.X)(e,s,l):l()}function m(e,n,r,i,o){if(!1!==o&&(o=!0),!d.aborted||i){t&&o&&t.emit(e,n,r);for(var a=v(r),s=w(e),u=s.length,l=0;l<u;l++)s[l].apply(a,n);var f=_()[c[e]];return f&&f.push([h,e,n,a]),a}}function b(e,t){r[e]=w(e).concat(t)}function y(e,t){var n=r[e];if(n)for(var i=0;i<n.length;i++)n[i]===t&&n.splice(i,1)}function w(e){return r[e]||[]}function A(t){return g[t]=g[t]||e(h,t)}function x(e,t){var n=_();h.aborted||(0,o.D)(e,(function(e,r){t=t||"feature",c[r]=t,t in n||(n[t]=[])}))}function D(e){return!!_()[c[e]]}function _(){return h.backlog}}(void 0,"globalEE"),c.ee=d)},5546:(e,t,n)=>{n.d(t,{E:()=>r,p:()=>i});var r=n(2177).ee.get("handle");function i(e,t,n,i,o){o?(o.buffer([e],i),o.emit(e,t,n)):(r.buffer([e],i),r.emit(e,t,n))}},4322:(e,t,n)=>{n.d(t,{X:()=>o});var r=n(5546);o.on=a;var i=o.handlers={};function o(e,t,n,o){a(o||r.E,i,e,t,n)}function a(e,t,n,i,o){o||(o="feature"),e||(e=r.E);var a=t[o]=t[o]||{};(a[n]=a[n]||[]).push([e,i])}},3239:(e,t,n)=>{n.d(t,{bP:()=>s,iz:()=>c,m$:()=>a});var r=n(385);let i=!1,o=!1;try{const e={get passive(){return i=!0,!1},get signal(){return o=!0,!1}};r._A.addEventListener("test",null,e),r._A.removeEventListener("test",null,e)}catch(e){}function a(e,t){return i||o?{capture:!!e,passive:i,signal:t}:!!e}function s(e,t){let n=arguments.length>2&&void 0!==arguments[2]&&arguments[2],r=arguments.length>3?arguments[3]:void 0;window.addEventListener(e,t,a(n,r))}function c(e,t){let n=arguments.length>2&&void 0!==arguments[2]&&arguments[2],r=arguments.length>3?arguments[3]:void 0;document.addEventListener(e,t,a(n,r))}},4402:(e,t,n)=>{n.d(t,{Rl:()=>a,ky:()=>s});var r=n(385);const i="xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";function o(e,t){return e?15&e[t]:16*Math.random()|0}function a(){const e=r._A?.crypto||r._A?.msCrypto;let t,n=0;return e&&e.getRandomValues&&(t=e.getRandomValues(new Uint8Array(31))),i.split("").map((e=>"x"===e?o(t,++n).toString(16):"y"===e?(3&o()|8).toString(16):e)).join("")}function s(e){const t=r._A?.crypto||r._A?.msCrypto;let n,i=0;t&&t.getRandomValues&&(n=t.getRandomValues(new Uint8Array(31)));const a=[];for(var s=0;s<e;s++)a.push(o(n,++i).toString(16));return a.join("")}},7056:(e,t,n)=>{n.d(t,{Bq:()=>r,Hb:()=>o,oD:()=>i});const r="NRBA",i=144e5,o=18e5},7894:(e,t,n)=>{function r(){return Math.round(performance.now())}n.d(t,{z:()=>r})},50:(e,t,n)=>{function r(e,t){"function"==typeof console.warn&&(console.warn("New Relic: ".concat(e)),t&&console.warn(t))}n.d(t,{Z:()=>r})},2587:(e,t,n)=>{n.d(t,{N:()=>c,T:()=>d});var r=n(2177),i=n(5546),o=n(8e3),a=n(3325);const s={stn:[a.D.sessionTrace],err:[a.D.jserrors,a.D.metrics],ins:[a.D.pageAction],spa:[a.D.spa],sr:[a.D.sessionReplay,a.D.sessionTrace]};function c(e,t){const n=r.ee.get(t);e&&"object"==typeof e&&(Object.entries(e).forEach((e=>{let[t,r]=e;void 0===d[t]&&(s[t]?s[t].forEach((e=>{r?(0,i.p)("feat-"+t,[],void 0,e,n):(0,i.p)("block-"+t,[],void 0,e,n),(0,i.p)("rumresp-"+t,[Boolean(r)],void 0,e,n)})):r&&(0,i.p)("feat-"+t,[],void 0,void 0,n),d[t]=Boolean(r))})),Object.keys(s).forEach((e=>{void 0===d[e]&&(s[e]?.forEach((t=>(0,i.p)("rumresp-"+e,[!1],void 0,t,n))),d[e]=!1)})),(0,o.L)(t,a.D.pageViewEvent))}const d={}},2210:(e,t,n)=>{n.d(t,{X:()=>i});var r=Object.prototype.hasOwnProperty;function i(e,t,n){if(r.call(e,t))return e[t];var i=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:i,writable:!0,enumerable:!1}),i}catch(e){}return e[t]=i,i}},1284:(e,t,n)=>{n.d(t,{D:()=>r});const r=(e,t)=>Object.entries(e||{}).map((e=>{let[n,r]=e;return t(n,r)}))},4351:(e,t,n)=>{n.d(t,{P:()=>o});var r=n(2177);const i=()=>{const e=new WeakSet;return(t,n)=>{if("object"==typeof n&&null!==n){if(e.has(n))return;e.add(n)}return n}};function o(e){try{return JSON.stringify(e,i())}catch(e){try{r.ee.emit("internal-error",[e])}catch(e){}}}},3960:(e,t,n)=>{n.d(t,{K:()=>a,b:()=>o});var r=n(3239);function i(){return"undefined"==typeof document||"complete"===document.readyState}function o(e,t){if(i())return e();(0,r.bP)("load",e,t)}function a(e){if(i())return e();(0,r.iz)("DOMContentLoaded",e)}},8632:(e,t,n)=>{n.d(t,{EZ:()=>d,Qy:()=>c,ce:()=>o,fP:()=>a,gG:()=>u,mF:()=>s});var r=n(7894),i=n(385);const o={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net"};function a(){return i._A.NREUM||(i._A.NREUM={}),void 0===i._A.newrelic&&(i._A.newrelic=i._A.NREUM),i._A.NREUM}function s(){let e=a();return e.o||(e.o={ST:i._A.setTimeout,SI:i._A.setImmediate,CT:i._A.clearTimeout,XHR:i._A.XMLHttpRequest,REQ:i._A.Request,EV:i._A.Event,PR:i._A.Promise,MO:i._A.MutationObserver,FETCH:i._A.fetch}),e}function c(e,t,n){let i=a();const o=i.initializedAgents||{},s=o[e]||{};return Object.keys(s).length||(s.initializedAt={ms:(0,r.z)(),date:new Date}),i.initializedAgents={...o,[e]:{...s,[n]:t}},i}function d(e,t){a()[e]=t}function u(){return function(){let e=a();const t=e.info||{};e.info={beacon:o.beacon,errorBeacon:o.errorBeacon,...t}}(),function(){let e=a();const t=e.init||{};e.init={...t}}(),s(),function(){let e=a();const t=e.loader_config||{};e.loader_config={...t}}(),a()}},7956:(e,t,n)=>{n.d(t,{N:()=>i});var r=n(3239);function i(e){let t=arguments.length>1&&void 0!==arguments[1]&&arguments[1],n=arguments.length>2?arguments[2]:void 0,i=arguments.length>3?arguments[3]:void 0;return void(0,r.iz)("visibilitychange",(function(){if(t)return void("hidden"==document.visibilityState&&e());e(document.visibilityState)}),n,i)}},3081:(e,t,n)=>{n.d(t,{gF:()=>o,mY:()=>i,t9:()=>r,vz:()=>s,xS:()=>a});const r=n(3325).D.metrics,i="sm",o="cm",a="storeSupportabilityMetrics",s="storeEventMetrics"},7633:(e,t,n)=>{n.d(t,{Dz:()=>i,OJ:()=>a,qw:()=>o,t9:()=>r});const r=n(3325).D.pageViewEvent,i="firstbyte",o="domcontent",a="windowload"},9251:(e,t,n)=>{n.d(t,{t:()=>r});const r=n(3325).D.pageViewTiming},5938:(e,t,n)=>{n.d(t,{W:()=>o});var r=n(5763),i=n(2177);class o{constructor(e,t,n){this.agentIdentifier=e,this.aggregator=t,this.ee=i.ee.get(e,(0,r.OP)(this.agentIdentifier).isolatedBacklog),this.featureName=n,this.blocked=!1}}},9144:(e,t,n)=>{n.d(t,{j:()=>v});var r=n(3325),i=n(5763),o=n(5546),a=n(2177),s=n(7894),c=n(8e3),d=n(3960),u=n(385),l=n(50),f=n(3081),g=n(8632);function p(){const e=(0,g.gG)();["setErrorHandler","finished","addToTrace","inlineHit","addRelease","addPageAction","setCurrentRouteName","setPageViewName","setCustomAttribute","interaction","noticeError","setUserId"].forEach((t=>{e[t]=function(){for(var n=arguments.length,r=new Array(n),i=0;i<n;i++)r[i]=arguments[i];return function(t){for(var n=arguments.length,r=new Array(n>1?n-1:0),i=1;i<n;i++)r[i-1]=arguments[i];let o=[];return Object.values(e.initializedAgents).forEach((e=>{e.exposed&&e.api[t]&&o.push(e.api[t](...r))})),o.length>1?o:o[0]}(t,...r)}}))}var h=n(2587);function v(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},v=arguments.length>2?arguments[2]:void 0,m=arguments.length>3?arguments[3]:void 0,{init:b,info:y,loader_config:w,runtime:A={loaderType:v},exposed:x=!0}=t;const D=(0,g.gG)();y||(b=D.init,y=D.info,w=D.loader_config),(0,i.Dg)(e,b||{}),(0,i.GE)(e,w||{}),(0,i.sU)(e,A),y.jsAttributes??={},u.v6&&(y.jsAttributes.isWorker=!0),(0,i.CX)(e,y),p();const _=function(e,t){t||(0,c.R)(e,"api");const g={};var p=a.ee.get(e),h=p.get("tracer"),v="api-",m=v+"ixn-";function b(t,n,r,o){const a=(0,i.C5)(e);return null===n?delete a.jsAttributes[t]:(0,i.CX)(e,{...a,jsAttributes:{...a.jsAttributes,[t]:n}}),A(v,r,!0,o||null===n?"session":void 0)(t,n)}function y(){}["setErrorHandler","finished","addToTrace","inlineHit","addRelease"].forEach((e=>g[e]=A(v,e,!0,"api"))),g.addPageAction=A(v,"addPageAction",!0,r.D.pageAction),g.setCurrentRouteName=A(v,"routeName",!0,r.D.spa),g.setPageViewName=function(t,n){if("string"==typeof t)return"/"!==t.charAt(0)&&(t="/"+t),(0,i.OP)(e).customTransaction=(n||"http://custom.transaction")+t,A(v,"setPageViewName",!0)()},g.setCustomAttribute=function(e,t){let n=arguments.length>2&&void 0!==arguments[2]&&arguments[2];if("string"==typeof e){if(["string","number"].includes(typeof t)||null===t)return b(e,t,"setCustomAttribute",n);(0,l.Z)("Failed to execute setCustomAttribute.\nNon-null value must be a string or number type, but a type of <".concat(typeof t,"> was provided."))}else(0,l.Z)("Failed to execute setCustomAttribute.\nName must be a string type, but a type of <".concat(typeof e,"> was provided."))},g.setUserId=function(e){if("string"==typeof e||null===e)return b("enduser.id",e,"setUserId",!0);(0,l.Z)("Failed to execute setUserId.\nNon-null value must be a string type, but a type of <".concat(typeof e,"> was provided."))},g.interaction=function(){return(new y).get()};var w=y.prototype={createTracer:function(e,t){var n={},i=this,a="function"==typeof t;return(0,o.p)(m+"tracer",[(0,s.z)(),e,n],i,r.D.spa,p),function(){if(h.emit((a?"":"no-")+"fn-start",[(0,s.z)(),i,a],n),a)try{return t.apply(this,arguments)}catch(e){throw h.emit("fn-err",[arguments,this,"string"==typeof e?new Error(e):e],n),e}finally{h.emit("fn-end",[(0,s.z)()],n)}}}};function A(e,t,n,i){return function(){return(0,o.p)(f.xS,["API/"+t+"/called"],void 0,r.D.metrics,p),i&&(0,o.p)(e+t,[(0,s.z)(),...arguments],n?null:this,i,p),n?void 0:this}}function x(){n.e(439).then(n.bind(n,7438)).then((t=>{let{setAPI:n}=t;n(e),(0,c.L)(e,"api")})).catch((()=>(0,l.Z)("Downloading runtime APIs failed...")))}return["actionText","setName","setAttribute","save","ignore","onEnd","getContext","end","get"].forEach((e=>{w[e]=A(m,e,void 0,r.D.spa)})),g.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),(0,o.p)(f.xS,["API/noticeError/called"],void 0,r.D.metrics,p),(0,o.p)("err",[e,(0,s.z)(),!1,t],void 0,r.D.jserrors,p)},u.il?(0,d.b)((()=>x()),!0):x(),g}(e,m);return(0,g.Qy)(e,_,"api"),(0,g.Qy)(e,x,"exposed"),(0,g.EZ)("activatedFeatures",h.T),_}},3325:(e,t,n)=>{n.d(t,{D:()=>r,p:()=>i});const r={ajax:"ajax",jserrors:"jserrors",metrics:"metrics",pageAction:"page_action",pageViewEvent:"page_view_event",pageViewTiming:"page_view_timing",sessionReplay:"session_replay",sessionTrace:"session_trace",spa:"spa"},i={[r.pageViewEvent]:1,[r.pageViewTiming]:2,[r.metrics]:3,[r.jserrors]:4,[r.ajax]:5,[r.sessionTrace]:6,[r.pageAction]:7,[r.spa]:8,[r.sessionReplay]:9}}},r={};function i(e){var t=r[e];if(void 0!==t)return t.exports;var o=r[e]={exports:{}};return n[e](o,o.exports,i),o.exports}i.m=n,i.d=(e,t)=>{for(var n in t)i.o(t,n)&&!i.o(e,n)&&Object.defineProperty(e,n,{enumerable:!0,get:t[n]})},i.f={},i.e=e=>Promise.all(Object.keys(i.f).reduce(((t,n)=>(i.f[n](e,t),t)),[])),i.u=e=>(({78:"page_action-aggregate",147:"metrics-aggregate",242:"session-manager",317:"jserrors-aggregate",348:"page_view_timing-aggregate",412:"lazy-feature-loader",439:"async-api",538:"recorder",590:"session_replay-aggregate",675:"compressor",733:"session_trace-aggregate",786:"page_view_event-aggregate",873:"spa-aggregate",898:"ajax-aggregate"}[e]||e)+"."+{78:"ac76d497",147:"3dc53903",148:"1a20d5fe",242:"2a64278a",317:"49e41428",348:"bd6de33a",412:"2f55ce66",439:"30bd804e",538:"1b18459f",590:"cf0efb30",675:"ae9f91a8",733:"83105561",786:"06482edd",860:"03a8b7a5",873:"e6b09d52",898:"998ef92b"}[e]+"-1.236.0.min.js"),i.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),e={},t="NRBA:",i.l=(n,r,o,a)=>{if(e[n])e[n].push(r);else{var s,c;if(void 0!==o)for(var d=document.getElementsByTagName("script"),u=0;u<d.length;u++){var l=d[u];if(l.getAttribute("src")==n||l.getAttribute("data-webpack")==t+o){s=l;break}}s||(c=!0,(s=document.createElement("script")).charset="utf-8",s.timeout=120,i.nc&&s.setAttribute("nonce",i.nc),s.setAttribute("data-webpack",t+o),s.src=n),e[n]=[r];var f=(t,r)=>{s.onerror=s.onload=null,clearTimeout(g);var i=e[n];if(delete e[n],s.parentNode&&s.parentNode.removeChild(s),i&&i.forEach((e=>e(r))),t)return t(r)},g=setTimeout(f.bind(null,void 0,{type:"timeout",target:s}),12e4);s.onerror=f.bind(null,s.onerror),s.onload=f.bind(null,s.onload),c&&document.head.appendChild(s)}},i.r=e=>{"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.j=6,i.p="https://js-agent.newrelic.com/",(()=>{var e={6:0,352:0};i.f.j=(t,n)=>{var r=i.o(e,t)?e[t]:void 0;if(0!==r)if(r)n.push(r[2]);else{var o=new Promise(((n,i)=>r=e[t]=[n,i]));n.push(r[2]=o);var a=i.p+i.u(t),s=new Error;i.l(a,(n=>{if(i.o(e,t)&&(0!==(r=e[t])&&(e[t]=void 0),r)){var o=n&&("load"===n.type?"missing":n.type),a=n&&n.target&&n.target.src;s.message="Loading chunk "+t+" failed.\n("+o+": "+a+")",s.name="ChunkLoadError",s.type=o,s.request=a,r[1](s)}}),"chunk-"+t,t)}};var t=(t,n)=>{var r,o,[a,s,c]=n,d=0;if(a.some((t=>0!==e[t]))){for(r in s)i.o(s,r)&&(i.m[r]=s[r]);if(c)c(i)}for(t&&t(n);d<a.length;d++)o=a[d],i.o(e,o)&&e[o]&&e[o][0](),e[o]=0},n=window.webpackChunkNRBA=window.webpackChunkNRBA||[];n.forEach(t.bind(null,0)),n.push=t.bind(null,n.push.bind(n))})();var o={};(()=>{i.r(o);var e=i(3325),t=i(5763);const n=Object.values(e.D);function r(e){const r={};return n.forEach((n=>{r[n]=function(e,n){return!1!==(0,t.Mt)(n,"".concat(e,".enabled"))}(n,e)})),r}var a=i(9144);var s=i(5546),c=i(385),d=i(8e3),u=i(5938),l=i(3960),f=i(50);class g extends u.W{constructor(e,t,n){let r=!(arguments.length>3&&void 0!==arguments[3])||arguments[3];super(e,t,n),this.auto=r,this.abortHandler,this.featAggregate,this.onAggregateImported,r&&(0,d.R)(e,n)}importAggregator(){let e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};if(this.featAggregate||!this.auto)return;const n=c.il&&!0===(0,t.Mt)(this.agentIdentifier,"privacy.cookies_enabled");let r;this.onAggregateImported=new Promise((e=>{r=e}));const o=async()=>{let t;try{if(n){const{setupAgentSession:e}=await Promise.all([i.e(860),i.e(242)]).then(i.bind(i,3228));t=e(this.agentIdentifier)}}catch(e){(0,f.Z)("A problem occurred when starting up session manager. This page will not start or extend any session.",e)}try{if(!this.shouldImportAgg(this.featureName,t))return void(0,d.L)(this.agentIdentifier,this.featureName);const{lazyFeatureLoader:n}=await i.e(412).then(i.bind(i,8582)),{Aggregate:o}=await n(this.featureName,"aggregate");this.featAggregate=new o(this.agentIdentifier,this.aggregator,e),r(!0)}catch(e){(0,f.Z)("Downloading and initializing ".concat(this.featureName," failed..."),e),this.abortHandler?.(),r(!1)}};c.il?(0,l.b)((()=>o()),!0):o()}shouldImportAgg(n,r){return n!==e.D.sessionReplay||!1!==(0,t.Mt)(this.agentIdentifier,"session_trace.enabled")&&(!!r?.isNew||!!r?.state.sessionReplay)}}var p=i(7633),h=i(7894);class v extends g{static featureName=p.t9;constructor(n,r){let i=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];if(super(n,r,p.t9,i),("undefined"==typeof PerformanceNavigationTiming||c.Tt)&&"undefined"!=typeof PerformanceTiming){const r=(0,t.OP)(n);r[p.Dz]=Math.max(Date.now()-r.offset,0),(0,l.K)((()=>r[p.qw]=Math.max((0,h.z)()-r[p.Dz],0))),(0,l.b)((()=>{const t=(0,h.z)();r[p.OJ]=Math.max(t-r[p.Dz],0),(0,s.p)("timing",["load",t],void 0,e.D.pageViewTiming,this.ee)}))}this.importAggregator()}}var m=i(1117),b=i(1284);class y extends m.w{constructor(e){super(e),this.aggregatedData={}}store(e,t,n,r,i){var o=this.getBucket(e,t,n,i);return o.metrics=function(e,t){t||(t={count:0});return t.count+=1,(0,b.D)(e,(function(e,n){t[e]=w(n,t[e])})),t}(r,o.metrics),o}merge(e,t,n,r,i){var o=this.getBucket(e,t,r,i);if(o.metrics){var a=o.metrics;a.count+=n.count,(0,b.D)(n,(function(e,t){if("count"!==e){var r=a[e],i=n[e];i&&!i.c?a[e]=w(i.t,r):a[e]=function(e,t){if(!t)return e;t.c||(t=A(t.t));return t.min=Math.min(e.min,t.min),t.max=Math.max(e.max,t.max),t.t+=e.t,t.sos+=e.sos,t.c+=e.c,t}(i,a[e])}}))}else o.metrics=n}storeMetric(e,t,n,r){var i=this.getBucket(e,t,n);return i.stats=w(r,i.stats),i}getBucket(e,t,n,r){this.aggregatedData[e]||(this.aggregatedData[e]={});var i=this.aggregatedData[e][t];return i||(i=this.aggregatedData[e][t]={params:n||{}},r&&(i.custom=r)),i}get(e,t){return t?this.aggregatedData[e]&&this.aggregatedData[e][t]:this.aggregatedData[e]}take(e){for(var t={},n="",r=!1,i=0;i<e.length;i++)t[n=e[i]]=x(this.aggregatedData[n]),t[n].length&&(r=!0),delete this.aggregatedData[n];return r?t:null}}function w(e,t){return null==e?function(e){e?e.c++:e={c:1};return e}(t):t?(t.c||(t=A(t.t)),t.c+=1,t.t+=e,t.sos+=e*e,e>t.max&&(t.max=e),e<t.min&&(t.min=e),t):{t:e}}function A(e){return{t:e,min:e,max:e,sos:e*e,c:1}}function x(e){return"object"!=typeof e?[]:(0,b.D)(e,D)}function D(e,t){return t}var _=i(8632),j=i(4402),E=i(4351);var k=i(7956),T=i(3239),I=i(9251);class N extends g{static featureName=I.t;constructor(e,n){let r=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,n,I.t,r),c.il&&((0,t.OP)(e).initHidden=Boolean("hidden"===document.visibilityState),(0,k.N)((()=>(0,s.p)("docHidden",[(0,h.z)()],void 0,I.t,this.ee)),!0),(0,T.bP)("pagehide",(()=>(0,s.p)("winPagehide",[(0,h.z)()],void 0,I.t,this.ee))),this.importAggregator())}}var P=i(3081);class S extends g{static featureName=P.t9;constructor(e,t){let n=!(arguments.length>2&&void 0!==arguments[2])||arguments[2];super(e,t,P.t9,n),this.importAggregator()}}new class{constructor(e){let t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:(0,j.ky)(16);c._A?(this.agentIdentifier=t,this.sharedAggregator=new y({agentIdentifier:this.agentIdentifier}),this.features={},this.desiredFeatures=new Set(e.features||[]),this.desiredFeatures.add(v),Object.assign(this,(0,a.j)(this.agentIdentifier,e,e.loaderType||"agent")),this.start()):(0,f.Z)("Failed to initial the agent. Could not determine the runtime environment.")}get config(){return{info:(0,t.C5)(this.agentIdentifier),init:(0,t.P_)(this.agentIdentifier),loader_config:(0,t.DL)(this.agentIdentifier),runtime:(0,t.OP)(this.agentIdentifier)}}start(){const t="features";try{const n=r(this.agentIdentifier),i=[...this.desiredFeatures];i.sort(((t,n)=>e.p[t.featureName]-e.p[n.featureName])),i.forEach((t=>{if(n[t.featureName]||t.featureName===e.D.pageViewEvent){const r=function(t){switch(t){case e.D.ajax:return[e.D.jserrors];case e.D.sessionTrace:return[e.D.ajax,e.D.pageViewEvent];case e.D.sessionReplay:return[e.D.sessionTrace];case e.D.pageViewTiming:return[e.D.pageViewEvent];default:return[]}}(t.featureName);r.every((e=>n[e]))||(0,f.Z)("".concat(t.featureName," is enabled but one or more dependent features has been disabled (").concat((0,E.P)(r),"). This may cause unintended consequences or missing data...")),this.features[t.featureName]=new t(this.agentIdentifier,this.sharedAggregator)}})),(0,_.Qy)(this.agentIdentifier,this.features,t)}catch(e){(0,f.Z)("Failed to initialize all enabled instrument classes (agent aborted) -",e);for(const e in this.features)this.features[e].abortHandler?.();const n=(0,_.fP)();return delete n.initializedAgents[this.agentIdentifier]?.api,delete n.initializedAgents[this.agentIdentifier]?.[t],delete this.sharedAggregator,n.ee?.abort(),delete n.ee?.get(this.agentIdentifier),!1}}}({features:[v,N,S],loaderType:"lite"})})(),window.NRBA=o})();</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":16,"licenseKey":"40b3e098a7","agent":"","transactionName":"NVYAbUpQVhIDW0JeWwwcJExWUkwIDVYZVlYNRhYXTlhdFhECV1VbF0c9UFVBVxMW","applicationID":"29832197","errorBeacon":"bam.nr-data.net","applicationTime":460}</script>
+
+<link rel="icon" type="image/x-icon" href="https://www.snapeda.com/static/img/icons/SnapEDA.ico">
+
+<link href="https://plus.google.com/105383266825551010805" rel="publisher">
+<style>
+.join-hook-container{
+    background-image: url(/static/img/join-hook-bg.png);
+}
+.social-facebook a {
+  background-image: url(/static/img/icons/face.png);
+}
+.social-linkedin a{
+    background-image: url(/static/img/icons/linkedin.png);
+}
+.social-twitter a{
+    background-image: url(/static/img/icons/twitter.png);
+}
+</style>
+<link rel="stylesheet" href="./Import Guide _ SnapEDA_files/jquery-ui.css">
+<script src="./Import Guide _ SnapEDA_files/jquery.min.js" type="text/javascript"></script>
+<script src="./Import Guide _ SnapEDA_files/jquery-ui.js" type="text/javascript"></script>
+
+<script src="./Import Guide _ SnapEDA_files/3693.js" charset="UTF-8" type="text/javascript"></script>
+<title>
+        Import Guide | SnapEDA
+    </title>
+<style>
+        .async-hide { opacity: 0 !important}
+
+        
+
+        .d-flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .label.speciality_skill{
+            cursor: pointer;
+        }
+    </style>
+<script type="text/javascript">(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;
+    h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};
+    (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;
+    })(window,document.documentElement,'async-hide','dataLayer',4000,
+    {'GTM-WPWKB7R':true});</script>
+
+<script type="text/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N2DMH7J');</script>
+
+<script type="text/javascript">
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-36753380-1', 'auto');
+      ga('require', 'GTM-WPWKB7R');
+      ga('send', 'pageview');
+    </script>
+<script type="text/javascript">
+            !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="R33QdDxhZ5YzaUts0oFQgxD5FNZqV3TG";;analytics.SNIPPET_VERSION="4.15.3";
+            analytics.load("R33QdDxhZ5YzaUts0oFQgxD5FNZqV3TG");
+            analytics.page();
+            }}();
+            </script>
+
+<script type="text/javascript">
+        window._vwo_code = window._vwo_code || (function(){
+        var account_id=612614,
+        settings_tolerance=2000,
+        library_tolerance=2500,
+        use_existing_jquery=false,
+        is_spa=1,
+        hide_element='body',
+        
+        
+        f=false,d=document,code={use_existing_jquery:function(){return use_existing_jquery;},library_tolerance:function(){return library_tolerance;},finish:function(){if(!f){f=true;var a=d.getElementById('_vis_opt_path_hides');if(a)a.parentNode.removeChild(a);}},finished:function(){return f;},load:function(a){var b=d.createElement('script');b.src=a;b.type='text/javascript';b.innerText;b.onerror=function(){_vwo_code.finish();};d.getElementsByTagName('head')[0].appendChild(b);},init:function(){
+        window.settings_timer=setTimeout(function () {_vwo_code.finish() },settings_tolerance);var a=d.createElement('style'),b=hide_element?hide_element+'{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}':'',h=d.getElementsByTagName('head')[0];a.setAttribute('id','_vis_opt_path_hides');a.setAttribute('type','text/css');if(a.styleSheet)a.styleSheet.cssText=b;else a.appendChild(d.createTextNode(b));h.appendChild(a);this.load('https://dev.visualwebsiteoptimizer.com/j.php?a='+account_id+'&u='+encodeURIComponent(d.URL)+'&f='+(+is_spa)+'&r='+Math.random());return settings_timer; }};window._vwo_settings_timer = code.init(); return code; }());
+        </script>
+
+<link href="./Import Guide _ SnapEDA_files/css" rel="stylesheet" type="text/css">
+<link href="./Import Guide _ SnapEDA_files/core.min.css" rel="stylesheet" type="text/css" media="all">
+
+<meta name="description" content="Use SnapEDA import guide with all steps to import symbols &amp; footprints into Altium, Eagle, CircuitStudio, KiCad, PADS, Cadence Allegro, OrCAD Capture and PCB123">
+<style>
+
+body{
+	color: #34495e;
+}
+
+.fa-exclamation-circle{
+	font-size: 1.4em!important;
+    line-height: 1.1em!important;
+}
+
+#s-navbar{
+	position: fixed;
+    width: 100%;
+    background: #fff;
+    z-index: 1000;
+}
+.main-body{
+	margin-top:20px;
+}
+.faq-q {
+  	color: #444444;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.faq-a{
+  font-size: 14px;
+  margin-top: 5px;
+  line-height: 1.3em;
+  margin-bottom: 50px;
+}
+	.faq-a .about_slotted_holes{
+		margin-top: 30px;
+	}
+
+	.faq-q__accordion__link{
+		font-size: inherit !important; 
+		display: inline !important;
+	}
+
+p{
+	line-height: 1.6em;
+    color: #34495e;
+}
+
+h1{
+	font-weight:400;
+  	margin-top: 30px;
+  	font-size: 34px;
+  	color: #555555;
+}
+
+h2{
+	padding-top: 80px;
+    margin-bottom: 30px;
+    color: #f57d2c;
+    font-weight: 400;
+}
+h2.alt{
+	padding-top: 45px;
+}
+
+em{
+	font-style: normal;
+	font-weight: 600;
+	color:#f58247;
+}
+
+
+body h4{
+	font-size: 14px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.side-tabs{
+  position: fixed;
+}
+
+.video_frame{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	background: #000000;
+}
+
+.list_section{
+	margin-top: 20px;
+    margin-bottom: 20px;
+    background: #f8f8f8;
+    padding: 30px 20px 20px 20px;
+    border-left: 3px solid #fba071;
+}
+.list_section ol li{
+	margin-bottom: 15px;
+}
+ul.side-tabs li.import-graphic-sect{
+	text-align: center;
+	margin-bottom: 13px;
+}
+.import-graphic-sect p{
+	font-size: 14px;
+	color:#555;
+	font-weight: 600;
+}
+.import-graphic{
+    height: 70px;
+    margin: 0px auto;
+    text-align: center;
+    line-height: 70px;
+    font-size: 45px;
+    border-radius: 50%;
+    color: #f47924;
+
+}
+
+.box{
+    border-right: 1px solid #ddd;
+    border-bottom: none;
+    display: block;
+
+}
+    ul.side-tabs{
+        list-style: none !important;
+        margin:0;
+        padding-top: 0px;
+    }
+    ul.side-tabs li {
+      list-style: none !important;
+      line-height: 10px;
+    }
+    .side-tabs-top{
+      padding:10px 30px;
+      font-weight: 500;
+    }
+    .side-tabs li a{
+        display: block;
+        padding: 4px 35px;
+        font-size:13px;
+        text-decoration: none;
+        /*color: #555;*/
+    }
+
+    .faq-content{
+      margin-bottom: 100px;
+      max-width: 600px;
+    }
+
+.accordion{
+	margin-top:20px;
+}
+.accordion h4.panel-title{
+	margin-top: 0;
+	margin-bottom: 0px;
+}
+	.accordion a{ 
+		font-weight: 400; 
+		line-height: 28px;
+		text-decoration: none;
+		display: contents;
+		font-size: 13px;
+	}
+	.accordion a:hover{
+		text-decoration: none;
+	}
+	.accordion a.nav_link_span{
+    	display: inline;
+    }
+	.accordion .panel-default{
+		padding: 10px 20px;
+	    border: 1px solid #eee;
+	    margin-bottom: 10px;
+	    background: #fdfdfd;
+	}
+	.accordion .panel-body{
+		margin-top:20px;
+	}
+
+#Cadence{
+	margin-top: 50px;
+}
+
+.warning_sect{
+	padding: 25px 25px 16px 25px;
+	border: 1px solid #fbe9d5;
+	margin-bottom: 15px;
+    background: #fcf4e3;
+}
+
+	.warning_sect h4, .warning_sect p, .warning_sect ol li{
+		color:#c09853;
+	}
+	.warning_sect h4{
+		margin-top: 0;
+	}
+	.warning_sect ol{
+		margin-top: 20px;
+	}
+	.warning_sect ol li{
+		font-size: 12px;
+		margin-bottom: 10px;
+	}
+
+.warning_slots{
+	display: flex;
+}
+	.warning_slots__important_icon{
+		color: #c09853;
+		padding-right: 20px;
+	}
+
+.circuit-img{
+    margin:10px;
+}
+
+@media (max-width: 979px)
+{
+    .side-tabs{
+        width:200px;
+    }
+
+}
+@media (max-width: 879px)
+{
+    .side-tabs{
+        width:130px;
+    }
+    .side-tabs li a{
+        display: block;
+        padding: 8px 15px!important;
+        font-size:13px;
+        text-decoration: none;
+    }
+    .side-tabs li a:hover{
+        padding: 8px 15px 8px 18px;
+        font-size:13px;
+        text-decoration: none;
+    }
+}
+
+@media (max-width: 767px){
+    .side-tabs{
+        position: initial;
+        width:auto;
+    }
+}
+@media (min-height:590px) and (max-height:600px) {
+    .side-tabs li a{
+        padding: 4.5px 35px;
+    }
+}
+@media (min-height:601px) and (max-height:640px) {
+    .side-tabs li a{
+        padding: 8.5px 35px;
+    }
+}
+@media (min-height:641px) and (max-height:800px) {
+    .side-tabs li a{
+        padding: 5.5px 35px;
+    }
+}
+@media (min-height:801px) and (max-height:900px) {
+    .side-tabs li a{
+        padding: 8.5px 35px;
+    }
+}
+@media (min-height:901px) and (max-height:1200px) {
+    .side-tabs li a{
+        padding: 11px 35px;
+    }
+}
+@media (min-height:1201px) and (max-height:1299px) {
+    .side-tabs li a{
+        padding: 23px 35px;
+    }
+}
+@media (min-height:1300px)  {
+    .side-tabs li a{
+        padding: 23px 35px;
+    }
+}
+
+i {
+	font-style: italic !important;
+}
+
+</style>
+
+
+
+
+<script async="" src="./Import Guide _ SnapEDA_files/load.js" type="text/javascript"></script>
+<script src="./Import Guide _ SnapEDA_files/j.php" type="text/javascript"></script><style type="text/css">
+      .fomo-sr-only {
+        display: block !important; /* FOMO CUSTOMISATION! */
+        border: 0 !important;
+        clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+        -webkit-clip-path: inset(50%) !important;
+        clip-path: inset(50%) !important; /* 2 */
+        height: 1px !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        position: absolute !important;
+        width: 1px !important;
+        white-space: nowrap !important; /* 3 */
+      }
+    .fomo-notification.fomo-notification-animation-fade-in{-webkit-animation:fomoFadeIn 1s;animation:fomoFadeIn 1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}.fomo-notification.fomo-notification-animation-fade-out{-webkit-animation:fomoFadeOut 1s;animation:fomoFadeOut 1s;-webkit-animation-fill-mode:both;animation-fill-mode:both}.fomo-notification.fomo-notification-animation-horizontal,.fomo-notification.fomo-notification-animation-vertical{-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards}@-webkit-keyframes fomoFadeIn{0%{opacity:0}to{opacity:1}}@keyframes fomoFadeIn{0%{opacity:0}to{opacity:1}}@-webkit-keyframes fomoFadeOut{0%{opacity:1}to{opacity:0}}@keyframes fomoFadeOut{0%{opacity:1}to{opacity:0}}@-webkit-keyframes fomoSlideOutHorizontalLeft{to{opacity:0;-webkit-transform:translateX(-200%);transform:translateX(-200%)}}@keyframes fomoSlideOutHorizontalLeft{to{opacity:0;-webkit-transform:translateX(-200%);transform:translateX(-200%)}}@-webkit-keyframes fomoSlideInHorizontalRight{to{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}}@keyframes fomoSlideInHorizontalRight{to{opacity:1;-webkit-transform:translateX(0);transform:translateX(0)}}@-webkit-keyframes fomoSlideOutHorizontalRight{to{opacity:0;-webkit-transform:translateX(200%);transform:translateX(200%)}}@keyframes fomoSlideOutHorizontalRight{to{opacity:0;-webkit-transform:translateX(200%);transform:translateX(200%)}}@-webkit-keyframes fomoSlideOutVerticalBottom{to{opacity:1;-webkit-transform:translateY(200%);transform:translateY(200%)}}@keyframes fomoSlideOutVerticalBottom{to{opacity:1;-webkit-transform:translateY(200%);transform:translateY(200%)}}@-webkit-keyframes fomoSlideOutVerticalBottomCenter{to{opacity:1;-webkit-transform:translateX(-50%) translateY(200%);transform:translateX(-50%) translateY(200%)}}@keyframes fomoSlideOutVerticalBottomCenter{to{opacity:1;-webkit-transform:translateX(-50%) translateY(200%);transform:translateX(-50%) translateY(200%)}}@-webkit-keyframes fomoSlideInVerticalTop{to{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@keyframes fomoSlideInVerticalTop{to{opacity:1;-webkit-transform:translateY(0);transform:translateY(0)}}@-webkit-keyframes fomoSlideOutVerticalTop{to{opacity:1;-webkit-transform:translateY(-200%);transform:translateY(-200%)}}@keyframes fomoSlideOutVerticalTop{to{opacity:1;-webkit-transform:translateY(-200%);transform:translateY(-200%)}}@-webkit-keyframes fomoSlideInVerticalTopCenter{to{opacity:1;-webkit-transform:translateX(-50%) translateY(0);transform:translateX(-50%) translateY(0)}}@keyframes fomoSlideInVerticalTopCenter{to{opacity:1;-webkit-transform:translateX(-50%) translateY(0);transform:translateX(-50%) translateY(0)}}@-webkit-keyframes fomoSlideOutVerticalTopCenter{to{opacity:1;-webkit-transform:translateX(-50%) translateY(-200%);transform:translateX(-50%) translateY(-200%)}}@keyframes fomoSlideOutVerticalTopCenter{to{opacity:1;-webkit-transform:translateX(-50%) translateY(-200%);transform:translateX(-50%) translateY(-200%)}}.fomo-notification.fomo-notification-position-bottom-left,.fomo-notification.fomo-notification-position-top-left{-webkit-animation-duration:1s;animation-duration:1s}.fomo-notification.fomo-notification-position-bottom-left.fomo-notification-animation-horizontal.fomo-notification-show,.fomo-notification.fomo-notification-position-top-left.fomo-notification-animation-horizontal.fomo-notification-show{-webkit-transform:translateX(-200%);transform:translateX(-200%);opacity:0;-webkit-animation-name:fomoSlideInHorizontalRight;animation-name:fomoSlideInHorizontalRight}.fomo-notification.fomo-notification-position-bottom-left.fomo-notification-animation-horizontal.fomo-notification-hide,.fomo-notification.fomo-notification-position-top-left.fomo-notification-animation-horizontal.fomo-notification-hide{-webkit-animation-name:fomoSlideOutHorizontalLeft;animation-name:fomoSlideOutHorizontalLeft}.fomo-notification.fomo-notification-position-bottom-left.fomo-notification-animation-vertical.fomo-notification-show{-webkit-transform:translateY(200%);transform:translateY(200%);opacity:0;-webkit-animation-name:fomoSlideInVerticalTop;animation-name:fomoSlideInVerticalTop}.fomo-notification.fomo-notification-position-bottom-left.fomo-notification-animation-vertical.fomo-notification-hide{-webkit-animation-name:fomoSlideOutVerticalBottom;animation-name:fomoSlideOutVerticalBottom}.fomo-notification.fomo-notification-position-top-left{bottom:auto;top:20px}.fomo-notification.fomo-notification-position-top-left.fomo-notification-animation-vertical.fomo-notification-show{-webkit-transform:translateY(-200%);transform:translateY(-200%);opacity:0;-webkit-animation-name:fomoSlideInVerticalTop;animation-name:fomoSlideInVerticalTop}.fomo-notification.fomo-notification-position-top-left.fomo-notification-animation-vertical.fomo-notification-hide{-webkit-animation-name:fomoSlideOutVerticalTop;animation-name:fomoSlideOutVerticalTop}.fomo-notification.fomo-notification-position-bottom-right,.fomo-notification.fomo-notification-position-top-right{-webkit-animation-duration:1s;animation-duration:1s}.fomo-notification.fomo-notification-position-bottom-right.fomo-notification-animation-horizontal.fomo-notification-show,.fomo-notification.fomo-notification-position-top-right.fomo-notification-animation-horizontal.fomo-notification-show{-webkit-transform:translateX(200%);transform:translateX(200%);opacity:0;-webkit-animation-name:fomoSlideInHorizontalRight;animation-name:fomoSlideInHorizontalRight}.fomo-notification.fomo-notification-position-bottom-right.fomo-notification-animation-horizontal.fomo-notification-hide,.fomo-notification.fomo-notification-position-top-right.fomo-notification-animation-horizontal.fomo-notification-hide{-webkit-animation-name:fomoSlideOutHorizontalRight;animation-name:fomoSlideOutHorizontalRight}.fomo-notification.fomo-notification-position-top-right{right:20px;top:20px;left:auto;bottom:auto}.fomo-notification.fomo-notification-position-top-right.fomo-notification-animation-vertical.fomo-notification-show{-webkit-transform:translateY(-200%);transform:translateY(-200%);opacity:0;-webkit-animation-name:fomoSlideInVerticalTop;animation-name:fomoSlideInVerticalTop}.fomo-notification.fomo-notification-position-top-right.fomo-notification-animation-vertical.fomo-notification-hide{-webkit-animation-name:fomoSlideOutVerticalTop;animation-name:fomoSlideOutVerticalTop}.fomo-notification.fomo-notification-position-bottom-right{right:20px;left:auto}.fomo-notification.fomo-notification-position-bottom-right.fomo-notification-animation-vertical.fomo-notification-show{-webkit-transform:translateY(200%);transform:translateY(200%);opacity:0;-webkit-animation-name:fomoSlideInVerticalTop;animation-name:fomoSlideInVerticalTop}.fomo-notification.fomo-notification-position-bottom-right.fomo-notification-animation-vertical.fomo-notification-hide{-webkit-animation-name:fomoSlideOutVerticalBottom;animation-name:fomoSlideOutVerticalBottom}.fomo-notification.fomo-notification-position-bottom-center{left:50%!important;-webkit-animation-duration:1s;animation-duration:1s}.fomo-notification.fomo-notification-position-bottom-center.fomo-notification-animation-vertical.fomo-notification-show{-webkit-transform:translateX(-50%) translateY(200%);transform:translateX(-50%) translateY(200%);opacity:0;-webkit-animation-name:fomoSlideInVerticalTopCenter;animation-name:fomoSlideInVerticalTopCenter}.fomo-notification.fomo-notification-position-bottom-center.fomo-notification-animation-vertical.fomo-notification-hide{-webkit-transform:translateX(-50%) translateY(0);transform:translateX(-50%) translateY(0);-webkit-animation-name:fomoSlideOutVerticalBottomCenter;animation-name:fomoSlideOutVerticalBottomCenter}.fomo-notification.fomo-notification-position-top-center{bottom:auto;top:20px;left:50%!important;-webkit-animation-duration:1s;animation-duration:1s}.fomo-notification.fomo-notification-position-top-center.fomo-notification-animation-vertical.fomo-notification-show{-webkit-transform:translateX(-50%) translateY(-100%);transform:translateX(-50%) translateY(-100%);opacity:0;-webkit-animation-name:fomoSlideInVerticalTopCenter;animation-name:fomoSlideInVerticalTopCenter}.fomo-notification.fomo-notification-position-top-center.fomo-notification-animation-vertical.fomo-notification-hide{-webkit-transform:translateX(-50%) translateY(0);transform:translateX(-50%) translateY(0);-webkit-animation-name:fomoSlideOutVerticalTopCenter;animation-name:fomoSlideOutVerticalTopCenter}@media only screen and (max-width:420px){.fomo-notification.fomo-notification-mobile-position-bottom,.fomo-notification.fomo-notification-mobile-position-top{width:calc(100% - 20px);left:10px!important}}@media only screen and (max-width:420px){.fomo-notification.fomo-notification-mobile-position-bottom{bottom:10px;top:auto}.fomo-notification.fomo-notification-mobile-position-bottom.fomo-notification-animation-vertical.fomo-notification-show{-webkit-transform:translateY(200%);transform:translateY(200%);opacity:0;-webkit-animation-name:fomoSlideInVerticalTop;animation-name:fomoSlideInVerticalTop}.fomo-notification.fomo-notification-mobile-position-bottom.fomo-notification-animation-vertical.fomo-notification-hide{-webkit-transform:translateX(0) translateY(0);transform:translateX(0) translateY(0);-webkit-animation-name:fomoSlideOutVerticalBottom;animation-name:fomoSlideOutVerticalBottom}}@media only screen and (max-width:420px){.fomo-notification.fomo-notification-mobile-position-top{top:10px;bottom:auto}.fomo-notification.fomo-notification-mobile-position-top.fomo-notification-animation-vertical.fomo-notification-show{-webkit-transform:translateX(0) translateY(-200%);transform:translateX(0) translateY(-200%);opacity:0;-webkit-animation-name:fomoSlideInVerticalTop;animation-name:fomoSlideInVerticalTop}.fomo-notification.fomo-notification-mobile-position-top.fomo-notification-animation-vertical.fomo-notification-hide{-webkit-transform:translateX(0) translateY(0);transform:translateX(0) translateY(0);-webkit-animation-name:fomoSlideOutVerticalTop;animation-name:fomoSlideOutVerticalTop}}@media only screen and (max-width:420px){.fomo-notification.fomo-notification-mobile-position-top.fomo-notification-ad{top:20px}}.fomo-notification .fomo-animation-count-up{display:none;font-variant-numeric:tabular-nums}.fomo-notification .fomo-animation-tada{-webkit-animation-name:fomo-animation-tada;animation-name:fomo-animation-tada;-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-delay:1s;animation-delay:1s;-webkit-animation-fill-mode:both;animation-fill-mode:both;display:inline-block}.fomo-notification .fomo-animation-arrow svg{-webkit-animation:fomo-animation-arrow 2s infinite;animation:fomo-animation-arrow 2s infinite;display:inline-block;height:9px;width:7px;vertical-align:middle;margin:0 5px 1px 2px}.fomo-notification.fomo-notification-font-sm .fomo-animation-arrow svg{height:8px;width:6px}@-webkit-keyframes fomo-animation-tada{0%{-webkit-transform:scale(1);transform:scale(1)}10%,20%{-webkit-transform:scale(.9) rotate(-3deg);transform:scale(.9) rotate(-3deg)}30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg);transform:scale(1.1) rotate(3deg)}40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg);transform:scale(1.1) rotate(-3deg)}to{-webkit-transform:scale(1) rotate(0);transform:scale(1) rotate(0)}}@keyframes fomo-animation-tada{0%{-webkit-transform:scale(1);transform:scale(1)}10%,20%{-webkit-transform:scale(.9) rotate(-3deg);transform:scale(.9) rotate(-3deg)}30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg);transform:scale(1.1) rotate(3deg)}40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg);transform:scale(1.1) rotate(-3deg)}to{-webkit-transform:scale(1) rotate(0);transform:scale(1) rotate(0)}}@-webkit-keyframes fomo-animation-arrow{0%,20%,50%,80%,to{-webkit-transform:translateX(0);transform:translateX(0)}40%{-webkit-transform:translateX(5px);transform:translateX(5px)}60%{-webkit-transform:translateX(2px);transform:translateX(2px)}}@keyframes fomo-animation-arrow{0%,20%,50%,80%,to{-webkit-transform:translateX(0);transform:translateX(0)}40%{-webkit-transform:translateX(5px);transform:translateX(5px)}60%{-webkit-transform:translateX(2px);transform:translateX(2px)}}.fomo-notification.fomo-hover-animation-float,.fomo-notification.fomo-hover-animation-forward{-webkit-transition:margin .3s cubic-bezier(.42,.97,.52,1.49);transition:margin .3s cubic-bezier(.42,.97,.52,1.49)}.fomo-notification.fomo-notification-position-bottom-center.fomo-hover-animation-forward:hover,.fomo-notification.fomo-notification-position-bottom-left.fomo-hover-animation-forward:hover,.fomo-notification.fomo-notification-position-none.fomo-hover-animation-forward:hover,.fomo-notification.fomo-notification-position-top-center.fomo-hover-animation-forward:hover,.fomo-notification.fomo-notification-position-top-left.fomo-hover-animation-forward:hover{
+  /* !important - this required because we set `notificationDiv.style.marginLeft = "0px";` in widget.js - legacy from v1 themes. Need to review and remove */margin-left:10px!important}.fomo-notification.fomo-notification-position-bottom-right.fomo-hover-animation-forward:hover,.fomo-notification.fomo-notification-position-top-right.fomo-hover-animation-forward:hover{margin-right:10px}.fomo-notification.fomo-notification-position-bottom-center.fomo-hover-animation-float:hover,.fomo-notification.fomo-notification-position-bottom-left.fomo-hover-animation-float:hover,.fomo-notification.fomo-notification-position-bottom-right.fomo-hover-animation-float:hover,.fomo-notification.fomo-notification-position-none.fomo-hover-animation-float:hover{margin-bottom:10px}.fomo-notification.fomo-notification-position-top-center.fomo-hover-animation-float:hover,.fomo-notification.fomo-notification-position-top-left.fomo-hover-animation-float:hover,.fomo-notification.fomo-notification-position-top-right.fomo-hover-animation-float:hover{margin-top:10px}.fomo-notification.fomo-notification-position-none.fomo-hover-animation-forward:hover{margin-left:10px;margin-right:0}.fomo-notification.fomo-notification-position-none.fomo-hover-animation-float:hover{margin-top:0;margin-bottom:10px}.fomo-notification{display:none;width:320px;border:0;bottom:20px;left:20px;position:fixed;text-align:left;z-index:2147483200;font-family:inherit;-webkit-box-sizing:border-box;box-sizing:border-box;font-weight:400;border-radius:6px;-webkit-box-shadow:2px 2px 10px 2px hsla(0,0%,60%,.2);box-shadow:2px 2px 10px 2px hsla(0,0%,60%,.2);background-color:#fff}.fomo-notification:hover #fomo-close{opacity:.8;visibility:visible}.fomo-notification *,.fomo-notification :after,.fomo-notification :before{-webkit-box-sizing:border-box;box-sizing:border-box}.fomo-notification .fomo-notification-powered-by{margin-top:3px!important;display:block!important;font-size:9px!important;line-height:9px!important;color:#474ba5;opacity:.5;position:absolute;bottom:6px;right:6px}.fomo-notification .fomo-notification-badge{fill:currentColor;margin-bottom:-3px;margin-right:-2px;width:12px;height:12px}.fomo-notification .fomo-notification-ad-by{display:none;visibility:hidden}.fomo-notification .fomo-notification-ad-by a,.fomo-notification .fomo-notification-ad-by a:hover{text-decoration:none;cursor:pointer}.fomo-notification.fomo-notification-ad{z-index:2147483300}.fomo-notification.fomo-notification-ad .fomo-notification-ad-by{margin:0;display:block!important;visibility:visible;font-size:12px!important;position:absolute;top:-24px!important;left:2px}.fomo-notification .fomo-notification-container{display:table!important;display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important;-webkit-box-align:center;-ms-flex-align:center;align-items:center;height:80px}.fomo-notification .fomo-notification-content-wrapper{margin:0;height:100%;color:gray;padding-left:20px;padding-right:20px;border-radius:0 6px 6px 0;-webkit-box-flex:1;-ms-flex:1;flex:1;display:table-cell!important;display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;vertical-align:middle}.fomo-notification .fomo-notification-content-wrapper .fomo-notification-content{margin:0!important;padding:0!important;font-size:15px;line-height:1.1}.fomo-notification .fomo-notification-content-wrapper .fomo-notification-content-info{display:block!important}.fomo-notification .fomo-notification-content-wrapper a{text-decoration:none!important}.fomo-notification .fomo-notification-content-wrapper .fomo-notification-powered-by,.fomo-notification .fomo-notification-content-wrapper small{margin-top:3px!important;display:block!important;font-size:9px!important}.fomo-notification .fomo-notification-content-wrapper small{margin-right:6px;vertical-align:middle}.fomo-notification .fomo-notification-powered-by{opacity:.75;-webkit-transition:opacity .2s ease-in;transition:opacity .2s ease-in;font-size:9px;vertical-align:bottom}.fomo-notification .fomo-notification-powered-by:hover{opacity:1;cursor:pointer}@-webkit-keyframes badge_bounce{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.2);transform:scale(1.2)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes badge_bounce{0%{-webkit-transform:scale(1);transform:scale(1)}50%{-webkit-transform:scale(1.2);transform:scale(1.2)}to{-webkit-transform:scale(1);transform:scale(1)}}.fomo-notification .fomo-notification-badge{-webkit-animation-name:badge_bounce;animation-name:badge_bounce;-webkit-animation-duration:.75s;animation-duration:.75s;-webkit-animation-fill-mode:forwards;animation-fill-mode:forwards;-webkit-animation-delay:.3s;animation-delay:.3s;-webkit-animation-timing-function:ease-in-out;animation-timing-function:ease-in-out}.fomo-notification .fomo-notification-image-wrapper{height:80px;width:80px;overflow:hidden;display:table-cell!important;display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important;vertical-align:middle;border-radius:6px 0 0 6px;text-align:center}.fomo-notification .fomo-notification-image-wrapper img{max-width:100%!important;width:auto;height:100%}.fomo-notification .fomo-notification-image-wrapper.fomo-notification-image-is-landscape img{position:relative;max-width:100%!important;width:auto;max-height:100%!important;height:auto}.fomo-notification .fomo-notification-image-wrapper-inside{height:100%;width:100%;overflow:hidden;display:-webkit-box!important;display:-ms-flexbox!important;display:flex!important;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-flex:1;-ms-flex:1;flex:1}.fomo-notification.fomo-notification-no-image .fomo-notification-image-wrapper{display:none!important}.fomo-notification.fomo-notification-pointer,.fomo-notification .fomo-notification-pointer{cursor:pointer}.fomo-notification #fomo-close{position:absolute;top:2px;right:2px;height:24px;width:24px;cursor:pointer;opacity:0;visibility:hidden;-webkit-transition:.2s ease-in-out;transition:.2s ease-in-out;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.fomo-notification #fomo-close:before{width:12px;height:2px}.fomo-notification #fomo-close:after,.fomo-notification #fomo-close:before{content:"";display:block;background-color:gray;position:absolute;left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.fomo-notification #fomo-close:after{height:12px;width:2px}.fomo-notification.fomo-notification-no-shadow{-webkit-box-shadow:none;box-shadow:none}.fomo-notification.fomo-notification-is-touch #fomo-close{opacity:.8;visibility:visible;top:-10px;right:-10px;height:48px;width:48px}.fomo-notification-no-image .fomo-notification-content-wrapper{padding-left:40px;padding-right:40px;border-radius:6px}.fomo-notification-font-lg.fomo-notification-no-image .fomo-notification-content-wrapper{padding-right:80px}.fomo-notification-font-md .fomo-notification-content-wrapper .fomo-notification-content{font-size:13px}.fomo-notification-font-sm .fomo-notification-content-wrapper .fomo-notification-content{font-size:11px}.fomo-notification-font-xs .fomo-notification-content-wrapper{padding-left:20px;padding-right:20px;margin-top:0}.fomo-notification-font-xs .fomo-notification-content-wrapper .fomo-notification-content{font-size:9px}.fomo-notification.fomo-suppress{border-radius:6px!important;-webkit-box-shadow:none!important;box-shadow:none!important;background-image:none!important;background:rgba(71,75,165,.1);cursor:default!important;font-size:13px;padding:12px;color:#474ba5}.fomo-notification.fomo-suppress #fomo-notification-suppress{font-weight:700;cursor:pointer;text-decoration:underline}.fomo-notification-v2-classic .fomo-notification-content-wrapper { color: #304E70; }.fomo-notification-v2-classic #fomo-close:before { background-color: #304E70; }.fomo-notification-v2-classic #fomo-close:after { background-color: #304E70; }.fomo-notification-v2-classic a { color: #FF761A!important; }/* We recommend that you also apply !important */
+/* Note: This will override Fine Tune settings */
+.fomo-notification-v2-classic {}
+
+.fomo-notification-v2-classic .fomo-notification-content-wrapper p {}
+
+.fomo-notification-v2-classic .fomo-notification-content-wrapper a {}
+
+/* Timestamp */
+.fomo-notification-v2-classic .fomo-notification-content-wrapper small {}
+
+.fomo-notification-v2-classic .fomo-notification-image-wrapper {}
+
+.fomo-notification-v2-classic .fomo-notification-image-wrapper img {}</style><script async="" src="./Import Guide _ SnapEDA_files/events.js"></script><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+xK4jmZTgh1KBVry/UZKUE3h6Dr9HPPioFS4KNCzify+KEoOii7z/goKS2zgbAOwhpZ1GZllpdz7XviivJM9gcAAACFeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiQXR0cmlidXRpb25SZXBvcnRpbmdDcm9zc0FwcFdlYiIsImV4cGlyeSI6MTcwNzI2Mzk5OSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script attributionsrc="" type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/f.txt"></script><script async="" src="./Import Guide _ SnapEDA_files/VRrmLWeQ3uCcECxLw7VDjw"></script><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+xK4jmZTgh1KBVry/UZKUE3h6Dr9HPPioFS4KNCzify+KEoOii7z/goKS2zgbAOwhpZ1GZllpdz7XviivJM9gcAAACFeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiQXR0cmlidXRpb25SZXBvcnRpbmdDcm9zc0FwcFdlYiIsImV4cGlyeSI6MTcwNzI2Mzk5OSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ=="><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/f(1).txt"></script><script async="true" type="text/javascript" src="./Import Guide _ SnapEDA_files/roundtrip.js"></script><script type="text/javascript" async="" src="./Import Guide _ SnapEDA_files/tagjs"></script><img src="./Import Guide _ SnapEDA_files/getuid" width="1" height="1" border="0"><img src="./Import Guide _ SnapEDA_files/saved_resource" width="1" height="1" border="0"><img src="./Import Guide _ SnapEDA_files/saved_resource(1)" width="1" height="1" border="0"><img src="./Import Guide _ SnapEDA_files/saved_resource(2)" width="1" height="1" border="0"><img src="./Import Guide _ SnapEDA_files/saved_resource(3)" width="1" height="1" border="0"><img src="./Import Guide _ SnapEDA_files/saved_resource(4)" width="1" height="1" border="0"><img src="./Import Guide _ SnapEDA_files/saved_resource(5)" width="1" height="1" border="0"><img src="./Import Guide _ SnapEDA_files/saved_resource(6)" width="1" height="1" border="0"><img src="./Import Guide _ SnapEDA_files/seg" width="1" height="1" border="0"></head>
+<body class="">
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N2DMH7J"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<div id="sticky-header">
+
+<script src="./Import Guide _ SnapEDA_files/3693.js" charset="UTF-8" type="text/javascript"></script>
+
+<script async="" src="./Import Guide _ SnapEDA_files/js(4)" type="text/javascript"></script>
+<script type="text/javascript"> 
+    function containsAny(str, substrings) {
+        for (var i = 0; i != substrings.length; i++) {
+        var substring = substrings[i];
+        if (str.indexOf(substring) != - 1) {
+            return substring;
+        }
+        }
+        return false; 
+    }
+    if(!containsAny(window.location.href,['home','view-part','search'])){
+        $('#questions').show()
+    }
+
+    window.dataLayer = window.dataLayer || []; 
+    
+    function gtag() {
+        dataLayer.push(arguments);
+    } 
+    
+    gtag('js', new Date()); 
+    
+    gtag('config', 'AW-865545408'); 
+    
+</script>
+<script type="text/javascript"> 
+    // url param used for redirecting user to the url page. redirect checks if it should redirect the user or not because in some cases we only want to track not redirect
+    function gtag_report_conversion(url, redirect) { 
+        if(url === undefined) {
+            url = window.location.href;
+        } 
+        if(redirect === undefined) {
+            redirect = false;
+        }
+        var callback = function (redirect) {
+            if (redirect && typeof(url) != 'undefined') { 
+                window.location = url; 
+            } 
+        }; 
+        
+        currUrl = window.location.href;
+        if(currUrl.indexOf('part_buy=success') > 0 ) { 
+             
+            if(currUrl.indexOf('&part_buy=success') > -1 ) {
+                currUrl = currUrl.replace('&part_buy=success',''); 
+            } else if(currUrl.indexOf('?part_buy=success') > -1 ) {
+                currUrl = currUrl.replace('?part_buy=success',''); 
+            }
+            window.history.replaceState({}, '' , currUrl); // remove param from URL
+            gtag('impression', 'conversion', { 'send_to': 'AW-865545408/oWp-CLW2mHMQwNncnAM', 'transaction_id': '', 'event_callback': callback }); 
+        }
+        return false; 
+    }  
+         
+</script>
+<style>
+    .extended-search-input{
+        width: 100%!important;
+    }
+    .extended-search-bar{
+        max-width: 100%;
+        /* width: calc( 100% - 953px ); */
+        margin-right: 16px;
+        width: 100%;
+    }
+    .extended-search-container{
+        display: flex!important;
+    }
+    #HW_badge {
+        width: 45px !important;
+        height: 45px !important;
+        position: absolute !important;
+        left: -25px !important;
+        top: -5px !important;
+        background: transparent !important; 
+        color: transparent !important;
+    }
+
+    .diamond {
+        margin-left: 30px;
+        font-size: 25px;
+        margin-right: -20px;
+        color: rgba(150, 200, 255, 1) !important;
+    }
+
+    .flex-center {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .updates {
+        margin-right: 15px;
+        width: 40px;
+        margin-left: -10px; 
+    }
+
+
+    #seda-navbar {
+            font-family: 'Open Sans';
+            font-size: 16px;
+            background: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: #3a3a3a;
+            position: fixed;
+            width: calc(100% - 16px);
+            padding-left: 16px;
+            z-index: 1000;
+        }
+  
+        #seda-navbar .nav-bar-items { 
+            display: flex;
+            align-items: center;
+        }
+
+        #seda-navbar .nav-bar-item {
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 22px;
+            display: flex;
+            align-items: center;
+            color: #3A3A3A; 
+            margin-left: 32px;
+            cursor: pointer;
+            text-decoration: none !important;
+        }
+
+        #seda-navbar .nav-bar-item .symbol-down {
+            transform: rotate(90deg) scale(1,1.75);
+            margin-left: 10px;
+        }
+        .symbol-down-instabuild{
+            transform: rotate(90deg) scale(.83333,1.4583333);;
+            margin-left: 3px;
+            display: inline-block;
+        }
+
+        #seda-navbar .nav-bar-item .nav-bar-dropdown {
+            position: absolute;
+            top: 50px;
+            display: none;
+            min-width: 200px;
+            min-height: 50px;
+            background: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top: 0px;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            z-index: 2;
+        }
+
+        #seda-navbar .nav-bar-item:hover .nav-bar-dropdown {
+            display: block;
+        }
+
+        #seda-navbar .nav-bar-item .nav-bar-dropdown .dropdown-option {
+            padding: 10px;
+            text-decoration: none !important;
+            display: block;
+            color: #3a3a3a;
+        }
+
+        #seda-navbar .nav-bar-item .nav-bar-dropdown .dropdown-option:hover { 
+            background: #ff761a; 
+        }
+
+        #seda-navbar #nav-logo-link {
+            float: none;
+            margin: 0px !important;
+            margin-top: -6px !important;
+        }
+
+        .ls-btn {
+            width: 96px;
+            height: 40px;
+            box-sizing: border-box;
+            border-radius: 8px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: 16px;
+            text-decoration: none !important;
+        }
+
+        .login-btn {
+            color: #3B5D83; 
+            border: 1px solid #3B5D83;
+        }
+
+        .login-btn:hover {
+            color:#fff;
+            background: #3B5D83;
+        }
+
+        .signup-btn {
+            color: #ffffff; 
+            background: #FF761A;
+            border: 1px solid #FF761A;
+        }
+
+        .signup-btn:hover {
+            color: #FF761A;
+            background: #FFFFFF;
+        }
+
+        .ls-section {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: absolute;
+            right: 16px; 
+        }
+
+        
+        #nav-search-part-form {
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+            margin: 0px;
+            position: absolute;
+            right: 256px;
+        }
+
+        #nav-searchbar-wrapper {
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #searchbar-input {
+            height: 40px !important;
+            border: 1px solid #3B6285 !important;
+            box-sizing: border-box;
+            border-radius: 8px !important;
+            border-top-right-radius: 0px !important;
+            border-bottom-right-radius: 0px !important;
+            font-family: Open Sans;
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px !important;
+            line-height: 19px;
+            margin: 0px;
+            min-width: 240px;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        #nav-search-btn {
+            height: 40px;
+            width: 112px;
+            background: #3B6285;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 19px; 
+            color: #FFFFFF;
+            border: 1px solid #3b6285;
+        }
+
+        .btn-search-icon {
+            display: none  !important;
+        }
+
+        #seda-navbar .nav-logo-link {
+            margin-top: -10px;
+        }
+
+        #seda-navbar .r-menu-btn {
+            display: none;
+            position: absolute;
+            top: 12px;
+            right: 22px;
+            width: 32px;
+            height: 32px;
+            background: #3B6285;
+            border: 1px solid #3B6285;
+            box-sizing: border-box;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 22px; 
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            text-decoration: none !important;
+        } 
+
+        @media (max-width:1200px) {
+
+            #seda-navbar{
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+            }
+
+            #seda-navbar #nav-logo-link { 
+                margin: 16px 10px 0 0 !important;
+            }
+
+            .section-search-part {
+                display: flex !important;
+            }
+ 
+            #seda-navbar .nav-bar-items {
+                width: 100%;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding-left: 0px;
+            } 
+
+            #seda-navbar .nav-bar-item-dd {
+                padding: 0px !important;
+            }
+
+            #seda-navbar .nav-bar-item-dd {
+                padding: 0px;
+            }
+
+            #seda-navbar .nav-bar-item .nav-item-text, 
+            #seda-navbar .nav-bar-item .symbol-down {
+                display: none !important;
+            }
+            #seda-navbar .nav-bar-item {
+                margin-left: 0px;
+                padding: 15px;
+                padding-left: 0px;
+            }
+
+            #seda-navbar .nav-bar-item .symbol-down {
+                display: flex;
+            }
+
+            #seda-navbar .nav-bar-item .nav-bar-dropdown {
+                position: relative;
+                display: flex !important;
+                top: 0px;
+                margin-left: 0px;
+                border: none;
+                box-shadow: none;
+                padding: 0px;
+            }
+
+            #seda-navbar .nav-bar-item .nav-bar-dropdown .dropdown-option {
+                padding-left: 0px; 
+                width: 128px;
+            }
+
+            #seda-navbar .nav-bar-item .nav-bar-dropdown .dropdown-option:hover {
+                background: #fff;
+            }
+
+            .ls-section {
+                width: 100%;
+                display: flex;
+                position: initial; 
+                margin-left: -10px;
+                padding-bottom: 10px;
+            } 
+
+            .ls-btn {
+                width: 50%;
+                margin-right: 0px !important;
+            }
+            
+            .login-btn {
+                margin-right: 16px !important;
+            }
+
+            #nav-search-part-form {
+                position: initial;
+                display: block;
+                margin-bottom: 10px;
+                width: 100%;
+                margin-left: -10px;
+            }
+
+            #nav-searchbar-wrapper { 
+                margin-right: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            #searchbar-input {
+                min-width: calc(100% - 112px) !important;
+            }
+
+            #seda-navbar .r-menu-btn {
+                display: flex;
+                top: 16px;
+                right: 24px;
+            }
+        }
+
+        @media (max-width:550px) { 
+
+            .btn-search-text {
+                display: none;
+            }
+
+            .btn-search-icon {
+                display: block !important;
+                color: #fff;
+                margin: 0 auto;
+            } 
+        }
+ 
+        @media (max-width:712px) {
+            #seda-navbar .nav-bar-item .nav-bar-dropdown {
+                flex-direction: column;
+            } 
+        }
+
+    
+    
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        
+
+        #HW_badge {
+            margin-left: 5px !important;
+        }
+
+        #recent_news span:first-child {
+            margin-left: 20px;
+        }
+
+        #seda-navbar {
+            min-height: 56px !important;
+        }
+
+        #seda-navbar {
+            padding-top: 24px;
+        }
+
+        #nav-search-part-form {
+            top: 16px;
+        }
+
+        .ls-section {
+            top: 18px;
+        }
+
+        .nav-bar-dropdown {
+            margin-left: -120px;
+            top: 36px;
+        }
+
+        .make-snap-header {
+            height: 56px !important;
+        }
+
+        .snap-card img {
+            width: 72px;
+            height: 60px;
+        }
+
+        .feed-item img {
+            width: 80px !important;
+            height: 80px !important;
+        } 
+    }
+
+    .alert {
+        margin-bottom: 0px !important;
+    }
+
+    
+
+	/*the container must be positioned relative:*/
+	.autocomplete {
+		position: relative; 
+	} 
+
+	.autocomplete-items {
+		position: absolute;
+		border: 1px solid #d4d4d4;
+		z-index: 10000000;
+		top: 100%;
+		left: 0;
+		right: 0; 
+	}
+
+	.autocomplete-items div {
+		padding: 10px;
+		cursor: pointer;
+		background-color: #fff;  
+	}
+
+	/*when hovering an item:*/
+	.autocomplete-items div:hover {
+		background-color: #FF761A; 
+	}
+
+	/*when navigating through the items using the arrow keys:*/
+	.autocomplete-active {
+		background-color: #FF761A !important; 
+		color: #ffffff; 
+	}
+
+    .search-part-package-section .autocomplete-items {
+        top: 39px !important;
+    }
+
+	
+
+    .flex-align-center {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #remaining-instaparts {
+        background: #3a5c84;
+        width: fit-content;
+        height: 22px;
+        color: #fff;
+        min-width: 40px;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50px;
+        margin-left: 8px;
+    }
+
+    .asked_panel .profile img {
+        width: 30px !important;
+        height: 30px !important;
+    }
+    
+    @supports (-webkit-touch-callout: none) {
+    
+        #seda-navbar .r-menu-btn {
+        
+            padding-bottom: 6px;
+        
+        }
+    }
+
+</style>
+<nav class="navbar navbar-default" id="seda-navbar" style="width: calc(100% - 16px); padding-left: 16px; min-height: 78px;">
+<a id="nav-logo-link" href="https://www.snapeda.com/">
+<img src="./Import Guide _ SnapEDA_files/snapeda_logo_260.png" width="130" alt="SnapEDA logo" title="SnapEDA">
+</a>
+<span class="r-menu-btn">☰</span>
+<div class="nav-bar-items" style="display: flex;">
+<div>
+<a href="https://www.snapeda.com/about" class="nav-bar-item"> About </a>
+</div>
+<div>
+<div class="nav-bar-item nav-bar-item-dd">
+<span class="nav-item-text">For Engineers </span>
+<span class="symbol-down">
+&gt;
+</span>
+<div class="nav-bar-dropdown">
+<a class="dropdown-option" href="https://www.snapeda.com/instabuild/">
+Build Parts
+</a>
+<a class="dropdown-option" href="https://www.snapeda.com/instapart/">
+Request Parts
+</a>
+<a class="dropdown-option" href="https://www.snapeda.com/discover/">
+Browse Parts
+</a>
+<a class="dropdown-option" href="https://www.snapeda.com/pricing/">
+Pricing
+</a>
+<a class="dropdown-option" href="https://www.snapeda.com/questions/">
+Q &amp; A
+</a>
+<a class="dropdown-option" href="https://www.snapeda.com/pcb-manufacturing/">
+PCB Suppliers
+</a>
+</div>
+</div>
+</div>
+<div>
+<div class="nav-bar-item nav-bar-item-dd">
+<span class="nav-item-text">For Part Vendors </span>
+<span class="symbol-down">
+&gt;
+</span>
+<div class="nav-bar-dropdown">
+<a class="dropdown-option" href="https://www.snapeda.com/instapublish/">
+Publish
+</a>
+<a class="dropdown-option" href="https://mailchi.mp/a0a29fb2dd6f/snapwins" target="_blank">
+Media Kit
+</a>
+<a class="dropdown-option" href="https://insights.snapeda.com/">
+SnapInsights
+</a>
+<a class="dropdown-option" href="https://www.snapeda.com/get-cad-models">
+Get CAD Models
+</a>
+<a class="dropdown-option" href="https://insights.snapeda.com/syndication">
+Syndication Program
+</a>
+<a class="dropdown-option" href="https://www.snapeda.com/about/#contact_us">
+Contact Us
+</a>
+</div>
+</div>
+</div>
+</div>
+<form id="nav-search-part-form" action="https://www.snapeda.com/search/?q=" method="GET" style="display: block;">
+<div id="nav-searchbar-wrapper" class="search-wrapper searchbox-big">
+<input id="searchbar-input" type="text" name="q" class="search-query search-input" placeholder="Search Parts" value="" required="">
+<input class="search-type-top" type="hidden" name="search-type" value="parts">
+<button id="nav-search-btn" type="submit">
+<i class="fa fa-search btn-search-icon"></i>
+<span class="btn-search-text">Search Parts</span>
+</button>
+</div>
+</form>
+<div class="ls-section" style="display: flex;">
+<a href="https://www.snapeda.com/account/login?next=/about/import/" class="ls-btn login-btn">
+Log In
+</a>
+<a href="https://www.snapeda.com/account/signup?next=/about/import/" class="ls-btn signup-btn">
+Sign Up
+</a>
+</div>
+</nav>
+<div style="padding-bottom:80px"></div>
+<script type="text/javascript">
+    function trackSignup() {
+        var queryString = window.location.search;
+        var campaign = null;
+        var referrer = document.referrer
+        var query_params = {}
+
+        // get value of campaign code if it exist
+        window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+            if (key == 'welcome') {
+                campaign = value;
+            }
+            query_params[key] = value;
+        });
+
+        if (campaign != null
+            & referrer.indexOf('account/signup') != -1) {
+            var properties = {
+                'userId': '',
+                'email': '',
+                'company': query_params['company'],
+                'campaign': campaign,
+                'plugin': query_params['plugin']
+            }
+            var url = window.location.href.replace('welcome=' + campaign, '')
+
+            // in case the welcome is in the middle of qs
+            url = url.replace('&&', '&')
+            // in case the welcome is at the beginning of qs
+            url = url.replace('?&', '?')
+
+            var mixpanelWait = setInterval(function () {
+                if (mixpanel) {
+                    mixpanel.track('Signup', properties)
+                    clearInterval(mixpanelWait);
+                }
+            }, 100);
+            window.history.pushState({}, document.title, url);
+
+        }
+    }
+
+
+    window.onload = function(){
+        var HW_config = {
+            selector: "#recent_news",  
+            account: "x9ndd7",
+            translations: {
+                footer: "More Updates"
+            }
+        }; 
+        Headway.init(HW_config);
+        trackSignup()
+
+
+        
+        $.fn.isInViewport = function() {
+            var elementTop = $(this).offset().top;
+            var elementBottom = elementTop + $(this).outerHeight();
+
+            var viewportTop = $(window).scrollTop();
+            var viewportBottom = viewportTop + $(window).height();
+
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+
+        $('.r-menu-btn').click(function(){
+            $('.nav-bar-items, #nav-search-part-form, .ls-section').slideToggle();
+        });
+
+        if($(window).width() > 1200) {
+            $('.nav-bar-items, #nav-search-part-form, .ls-section').show();
+        } else {
+            $('.nav-bar-items, #nav-search-part-form, .ls-section').hide();
+        }
+        $(window).on('resize', function() {
+            if($(window).width() > 1200) {
+                $('.nav-bar-items, #nav-search-part-form, .ls-section').show();
+            } else if($(window).width() > 576) {
+                $('.nav-bar-items, #nav-search-part-form, .ls-section').hide();
+            }
+        });
+
+        
+        var ua = window.navigator.userAgent;
+        var msie = ua.indexOf("MSIE "); 
+        var urlList = ['home', 'instapart', 'questions', 'pricing', 'discover', 'about', 'instapublish', 'login', 'signup', 'instabuild'];
+        var cl = window.location.href;
+        if( cl == (window.location.origin + "/") ) {
+                $('.r-menu-btn').on('click', function() {
+                    const body = document.querySelector("body");
+                    var x = document.getElementById("seda-navbar");
+                    if (x.style.display === "flex" || x.style.display === "") {
+                        x.style.display = "block";
+                        x.style.paddingTop = "16px";
+                        body.style.overflow = "hidden";
+                        $(".ls-section").css("display", "flex");
+                    } else {
+                        x.style.display = "flex";
+                        x.style.paddingTop = "0px";
+                        body.style.overflow = "auto";
+                        $(".ls-section").css("display", "");
+                    }
+                });
+                $('#seda-navbar').css('padding-left','16px');
+                if($('#seda-navbar').css('min-height') === '72px') {
+                    $('#seda-navbar').css('min-height','56px'); 
+                } else {
+                    $('#seda-navbar').css('min-height','78px'); 
+                }
+            } 
+        urlList.forEach( function(element) {
+            if( cl.indexOf(element) > 0 ) {
+                $('.r-menu-btn').on('click', function() {
+                    const body = document.querySelector("body");
+                    var x = document.getElementById("seda-navbar");
+                    if (x.style.display === "flex" || x.style.display === "") {
+                        x.style.display = "block";
+                        x.style.paddingTop = "16px";
+                        body.style.overflow = "hidden";
+                        $(".ls-section").css("display", "flex");
+                        $(".ls-section").css("marginBottom", "10px");
+                        $("#nav-search-part-form,.ls-section").css("width", "96%");
+                    } else {
+                        x.style.display = "flex";
+                        x.style.paddingTop = "0px";
+                        $(".ls-section").css("display", "");
+                        $(".ls-section").css("marginBottom", "");
+                        $("#nav-search-part-form,.ls-section").css("width", "");
+                        body.style.overflow = "auto";
+                    }
+                });
+                $('#seda-navbar').css('width','calc(100% - 16px)');
+                $('#seda-navbar').css('padding-left','16px');
+                if($('#seda-navbar').css('min-height') === '72px') {
+                    $('#seda-navbar').css('min-height','56px'); 
+                } else {
+                    $('#seda-navbar').css('min-height','78px'); 
+                }
+            } 
+        });  
+    };
+</script>
+<script async="" src="./Import Guide _ SnapEDA_files/widget.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    $(document).ready( function() {
+        
+    });
+
+    
+    
+    function addAutoComplete(id) {
+        document.getElementById(id).addEventListener("keyup", function(event){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) { 
+                    var response = JSON.parse(this.response);
+                    autocomplete(document.getElementById(id), response);
+                }
+            };
+            xhttp.open("GET", "/api/v1/search_autocomplete?q=" + this.value, true);
+            xhttp.send();
+            if (event.keyCode === 13) {
+                $('.search-autocom-submit').click()
+            }
+
+        });
+    }
+
+    function autocomplete(inp, arr) { 
+        var currentFocus;  
+        var a, b, i, val = inp.value; 
+        closeAllLists();
+        if (!val) { return false;}
+        currentFocus = -1; 
+        a = document.createElement("DIV");
+        a.setAttribute("id", inp.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items"); 
+        inp.parentNode.appendChild(a); 
+        for (i = 0; i < arr.length; i++) {  
+            b = document.createElement("DIV"); 
+            b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+            b.innerHTML += arr[i].substr(val.length); 
+            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>"; 
+            b.addEventListener("click", function(e) { 
+                inp.value = this.getElementsByTagName("input")[0].value; 
+                closeAllLists();
+                $('.search-autocom-submit').click()
+
+            });
+            a.appendChild(b); 
+        } 
+        inp.addEventListener("keydown", function(e) {
+            var x = document.getElementById(this.id + "autocomplete-list");
+            if (x) x = x.getElementsByTagName("div");
+            if (e.keyCode == 40) { 
+                currentFocus++; 
+                addActive(x);
+            } else if (e.keyCode == 38) { 
+                currentFocus--; 
+                addActive(x);
+            } else if (e.keyCode == 13) { 
+                e.preventDefault();
+                if (currentFocus > -1) { 
+                if (x) x[currentFocus].click();
+                }
+            }
+        });
+        function addActive(x) { 
+            if (!x) return false; 
+            removeActive(x);
+            if (currentFocus >= x.length) currentFocus = 0;
+            if (currentFocus < 0) currentFocus = (x.length - 1); 
+            if(x[currentFocus])
+                x[currentFocus].classList.add("autocomplete-active");
+        }
+        function removeActive(x) { 
+            for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+            }
+        }
+        function closeAllLists(elmnt) { 
+            var x = document.getElementsByClassName("autocomplete-items");
+            for (var i = 0; i < x.length; i++) {
+            if (elmnt != x[i] && elmnt != inp) {
+                x[i].parentNode.removeChild(x[i]);
+            }
+            }
+        } 
+        document.addEventListener("click", function (e) {
+            closeAllLists(e.target);
+        });
+        }
+
+    
+</script>
+<div id="base">
+<div id="left_tabs">
+</div>
+<div id="right_tabs">
+</div>
+<div id="body">
+<div class="row-fluid" id="subnav-outer">
+<div class="pull-right" id="subnav-inner">
+</div>
+</div>
+<div class="row-fluid main-body" style="">
+<div class="span3">
+<ul class="side-tabs box" style="height: 854px;">
+<li class="import-graphic-sect">
+<a href="https://www.snapeda.com/about/import/"><div class="import-graphic"><i class="fa fa-book" aria-hidden="true"></i></div></a>
+<p>Import Guide</p>
+</li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#Altium">Altium</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#CadenceV17">Cadence Allegro</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#OrCAD">Cadence OrCAD</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#CircuitStudio">CircuitStudio</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#CR-8000">CR-8000</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#DesignSpark">DesignSpark PCB</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#DipTrace">DipTrace</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#Eagle">Eagle</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#EasyPC">Easy-PC</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#eCADSTAR">eCADSTAR</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#ExpressPCBPlus">ExpressPCB Plus</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#Fusion360">Autodesk Fusion 360</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#KiCad6">KiCad (V6 and later)</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#KiCad5">KiCad (V4 and V5)</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#KiCad4">KiCad (pre V4)</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#DXDesigner">Mentor DXDesigner</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#PADS">Mentor PADS</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#PCB123">PCB123</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#Proteus">Proteus</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#Pulsonix">Pulsonix</a></li>
+<li><a class="transition nav_link" href="https://www.snapeda.com/about/import/#SnapEDA-snap">SnapEDA (.snap)</a></li>
+</ul>
+</div>
+<div class="span9 faq-content">
+<h1>SnapEDA Import Guide</h1>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="Altium">
+<h2 itemprop="name">Altium</h2>
+<div class="warning_sect">
+<p>
+Most Altium files are saved in the native format (<strong>.IntLib</strong>) however you may occasionally run into cases where they're saved as <strong>.lia</strong>. After unzipping the file, check the extension of the file you downloaded and follow the relevant instructions below.
+</p>
+</div>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<h3 class="faq-q">Import Steps (.IntLib)</h3>
+<p>Follow these steps to import symbols &amp; footprints into Altium Designer using the <em>.intlib</em> format:</p>
+<div class="list_section">
+<ol>
+<li>Double-click the downloaded .intlib file or drag &amp; drop the downloaded .intlib file to the Altium window.</li>
+<li>A pop-up window will appear. You have a choice to <em>Extract Sources</em> or <em>Install Library</em>.</li>
+</ol>
+<div class="warning_sect">
+<p><em>Extract Sources</em> will allow you to open the library into the Projects window as an Integrated Library project.</p>
+<br>
+<p><em>Install Library</em> will install the library and add it to your Libraries Panel.</p>
+</div>
+</div>
+<div class="video_frame">
+<iframe width="600" height="337.5" src="./Import Guide _ SnapEDA_files/LmAzsCiBLCs.html" frameborder="0" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<h3 class="faq-q">Import Steps (.lia)</h3>
+<div class="warning_sect">
+<p>Before import, make sure the P-CAD importer is installed. To do so, follow these instructions <a href="https://blog.snapeda.com/2019/03/20/how-to-install-the-p-cad-importer-in-altium-designer/" target="_blank">here</a>.</p>
+</div>
+<p>Follow these steps to import symbols &amp; footprints into Altium Designer using the <em>.lia</em> format:</p>
+<div class="list_section">
+<ol>
+<li>Open Altium</li>
+<li>Drag the <em>.lia</em> file into Altium. This will invoke the <em>P-CAD Import Wizard</em>.</li>
+<li>Click <em>Next</em> until you reach the <em>Current Layer Mapping</em> window.</li>
+<li>If present, map the layers as follows:<br><br>
+<ul>
+<li class="nostyle">For <em>Layer '10'</em>, choose: <em>Mechanical Layer 1</em></li>
+<li class="nostyle">For <em>Layer '20'</em>, choose: <em>Mechanical Layer 13</em></li>
+<li class="nostyle">For <em>Layer '21'</em>, choose: <em>Mechanical Layer 15</em></li>
+</ul>
+</li>
+<li>Follow the remaining prompts to complete the import</li>
+</ol>
+</div>
+<h3 class="faq-q" itemprop="name">FAQ for Altium Import</h3>
+<div class="accordion panel-group" role="tablist" aria-multiselectable="true">
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="faq_altium_headingTwo">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#altium-two" aria-expanded="true" aria-controls="collapseTwo">
+The footprint I'm using has board cutouts. Why? What layer are they on?
+</a>
+</h4>
+</div>
+<div id="altium-two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="faq_altium_headingTwo">
+<div class="panel-body">
+<p>If a footprint has non-circular plated through-holes (ex: slots), we export them as board cutouts. If you follow the instructions above, these cutouts will appear on Mechanical Layer 1. When manufacturing your design, please ensure that you send gerber files for Mechanical Layer 1 to your PCB manufacturer.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingThree">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#collapse-three" aria-expanded="true" aria-controls="collapseThree">
+Why do slotted holes appear round on the PCB footprint I downloaded?
+</a>
+</h4>
+</div>
+<div id="collapse-three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+<div class="panel-body">
+<p>All SnapEDA parts have slots represented on the cutout layer (Mechanical Layer 1 as per the instructions above). This cutout will override the round hole shown on the footprint, thereby generating the desired results.</p>
+<p>You can manually modify the slotted holes size and shape to be defined as slots by following these steps:
+</p><ol>1. Double-click on the pad to show the <em>Properties</em></ol>
+<ol>2. Under <em>Hole information</em>, change <em>Round</em> to <em>Slot</em></ol>
+<ol>3. Adjust the length appropriately</ol><p></p>
+<p class="about_slotted_holes">Read more about slotted holes <a class="faq-q__accordion__link" href="https://blog.snapeda.com/2019/05/30/faq-how-does-snapeda-create-slotted-holes-in-altium/">here</a></p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingOne">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#collapse-four" aria-expanded="true" aria-controls="collapseOne">
+Why can't I change the mechanical layers in the Current Layer Mapping window?
+</a>
+</h4>
+</div>
+<div id="collapse-four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+<div class="panel-body">
+<p>In some versions of Altium, the mouse input doesn't work in the dropdown. If this happens, use your keyboard to change the dropdown value instead. To see how, please refer to <a style="text-decoration:inherit;font-size:inherit;display:inline;" href="https://www.useloom.com/share/cbc96e694b36436887a6748a021a7140">this video</a>.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingFive">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#collapse-five" aria-expanded="true" aria-controls="collapseOne">
+I got a "Design file not recognized" error. How can I fix this?"
+</a>
+</h4>
+</div>
+<div id="collapse-five" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+<div class="panel-body">
+<p>This happens when you try to import a P-CAD library file into the P-CAD Design Files window. To fix this, just click Next on that window to get to the P-CAD Library import window.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingFour">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#collapse-six" aria-expanded="true" aria-controls="collapseOne">
+What should I do if Layer 10, 21, or 21 is not present?
+</a>
+</h4>
+</div>
+<div id="collapse-six" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+<div class="panel-body">
+<p>If the layer is not present, simply ignore this step. That means that there is no information to import on that layer.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="CadenceV17">
+<div itemscope="" itemtype="http://schema.org/Question">
+<h2 itemprop="name">Cadence Allegro</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<div class="video_frame">
+<iframe width="600" height="337.5" src="./Import Guide _ SnapEDA_files/2f4jrTw8sNc.html" frameborder="0" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<h3 class="faq-q">Import Steps for Cadence Allegro V16 &amp; V17</h3>
+<div class="list_section">
+<ol>
+<li>Simply double-click on the .dra file to open it in Allegro.</li>
+</ol>
+</div>
+<div class="warning_sect warning_slots">
+<div class="warning_slots__important_icon">
+<i style="font-style: normal!important;" class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i>
+</div>
+<div>
+<p>If your footprint has slotted holes, please read how to import them <a href="https://blog.snapeda.com/2019/05/30/faq-how-does-snapeda-create-slotted-holes-in-orcad-allegro/">here</a></p>
+</div>
+</div>
+<div class="video_frame" style="margin-top:75px;">
+<iframe width="600" height="337.5" src="./Import Guide _ SnapEDA_files/jcfKlL2dORg.html" frameborder="0" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<h3 class="faq-q">Import Steps for Cadence Allegro Versions before V16</h3>
+<div class="list_section">
+<ol>
+<li>Add files to your padstack path (<a class="nav_link nav_link_expand" href="https://www.snapeda.com/about/import/#allegro_faq_headingThree" data-expand="#allegro_faq_headingThree">See How</a>)</li>
+<li>Double-click <em>allegro-builder.bat</em> to run the script</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="warning_sect">
+<p><strong>First time importing a part from SnapEDA?</strong></p>
+<p>Make sure you have completed the first-time setup tasks (<a class="nav_link nav_link_expand" href="https://www.snapeda.com/about/import/#headingSeven17" data-expand="#headingSeven17">See How</a>)</p>
+</div>
+<h3 class="faq-q" itemprop="name">FAQ for Cadence Allegro Import</h3>
+<div class="accordion panel-group" role="tablist" aria-multiselectable="true">
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingOne">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#allegro-one" aria-expanded="true" aria-controls="collapseOne">
+What if the batch file won’t run on my machine?
+</a>
+</h4>
+</div>
+<div id="allegro-one" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+<div class="panel-body">
+<p>Footprints can also be imported manually. The second half of the tutorial video above also demonstrates these steps.</p>
+<h4>1. Add files to your padstack path</h4>
+<h4>2. Import pad shapes</h4>
+<div class="warning_sect">
+<p><strong>Note:</strong> some parts don’t contain pad shapes. This step can be skipped if no <strong>.psx</strong> files exist.</p>
+</div>
+<p>For each pad shape script file (<em>*.psx</em>) in the .zip file:</p>
+<div class="list_section">
+<ol>
+<li>In Allegro, select <em>File &gt; Script</em></li>
+<li>In the Scripting window, click <em>Browse</em></li>
+<li>In the file browser window, change <em>File of Type</em> to <em>All Files (*.*)</em></li>
+<li>Select the file ending in <em>.psx</em>, then click <em>Open</em>.</li>
+<li>In the Scripting window, click <em>Replay</em>.</li>
+</ol>
+</div>
+<h4>3. Import padstacks</h4>
+<p>For each of the pad designer script files (<em>*_pad.scr</em>) in the .zip file:</p>
+<div class="list_section">
+<ol>
+<li>From the Windows Start Menu, navigate to the Cadence application folder, then select <em>PCB Editor Utilities &gt; Pad Designer</em></li>
+<li>In the Pad Designer window, select <em>File &gt; Script</em></li>
+<li>In the Scripting window, click <em>Browse</em></li>
+<li>In the file browser window, change <em>"File of Type"</em> to <em>"Script Files" (*.scr)</em></li>
+<li>Select a file ending in <em>"_pad.scr"</em>, then click <em>Open</em></li>
+<li>In the Scripting window, click <em>Replay</em></li>
+</ol>
+</div>
+<h4>4. Import package</h4>
+<div class="list_section">
+<ol>
+<li>In Allegro, select <em>File &gt; Script</em></li>
+<li>In the Scripting window, click <em>Browse</em></li>
+<li>Select the file ending in <em>"_pkg.scr"</em> for the part downloaded from SnapEDA, then click <em>Open</em></li>
+<li>In the Scripting window, click <em>Replay</em></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingTwo">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#allegro-two" aria-expanded="true" aria-controls="collapseTwo">
+How should I handle multiple installations of Cadence Allegro?
+</a>
+</h4>
+</div>
+<div id="allegro-two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+<div class="panel-body">
+<p>If you have multiple installations of Cadence Allegro on your machine, it may be necessary to use the <em>Cadence SPB Switch Release</em> utility to ensure environment variables are properly set.</p>
+<div class="list_section">
+<ol>
+<li>From the <em>Start</em> menu, choose <em>Programs</em>, then choose <em>Cadence SPB Switch Release</em></li>
+<li>From the list in the <em>Select Release frame</em>, select the release version you want to switch to. Any changes to environment variables will appear in the <em>Env Changes</em> list.</li>
+<li>Click <em>OK</em> to make the switch</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="allegro_faq_headingThree">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#allegro-three" aria-expanded="true" aria-controls="collapseThree">
+How do I edit the padstack path?
+</a>
+</h4>
+</div>
+<div id="allegro-three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="allegro_faq_headingThree">
+<div class="panel-body">
+<div class="video_frame">
+<iframe width="558" height="314" src="./Import Guide _ SnapEDA_files/zztjKXVFWfw.html" frameborder="0" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<div class="list_section">
+<ol>
+<li>In Allegro, select <em>Setup &gt; User Preferences</em></li>
+<li>In Categories, select <em>Paths &gt; Library</em></li>
+<li>In Category : Library, click <em>...</em> after padpath</li>
+<li>The <em>Items</em> window shows where you should place a copy of the downloaded .zip archive file contents. </li>
+<li>Restart Allegro upon making changes to the padpath settings</li>
+</ol>
+</div>
+<div class="warning_sect">
+<p><strong>Note:</strong> Frequent users may want to create a new path for each download to store padstacks.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingFour">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#allegro-four" aria-expanded="true" aria-controls="collapseFour">
+I’m using an older version of Allegro and it’s repeatedly asking to import the padstack.
+</a>
+</h4>
+</div>
+<div id="allegro-four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+<div class="panel-body">
+<p>If this happens, simply close the command window.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingFive">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#allegro-five" aria-expanded="true" aria-controls="collapseFive">
+I encountered an error stating "E- Command not found: newdrawfillin ..." while trying to run the *_pkg.scr file
+</a>
+</h4>
+</div>
+<div id="allegro-five" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+<div class="panel-body">
+<p>
+This error indicates that you must point the Allegro "scriptpath" to the downloaded files.
+Directions to update Allegro scriptpath
+</p>
+<div class="list_section">
+<ol>
+<li>In Allegro, select <em>Setup &gt; User Preferences</em></li>
+<li>In Categories, select <em>Paths &gt; Library</em></li>
+<li>In Category : Library, click <em>...</em> after scriptpath</li>
+<li>The scriptpath <em>Items</em> window shows where Allegro looks to find script files</li>
+<li>Place a copy of the downloaded .zip archive file contents in one of the paths in the scriptpath</li>
+<li>Restart Allegro upon making changes to the padpath settings</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingSix">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#allegro-six" aria-expanded="true" aria-controls="collapseSix">
+My Allegro footprint imported, but the pads are missing.
+</a>
+</h4>
+</div>
+<div id="allegro-six" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+<div class="panel-body">
+<p>
+This error indicates that the *.pad files have not been created successfully or Allegro cannot locate
+the *.pad files at any location in its pad path. Follow these steps to troubleshoot this issue:
+</p>
+<div class="list_section">
+<ol>
+<li>Verify the *.pad files have been created successfully during the import process</li>
+<ul>
+<li>Each *_pad.scr in the downloaded *.zip file will create a *.pad file after successful execution</li>
+<li>
+If the *.pad files were not generated by the allegro-builder.bat file, follow the instructions above under "What if the batch file won't run on my machine?" to manually create the *.pad files
+</li>
+</ul>
+<li>Verify that Allegro can find the *.pad files in its padpath</li>
+<ul>
+<li>
+Follow the instructions above under "How do I edit the padstack path?" to point Allegro to the where the *.pad files are stored.
+</li>
+</ul>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingSeven17">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#allegro-seven" aria-expanded="true" aria-controls="collapseSeven17">
+What are the first-time setup tasks?
+</a>
+</h4>
+</div>
+<div id="allegro-seven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven17">
+<div class="panel-body">
+<p>After you download your first part on SnapEDA, you need to update your Windows PATH environment variable to point to the Allegro V17 executables.</p>
+<div class="warning_sect">
+<p><strong>Note:</strong> This step requires administrative access to the computer. Those without administrative access should follow the manual import steps detailed above.</p>
+</div>
+<div class="list_section">
+<ol>
+<li>Find the folder that contains the Allegro executables located at <em>[Allegro V17 installation path]/tools/bin</em></li>
+<li>Copy this file path to the clipboard for later use</li>
+<li>Go to the <em>Windows</em> start menu and search for <em>Control Panel</em></li>
+<li>Double click on <em>System</em> within the control panel</li>
+<li>Click on <em>Advanced system settings</em> on the left hand side of the screen</li>
+<li>Click on the <em>Environment Variables</em> button</li>
+<li>Select the column labeled <em>Path</em> in the <em>System Variables</em> table at the bottom of screen</li>
+<li>Click the <em>Edit..</em> button</li>
+<li>Click <em>New</em> to add a new folder to your system's path</li>
+<li>Paste the file path from <em>Step 1</em> into the new slot</li>
+<li>Click <em>OK</em> to save the environment variables</li>
+</ol>
+</div>
+<div class="warning_sect">
+<p><strong>Why is this first-time step required?</strong></p>
+<p>The automated batch file included with the exported Allegro V17 files relies on Windows’ ability to execute allegro scripts from the command line from any location in the file system. The location of the allegro executable files changed from Allegro V16 to V17 and Windows cannot locate these files without being pointed to the right location.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="OrCAD">
+<h2 itemprop="name">OrCAD Capture</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<div class="video_frame">
+<iframe width="600" height="337.5" src="./Import Guide _ SnapEDA_files/68wbFvUjQvY.html" frameborder="0" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<h3 class="faq-q">Import Steps</h3>
+<p>Follow these steps to import into OrCAD Capture:</p>
+<div class="list_section">
+<ol>
+<li>Select <em>File &gt; Import Design.</em></li>
+<li>Select the <em>EDIF</em> tab</li>
+<li>For the <em>Open</em> field, click the <em>Browse...</em> button, and select the <em>.edf</em> file you downloaded</li>
+<li>For the <em>Configuration file</em> field, click the <em>Browse...</em> button, then select the <em>EDIF2CAP.CFG</em> file included in the .zip folder</li>
+<li>Click <em>Ok</em></li>
+<li>Click <em>File &gt; Open &gt; Design...</em> </li>
+<li>Navigate into the downloaded folder. Select <em>Files of type</em> to <em>All Files (*.*)</em> </li>
+<li>Select the <em>.olb</em> file generated in the same folder and click <em>Open</em>. </li>
+</ol>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="CircuitStudio">
+<h2 itemprop="name">CircuitStudio</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<div class="warning_sect">
+<p>
+Most CircuitStudio files are saved in the native format <strong>.intLib. </strong> However, you may occasionally run into cases where they're saved as .lia. After unzipping the file, check the extension of the file you downloaded and follow the relevant instructions below. </p>
+</div>
+<h3 class="faq-q">For Native format (.intlib):
+</h3>
+<div class="list_section">
+<ol>
+<li>Double-click the downloaded <em>.intlib</em> file or drag &amp; drop the downloaded <em>.intlib</em> file into the CircuitStudio window.</li>
+<li> A pop-up window will appear. You have two choices: <em>Extract Sources</em> or <em>Install Library.</em></li>
+</ol>
+<div class="circuit-img">
+<img src="./Import Guide _ SnapEDA_files/image.png">
+</div>
+<div class="warning_sect">
+<p><em>Extract Sources</em> will allow you to open the library into the Projects window as an Integrated Library project.</p>
+<br>
+<p><em>Install Library</em> will install the library and add it to your Libraries Panel.</p>
+</div>
+</div>
+<h3 class="faq-q">For P-CAD format (.lia):
+</h3>
+<div class="video_frame">
+<iframe width="600" height="337.5" src="./Import Guide _ SnapEDA_files/gq39toJteO8.html" frameborder="0" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<p>Follow these steps to import symbols &amp; footprints into CircuitStudio:</p>
+<div class="list_section">
+<ol>
+<li>Go to <em>File &gt; New Project &gt; Integrated Library</em></li>
+<li> Go to <em>File &gt; Import</em>, and choose <em>P-CAD Libraries</em></li>
+<li>Select the file downloaded from SnapEDA and click <em>Open</em></li>
+<li>Click on <em>Save</em> in the pop-up notification</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="CR-8000">
+<h2 itemprop="name">CR-8000</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<p>Follow these steps to import into CR-8000</p>
+<h4>Extract files to your preferred path</h4>
+<div class="list_section">
+<ol>
+<li>Extract the <em>.zip file</em></li>
+<li>Double click on the <em>.bat</em> file to run the batch file and choose option 2 for <em>CR-8000</em> exporter.</li>
+<li>The <em>.bat</em> file will generate the following files in the CR folder</li>
+<ul>
+<li><em>.ftp:</em> Footprint, Padstack, Pad information</li>
+<li><em>.smb:</em> Schematic symbol</li>
+<li><em>.pkg:</em> Package information of library</li>
+<li><em>.prt:</em> Part, Pin Assignment, Pin Function</li>
+</ul>
+</ol>
+</div>
+<h4>To import the symbol</h4>
+<div class="list_section">
+<ul>
+<li><strong>Option 1:</strong> Go to generated CR folder, double click on <em>.smb</em> file to open symbol.</li><br>
+<li><strong>Option 2:</strong> Open <em>Symbol Editor</em> Go to File ⟶ Open Library,
+browse to the CR folder where you extracted the contents from the zip file, and select <em>.smb</em> file.</li>
+</ul>
+</div>
+<h4>To import the Footprint, Part, Package information</h4>
+<div class="list_section">
+<ol>
+<li>Open <em>Component Editor</em></li>
+<li>Drag the files generated from the batch run (.ftp, .pkg, .prt) to the <em>Component Editor.</em></li>
+<li>To open the footprint select Footprint from the drop-down, and click the Footprint on the right.</li>
+<li>To check the part information select Part from the drop-down, and click the Part on the right</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="DesignSpark">
+<h2 itemprop="name">DesignSpark PCB</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<p>Follow these steps to import into DesignSpark PCB:</p>
+<h4>Extract files to your preferred path</h4>
+<div class="list_section">
+<ol>
+<li>Extract the <em>.zip file</em></li>
+<li>In DesignSpark PCB, go to <em>File &gt; Libraries</em> or click the <em>Libraries</em> icon on the File bar.</li>
+</ol>
+</div>
+<h4>To import the symbol</h4>
+<div class="list_section">
+<ol>
+<li>Click on the <em>Schematic Symbols</em> tab</li>
+<li>Create a new library by clicking on <em>New Lib...</em> or choose an existing library that you have</li>
+<li>Browse to your preferred folder and <em>save</em> the new library</li>
+<li>Click on <em>Add File</em> and browse to the folder where you extracted the contents from the zip file</li>
+<li>Select the <em>.dsl</em> file</li>
+<li>Select the default <em>Technology File</em></li>
+</ol>
+</div>
+<h4>To import the footprint</h4>
+<div class="list_section">
+<ol>
+<li>Click on the <em>PCB Symbols</em></li>
+<li>Create a new library by clicking on <em>New Lib...</em> or choose an existing library that you have</li>
+<li>Browse to your preferred folder and save the new library</li>
+<li>Click on <em>Add File</em> and browse to the folder where you extracted the contents from the zip file</li>
+<li>Select the <em>.dsl</em> file and click Open</li>
+<li>Select the default <em>Technology File</em> (<em>Double Sided</em>)</li>
+</ol>
+</div>
+<h4>To import the part</h4>
+<div class="list_section">
+<ol>
+<li>Click on the <em>Components tab</em></li>
+<li>Create a new library by clicking on <em>New Lib...</em> or choose an existing library that you have</li>
+<li>Browse to your preferred folder and <em>save</em> the new library</li>
+<li>Click on <em>Add File</em> and browse to the folder where you extracted the contents from the zip file</li>
+<li>Select the <em>.dsl</em> file</li>
+<li>Close the <em>Library Manager</em></li>
+<li>Go to your <em>Schematic</em> or <em>PCB Design</em></li>
+<li>From the Menu bar go to <em>Add &gt; Component (F3)</em> and select the component from your library</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="DipTrace">
+<h2 itemprop="name">DipTrace</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<p>Follow these steps to import into DipTrace:</p>
+<h4>Import Symbols</h4>
+<div class="list_section">
+<ol>
+<li>Launch <em>DipTrace Launcher</em>.</li>
+<li>Select <em>Component Editor</em></li>
+<li>From the main menu click <em>Library</em> and select <em>Open</em></li>
+<li>Select the <em>.eli</em> file downloaded from SnapEDA and click <em>Open</em></li>
+<li>Use the Select Component menu on the left pane of the window to search for the imported symbol and double-click to open.</li>
+</ol>
+</div>
+<h4>Import Footprints</h4>
+<div class="list_section">
+<ol>
+<li>Launch <em>DipTrace Launcher</em>.</li>
+<li>Select <em>Pattern Editor</em>.</li>
+<li>From the main menu click <em>Pattern</em> and select <em>Insert from Another Library...</em></li>
+<li>In the Insert Patterns windows, click on the drop-down menu for Libraries and select <em>Other Libraries</em>.</li>
+<li>Choose the library you downloaded from SnapEDA, then click on the results that shows up in the Components section and click <em>Insert</em> to open it.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="Eagle">
+<h2 itemprop="name">Eagle</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<div class="video_frame">
+<iframe width="600" height="337.5" src="./Import Guide _ SnapEDA_files/U0eaQQYukCw.html" frameborder="0" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<p>Follow these steps to import into Eagle:</p>
+<div class="list_section">
+<ol>
+<li>Open Eagle and go to the <em>Control Panel</em></li>
+<li>Expand Libraries and you’ll see the <em>lbr</em> folder</li>
+<li>Locate the part you’ve downloaded from SnapEDA and drag it to the <em>lbr</em> folder in Eagle’s control panel</li>
+<li>You’ll now see the new part displayed under the <em>lbr</em> folder, right click and select <em>use</em></li>
+<li>The part is now ready to be used in a schematic or board</li>
+</ol>
+</div>
+<div class="warning_sect">
+<p><strong>Tip:</strong> To better organize your parts in Eagle, you can right-click on the lbr folder and create a new ‘SnapEDA’ folder to store the parts you’ve downloaded from SnapEDA</p>
+</div>
+<div class="warning_sect warning_slots">
+<div class="warning_slots__important_icon">
+<i style="font-style: normal!important;" class="fa fa-exclamation-circle fa-lg" aria-hidden="true"></i>
+</div>
+<div class="warning_slots__text">
+<p>If your footprint has slotted holes, please read how to import them <a href="https://blog.snapeda.com/2019/05/30/how-snapeda-creates-slotted-holes-on-eagle/">here</a></p>
+</div>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="EasyPC">
+<h2 itemprop="name">Easy-PC</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<p>Follow these steps to import into Easy-PC</p>
+<h4>Extract files to your preferred path</h4>
+<div class="list_section">
+<ol>
+<li>Extract the <em>.zip file</em></li>
+<li>In Easy-PC, go to <em>File &gt; Libraries</em> or click the <em>Libraries</em> icon on the File bar.</li>
+</ol>
+</div>
+<h4>To import the symbol</h4>
+<div class="list_section">
+<ol>
+<li>Click on the <em>Schematic Symbols</em> tab</li>
+<li>Create a new library by clicking on <em>New Lib...</em> or choose an existing library that you have</li>
+<li>Browse to your preferred folder and <em>save</em> the new library</li>
+<li>Click on <em>Add File</em> and browse to the folder where you extracted the contents from the zip file</li>
+<li>Select the <em>.epl</em> file</li>
+<li>Select the default <em>Technology File</em></li>
+</ol>
+</div>
+<h4>To import the footprint</h4>
+<div class="list_section">
+<ol>
+<li>Click on the <em>PCB Symbols</em></li>
+<li>Create a new library by clicking on <em>New Lib...</em> or choose an existing library that you have</li>
+<li>Browse to your preferred folder and save the new library</li>
+<li>Click on <em>Add File</em> and browse to the folder where you extracted the contents from the zip file</li>
+<li>Select the <em>.epl</em> file and click Open</li>
+<li>Select the default <em>Technology File</em> (<em>Double Sided</em>)</li>
+</ol>
+</div>
+<h4>To import the part</h4>
+<div class="list_section">
+<ol>
+<li>Click on the <em>Components tab</em></li>
+<li>Create a new library by clicking on <em>New Lib...</em> or choose an existing library that you have</li>
+<li>Browse to your preferred folder and <em>save</em> the new library</li>
+<li>Click on <em>Add File</em> and browse to the folder where you extracted the contents from the zip file</li>
+<li>Select the <em>.epl</em> file</li>
+<li>Close the <em>Library Manager</em></li>
+<li>Go to your <em>Schematic</em> or <em>PCB Design</em></li>
+<li>From the Menu bar go to <em>Add &gt; Component (F3)</em> and select the component from your library</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="eCADSTAR">
+<h2 itemprop="name">eCADSTAR</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<p>Follow these steps to import into eCADSTAR</p>
+<div class="list_section">
+<ul>
+<li>The eCADSTAR uses the tool <em>eCSLibMerge.exe</em> to merge a zip file containing library ASCII data into the user’s library.</li>
+</ul>
+</div>
+<div class="warning_sect">
+<p><strong>Note:</strong> <em></em> For eCADSTAR to consider .zip for library import, version.bin must be at the top-level directory.
+If you unzip the directory, select version.bin and folder to zip it again, instead of zipping the whole directory.</p>
+</div>
+<h4>To import the Library</h4>
+<div class="list_section">
+<ol>
+<li>Open <em>eCSLibMerge.exe</em> select the .zip file you downloaded.</li>
+<li>eCSLibMerge.exe will merge the zip file containing library data
+into the user’s library as specified within the Product Settings dialog of eCADSTAR.</li>
+<li>Open <em>eCADSTAR Library Editor</em> Go to File → Configuration → Product Settings.</li>
+<li>In the Product Settings, go to the Library. It will contain the Location of the path
+where all the libraries will be merged.</li>
+<li>To check the imported library, In <em>eCADSTAR Library Editor</em> go to File → Open Library,
+select the library path as mentioned in Product Settings.</li>
+<li>Use the search bar on the left pane of the window (Library Searcher)
+to search for the imported part.</li>
+</ol>
+</div>
+<div class="warning_sect">
+<p><strong>Note:</strong> <em></em> eCSLibMerge.exe is located in the bin folder of the eCADSTAR installation (eCADSTAR/eCADSTAR 2021.0/bin/).</p>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="ExpressPCBPlus">
+<h2 itemprop="name">ExpressPCB Plus</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<p>Follow these steps to import symbols &amp; footprints into ExpressPCB Plus:</p>
+<h4>Import Symbols</h4>
+<div class="list_section">
+<ol>
+<li>Launch <em>ExpressSCH Plus.</em></li>
+<li>Click on <em>Component &gt; Component &amp; symbol Manager</em></li>
+<li>Click on <em>Import Eagle Part</em></li>
+<li>Select the <em>.lbr</em> file downloaded from SnapEDA and click <em>Open</em></li>
+<li>In the success popup click <em>OK</em></li>
+<li>Click on <em>Done</em></li>
+</ol>
+</div>
+<h4>Import Footprints</h4>
+<div class="list_section">
+<ol>
+<li>Launch <em>ExpressPCB Plus.</em></li>
+<li>Open a new or existing project</li>
+<li>Click on <em>File &gt; Import Eagle File</em></li>
+<li>Select the <em>.lbr</em> file downloaded from SnapEDA and click <em>Open</em></li>
+<li>In the success popup click <em>OK</em></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="Fusion360">
+<h2 itemprop="name">Autodesk Fusion 360</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<p>Follow these steps to import symbols &amp; footprints into Autodesk Fusion 360:</p>
+<h4>Import Symbols and Footprints</h4>
+<div class="list_section">
+<ol>
+<li>Launch <em>Autodesk Fusion 360.</em></li>
+<li>From the main menu, next to the Data Panel, click on <em>File</em></li>
+<li>Click on <em>Open</em> and then <em>Open from my computer</em></li>
+<li>Select the <em>.lbr</em> file downloaded from SnapEDA and click <em>Open</em></li>
+<li>The library will be loaded and from the <em>Device tab</em>, you will be able to see the symbol and the footprint, double-click to open them.</li>
+</ol>
+</div>
+<div class="warning_sect">
+<p><strong>Note:</strong> If you could only download a footprint, go to the <em>Footprints tab</em> and double-click on the footprint to open it.</p>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="KiCad6" style="font-size: 14px;">
+<h2 itemprop="name">KiCad (V6 and later)</h2>
+<h3 class="faq-q">Import Steps for Kicad (V6 and later)</h3>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<h4>Import Symbols</h4>
+<p>Using the <em>*.kicad_sym</em> file:</p>
+<div class="list_section">
+<ol>
+<li>Extract the content of the downloaded <i>*.zip</i> file.</li>
+<li>In KiCad, go to <em>Preferences.</em></li>
+<li>Click on <em>Manage Symbol Libraries.</em></li>
+<li>On the <em>Global Libraries</em> tab, click on <em>Browse Libraries</em> (the <em>small folder icon</em>)</li>
+<li>Select the <i>.kicad_sym</i> file, then click <em>Open.</em></li>
+<li>The library will appear, click <em>OK.</em></li>
+<li>Click on <em>Symbol Editor</em>.</li>
+<li>Type on the filter search field, and navigate to the symbol you imported.<br>Double-click over it to open the file.</li>
+</ol>
+</div>
+<h4>Import Footprints</h4>
+<p>Using the <em>*.kicad_mod</em> file:</p>
+<div class="list_section">
+<ol>
+<li>Extract the content of the downloaded <i>*.zip</i> file.</li>
+<li>In KiCad, go to <em>Preferences</em>.</li>
+<li>Click on <em>Manage Footprint Libraries</em>.</li>
+<li>On the <em>Global Libraries</em> tab, click on <em>Browse Libraries</em> (the <em>small folder icon</em>)</li>
+<li>Navigate to the <em>Folder</em> where the <i>.kicad_mod</i> file is located. Then click <em>Select Folder</em>.</li>
+<div class="warning_sect">
+<p><strong>Note:</strong> You will not normally see the <i>.kicad_mod</i> file on this step because you need to <em>select the folder where it is located</em>.</p>
+</div>
+<li>The library will appear, click <em>OK</em>.</li>
+<li>Click on <em>Footprint Editor</em>.</li>
+<li>Type on the filter search field, and navigate to the footprint you imported.<br>Double-click over it to open the file.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="KiCad5">
+<h2 itemprop="name">KiCad (V4 and V5)</h2>
+<div class="video_frame">
+<iframe width="600" height="337.5" src="./Import Guide _ SnapEDA_files/urHI1WWdr7s.html" frameborder="0" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<h3 class="faq-q">Import Steps For KiCad (V4)</h3>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<h4>Import Symbols and Footprints</h4>
+<div class="list_section">
+<ol>
+<li>Extract the content of the downloaded <em>.zip</em> file</li>
+<li>In KiCad, go to <em>Tools &gt; Open Eeschema</em></li>
+<li>Select <em>Preferences &gt; Component Libraries</em></li>
+<li>In the <em>Component library files section</em>, click <em>Add</em></li>
+<li>Select the <em>.lib</em> library file</li>
+<li>Go to <em>Tools &gt; Open PcbNew</em></li>
+<li>Click <em>Preferences &gt; Footprint Libraries Wizard</em></li>
+<li>Follow the steps in the wizard to select and import the footprint library (<em>.mod</em> file)</li>
+</ol>
+</div>
+<div class="warning_sect">
+<p><strong>Tip:</strong> If you can't find the footprint after import, please try these steps:</p>
+<ol>
+<li>Select <em>Preferences &gt; Footprint Libraries Manager</em></li>
+<li>In PCB Library Tables click <em>Append Library</em></li>
+<li>Select the <em>Legacy</em> type</li>
+<li>In the library path section, navigate to the location where you previously extracted the ZIP contents (where the .mod file should be), then copy and paste the library path</li>
+<li>Select a nickname for your library and click <em>OK</em></li>
+</ol>
+</div>
+</div>
+<h3 class="faq-q">Import Steps for Kicad (V5)</h3>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<h4>Import Symbols</h4>
+<div class="video_frame">
+<iframe width="600" height="337.5" src="./Import Guide _ SnapEDA_files/mQSgIpleVvU.html" frameborder="0" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<p>Using the <em>*.lib</em> file:</p>
+<div class="list_section">
+<ol>
+<li>Extract the content of the downloaded <i>*.zip</i> file.</li>
+<li>In KiCad, go to <em>Tools &gt; Edit Schematic Symbols</em>.</li>
+<li>Click on <em>Preferences &gt; Manage Symbol Libraries</em>.</li>
+<li>On the <em>Global Libraries</em> tab, click on <em>Browse Libraries</em> (the <em>small folder icon</em>)</li>
+<li>Select the <i>*.lib</i> file. Then click <em>Open</em>. </li>
+<li>The library will appear, click <em>OK</em>.</li>
+<li>Type on the filter search field, and navigate to the symbol you imported. Double-click over it to open the file.</li>
+</ol>
+</div>
+<h4>Import Footprints</h4>
+<div class="video_frame">
+<iframe width="600" height="337.5" src="./Import Guide _ SnapEDA_files/AyxHq_gL9sg.html" frameborder="0" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<p>Using the <em>*.kicad_mod</em> file:</p>
+<div class="list_section">
+<ol>
+<li>Extract the content of the downloaded <i>*.zip</i> file.</li>
+<li>In KiCad, go to <em>Tools &gt; Edit PCB Footprints</em>.</li>
+<li>Click on <em>Preferences &gt; Manage Footprint Libraries</em>.</li>
+<li>On the <em>Global Libraries</em> tab, click on <em>Browse Libraries</em> (the <em>small folder icon</em>)</li>
+<li>Navigate to the Folder where the <i>*.kicad_mod</i> file is located. Then click <em>Open</em>, and the library will appear. </li>
+<li>In the table, make sure that the <em>Plugin Type</em> is set to <em>KiCad</em>. Then click OK.</li>
+<div class="warning_sect">
+<p><strong>Note:</strong> If the path doesn't have the same name, you can rename it as the part.</p>
+</div>
+<li>Type on the filter search field, and navigate to the footprint you imported. Double-click over it to open the file.</li>
+</ol>
+</div>
+<p>Using the <em>*.mod</em> file:</p>
+<div class="list_section">
+<ol>
+<li>Follow the same steps above from step 1 to step 4.</li>
+<li>In the table, make sure that the <em>Plugin Type</em> is set to <em>Legacy</em>. Then click <em>OK</em>.</li>
+<li>Toggle the search tree on, and navigate to the footprint you imported. Double-click over it to open the file.</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="KiCad4">
+<h2 itemprop="name">KiCad (pre V4)</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<h3 class="faq-q">Import Steps For Older Versions of KiCad</h3>
+<h4>Import Symbols</h4>
+<div class="list_section">
+<ol>
+<li>Launch <em>Eeschema.</em></li>
+<li>Select <em>Preferences &gt; Library.</em></li>
+<li>In the <em>from...</em> window, in the User Defined Search Path area, click <em>Add.</em></li>
+<li>In the Default Path for Libraries windows, navigate to the location where your previously extracted the ZIP contents, then click <em>Select Folder</em>.</li>
+<li>In the Path type window, click <em>No</em> (unless you use project-specific libraries).</li>
+<li>In the <em>from...</em> window, in the Component Library Files area, click Add.</li>
+<li>In the Library files: window, select the <em>LIB</em> file, then click <em>Open</em>. The symbol now shows in the <em>Component Library Files list</em>.</li>
+<li>In the <em>from...</em> window, click <em>OK</em>.</li>
+</ol>
+</div>
+<h4>Import Footprints</h4>
+<div class="list_section">
+<ol>
+<li>Launch <em>Pcbnew.</em></li>
+<li>Select <em>Preferences &gt; Library</em>.</li>
+<li>In the <em>from...</em> window, in the User defined search paths area, click <em>Add</em>.</li>
+<li>In the Default Path for Libraries windows, navigate to the location where your previously extracted the ZIP contents, then click <em>Select Folder</em>.</li>
+<li>In the Path type window, click <em>No</em> (unless you use project-specific libraries).</li>
+<li>In the <em>from...</em> window, in the Component Library Files area, click <em>Add</em>.</li>
+<li>In the Footprint library files window, select the <em>MOD</em> file, then click <em>Open</em>. The footprint now shows in the Footprint library files list.</li>
+<li>In the <em>from...</em> window, click <em>OK</em>.</li>
+</ol>
+</div>
+</div>
+<h3 class="faq-q" itemprop="name">FAQ for KiCad Import</h3>
+<div class="accordion panel-group" role="tablist" aria-multiselectable="true">
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingTwo">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#kicad-two" aria-expanded="true" aria-controls="collapseTwo">
+Why do slotted holes appear round on the PCB footprint I downloaded?
+</a>
+</h4>
+</div>
+<div id="kicad-two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+<div class="panel-body">
+<p>All SnapEDA parts have slots represented on the Edge.Cuts layer. To be able to find the real shapes of the slotted holes, please select <strong>View</strong> &gt; <strong>Drawing Mode</strong> &gt; <strong>Sketch Pads</strong>.</p>
+<p>Technically, support for these cutouts outlines does not exist in KiCad but it works fine and board manufacturers will understand that this is a cutout in the gerber files. However, you should tell your board house that the information on the gerber file (containing the Edge.Cuts layer) needs to be milled from the board.</p>
+<p class="about_slotted_holes">Read more about slotted holes <a class="faq-q__accordion__link" href="https://blog.snapeda.com/2019/05/30/faq-how-does-snapeda-create-slotted-holes-in-kicad/">here</a></p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading" role="tab" id="headingTwo">
+<h4 class="panel-title">
+<a role="button" data-toggle="collapse" data-parent="#accordion" href="https://www.snapeda.com/about/import/#ki-cad-faq2" aria-expanded="true" aria-controls="collapseTwo">
+Why can't i find the footprint after import?
+</a>
+</h4>
+</div>
+<div id="ki-cad-faq2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+<div class="panel-body">
+<ol>
+<li>Select Preferences &gt; <strong>Footprint Libraries Manager</strong></li>
+<li>In <strong>PCB Library Tables</strong> click <strong>Append Library</strong></li>
+<li>Select the <strong>Legacy</strong> type</li>
+<li>In the library path section, navigate to the location where you previously extracted the ZIP contents (where the .mod file should be), then copy and paste the library path</li>
+<li>Select a nickname for your library and click <strong>OK</strong></li></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="DXDesigner">
+<h2 itemprop="name">DXDesigner</h2>
+<div class="video_frame">
+<iframe width="600" height="337.5" src="./Import Guide _ SnapEDA_files/HvJnTwgkDwg.html" frameborder="0" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<h4>To import parts</h4>
+<div class="list_section">
+<ol>
+<li> Select <em>File &gt; Import &gt; PADS Logic</em></li>
+<li> Go to the <em>Libraries</em> tab</li>
+<li> Click the <em> Add..</em> button and navigate to the <em>*.p file</em> included in your download</li>
+<li> Click <em> Translate </em></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="PADS">
+<h2 itemprop="name">PADS</h2>
+<div class="video_frame">
+<iframe width="600" height="337.5" src="./Import Guide _ SnapEDA_files/WO41MdJaAr0.html" frameborder="0" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<h4>Extract files to your preferred path</h4>
+<div class="list_section">
+<ol>
+<li>Extract the <em>.zip file</em></li>
+<li>Start <em>PADS Layout</em></li>
+<li>Select <em>File &gt; Library</em></li>
+<li>Browse to your preferred library from the drop-down menu, or create a new library if you wish</li>
+</ol>
+</div>
+<h4>To import the symbol</h4>
+<div class="list_section">
+<ol>
+<li>Select the <em>CAE Decals</em> option</li>
+<li>Click <em>Import...</em> and browse to the extracted folder and select the <em>.c</em> library file</li>
+</ol>
+</div>
+<h4>To import the footprint</h4>
+<div class="list_section">
+<ol>
+<li>Select the <em>PCB Decals</em> option</li>
+<li>Click <em>Import...</em> and browse to the extracted folder and select the <em>.d</em> library file</li></ol>
+
+</div>
+<h4>To import the part</h4>
+<div class="list_section">
+<ol>
+<li>Select the <em>Parts</em> option</li>
+<li>Click <em>Import...</em> and browse to the extracted folder and select the <em>.p</em> library file</li>
+</ol>
+</div>
+<h4>How to Link a 3D STEP file to a footprint in PADS layout</h4>
+<div class="list_section">
+<ol>
+<li>Import the <em>footprint</em> and <em>part linkage</em> file (*.d and *.p) </li>
+<li>Place the <em>footprint</em> on a PCB (Via netlist import or ECO mode)</li>
+<li>Open the 3D viewer by going to <em>View &gt; PADS 3D</em></li>
+<li>Right click on the footprint and select <em>Edit Decal</em></li>
+<li>Because the 3D viewer is open, a window will pop up titled 'Align 3D Models.' Under "Parts mapped to selected model" select the part you just added to the board</li>
+<li>Click <em>Import</em> and navigate to the STEP file</li>
+<li>Adjust alignments as necessary</li>
+<li>Go to <em>File &gt; Exit Decal Editor</em> to go back to the board view</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="PCB123">
+<h2 itemprop="name">PCB123</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<p>Follow these steps to import into PCB123:</p>
+<div class="list_section">
+<ol>
+<li>Simply double-click on the <em>.snapeda</em> file and it'll open automatically in PCB123</li>
+</ol>
+</div>
+<div class="warning_sect">
+<p><strong>Tip:</strong> Additionally, you can import by going to <em>File &gt; Import &gt; SnapEDA...</em> and select the .snapeda file you downloaded.</p>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="Proteus">
+<h2 itemprop="name">Proteus</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<div class="video_frame">
+<iframe width="600" height="337.5" src="./Import Guide _ SnapEDA_files/64mXWlidpcw.html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe>
+</div>
+<h3 class="faq-q">Import Steps</h3>
+<p>Follow these steps to import symbols &amp; footprints into Proteus:</p>
+<div class="list_section">
+<ol>
+<li>Click <em>Schematic Capture</em>.</li>
+<li>Click on <em>Library</em> &gt; <em>Import Parts</em>.</li>
+<li>Click <em>Select File</em>. Browse for the <em>.pdif</em> file then click <em>Open</em>.</li>
+<li>Click <em>Import Part</em>. Follow the prompts then click <em>Close</em>.</li>
+</ol>
+</div>
+<div class="warning_sect">
+<p><strong>Note:</strong> <em></em> This only works with Proteus 8.9. To learn how to import <a class="nav_link nav_link_expand" href="https://www.snapeda.com/about/import/#Proteus">watch this video.</a></p>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="Pulsonix">
+<h2 itemprop="name">Pulsonix</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<p>Follow these steps to import into Pulsonix:</p>
+<h4>Extract files to your preferred path</h4>
+<div class="list_section">
+<ol>
+<li>Extract the <em>.zip file</em></li>
+<li>In Pulsonix, go to <em>Setup &gt; Libraries</em></li>
+</ol>
+</div>
+<h4>To import the symbol</h4>
+<div class="list_section">
+<ol>
+<li>Click on the <em>Schematic Symbols</em> tab</li>
+<li>Create a new library by clicking on <em>New Library..</em>.</li>
+<li>Browse to your preferred folder and <em>save</em> the new library</li>
+<li>Click on <em>Import</em> and browse to the folder where you extracted the contents from the zip file</li>
+<li>Select the <em>.plx</em> file</li>
+</ol>
+</div>
+<h4>To import the footprint</h4>
+<div class="list_section">
+<ol>
+<li>Click on the <em>PCB Footprints tab</em></li>
+<li>Create a new library by clicking on <em>New Library..</em>.</li>
+<li>Browse to your preferred folder and save the new library</li>
+<li>Click on <em>Import</em> and browse to the folder where you extracted the contents from the zip file</li>
+<li>Select the <em>.plx</em> file and click Open</li>
+<li>Check the box <em>User Layer Mapping</em> and click <em>OK</em></li>
+<li>On the new window, check Use <em>Mapping File</em> and browse to the folder where you extracted the contents from the zip file</li>
+<li>Open <em>layer_mapping.map</em> and click <em>OK</em></li>
+</ol>
+</div>
+<h4>To import the part</h4>
+<div class="list_section">
+<ol>
+<li>Click on the <em>Parts tab</em></li>
+<li>Create a new library by clicking on <em>New Library...</em></li>
+<li>Browse to your preferred folder and <em>save</em> the new library</li>
+<li>Click on <em>Import</em> and browse to the folder where you extracted the contents from the zip file</li>
+<li>Select the <em>.plx</em> file</li>
+<li>Set technology to <em>[None]</em></li>
+</ol>
+</div>
+</div>
+</div>
+
+<div itemscope="" itemtype="http://schema.org/Question" id="SnapEDA-snap">
+<h2 itemprop="name">SnapEDA (.snap)</h2>
+<div class="faq-a" itemprop="acceptedAnswer" itemscope="" itemtype="http://schema.org/Answer">
+<p>Follow these steps to Place Part / Add to Library to your CAD tool:</p>
+<h4>Installation</h4>
+<div class="list_section">
+<ol>
+<li>Download App <a class="plugin-download" href="https://snapeda-plugins.s3.amazonaws.com/SnapCAD/SnapEDA+Setup.zip" target="_blank" title="SnapEDA Setup.zip" data-type="SnapCAD">here</a>.</li>
+<li>Extract the downloaded <em>SnapEDA Setup.zip</em> file</li>
+<li>Go to the extracted folder and <em>Double-click</em> the <em>SnapEDA Setup.exe</em> to start the installation</li>
+<li>After the installation, you can now use the <em>SnapEDA desktop app</em></li>
+</ol>
+</div>
+<h4>Download &amp; Search via SnapEDA App</h4>
+<div class="list_section">
+<ol>
+<li>Launch <em>SnapEDA</em> launcher.</li>
+<li>Type in keyword on the <em>top right of the App screen</em> and click <em>Search</em>.</li>
+<li>Click the desired part and <em>select CAD tool</em> where you want to <em>place part/add to library</em> </li>
+<li>Select whether you want to <em>Place Part</em> or <em>Add to Library</em> and wait for the CAD tool to open</li>
+<li>You can now place the part or add it to the desired library!</li>
+</ol>
+</div>
+<h4>Download &amp; Search using SnapEDA site</h4>
+<div class="list_section">
+<ol>
+<li>Go to <em>SnapEDA site</em>.</li>
+<li>Search and Go to any <em>part page</em>.</li>
+<li>Click download</li>
+<li>Select <em>Place Part</em> or <em>Add to Library</em> as format</li>
+<li>Wait for the <em>SnapApp</em> to open and select whether you want to <em>Place Part</em> or <em>Add to Library</em> and wait for the CAD tool to open</li>
+</ol>
+</div>
+<h4>Download &amp; Search using Distributor / Supplier site</h4>
+<div class="list_section">
+<ol>
+<li>Go to <em>Distributor / Supplier site</em>.</li>
+<li>Look for Snapeda Button (<em>Symbols, Footprints, 3D Model</em>)</li>
+<li>Click download and follow the instruction</li>
+<li>Select <em>Place Part</em> or <em>Add to Library</em> as format</li>
+<li>Wait for the <em>SnapApp</em> to open and select whether you want to <em>Place Part</em> or <em>Add to Library</em> and wait for the CAD tool to open</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		const url = new URL(window.location.href);
+		const plugin = url.searchParams.get('plugin');
+		if (plugin && plugin.indexOf('ecadstar') != -1) {
+			// Remove navigation bar and footer for plugin=eCADSTAR
+			$('#sticky-footer').remove();
+			$('#nav-logo-link').on('click', function(event) { event.preventDefault(); });
+			$('.nav-bar-items').remove();
+			$('.nav.s-nav-list').remove();
+			$('ul.nav').remove();
+			$('#navbar-search-form').addClass('pull-right');
+			$('#navbar-search-form').css('margin-right', '40px');
+			$('#navbar-search').remove();
+		}
+	})
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".plugin-download").on("click", function(){
+			type = $(this).attr('data-type');
+			const properties = {
+				'Type': type,
+				'userid': ''
+			}
+			mixpanel.track('Plugin Download', properties);
+		});
+	})
+</script>
+<script type="text/javascript">
+	$(function() {
+		changeSidebarHeight();
+	});
+	$( window ).resize(function() {
+		changeSidebarHeight();
+	});
+
+	function changeSidebarHeight() {
+		height = $(window).height() - 60;
+	    $('.side-tabs').css('height', height);
+	}
+
+	$('.nav_link').click(function(event) {
+
+		event.preventDefault();
+		to_div = $(this).attr('href');
+		history.pushState(null, null, to_div);
+	    $('html, body').animate({
+	        scrollTop: $(to_div).offset().top
+	    }, 500);
+	    if ($(this).hasClass('nav_link_expand')){
+	    	link = $(this).attr('data-expand');
+	    	$(link).find('a').click();
+	    }
+	});
+
+</script>
+</div>
+</div>
+</div>
+<div id="sticky-footer">
+<section id="fomo-wcga" class="fomo-sr-only" style="display:none" role="complementary" aria-label="Fomo notifications"><div>What's happening on this website</div>Someone in South Korea just bought 3D Model for: RJHSE538x  <a href="https://www.snapeda.com/?__fg=134010&amp;utm_source=fomo&amp;utm_medium=notification">Open related page</a><br><sub><a href="https://fomo.com/" title="by Fomo">by Fomo.com</a></sub></section><footer id="site-footer">
+<div class="container">
+<div class="footer-row links">
+<div class="footer-column">
+<h3>SnapEDA</h3>
+<ul>
+<li><a href="https://www.snapeda.com/about/">About</a></li>
+<li><a href="https://www.snapeda.com/about/#contact_us">Contact</a></li>
+<li><a href="https://www.snapeda.com/pricing/">Pricing</a></li>
+<li><a href="https://careers.snapeda.com/" target="_blank">Careers</a></li>
+<li><a href="https://changelog.snapeda.com/" target="_blank">💎 What's new</a></li>
+
+</ul>
+</div>
+<div class="footer-column">
+<h3>Community</h3>
+<ul>
+<li><a href="https://www.snapeda.com/profiles/">Our Community</a></li>
+<li><a href="https://www.snapeda.com/questions/">Q &amp; A</a></li>
+<li><a href="https://blog.snapeda.com/">Blog</a></li>
+<li><a href="https://www.snapeda.com/made-with-snapeda/">Made With SnapEDA</a></li>
+<li><a href="https://teespring.com/shop/snapeda_copy_4?utm_source=google&amp;utm_medium=cpc&amp;utm_campaign=google_shopping&amp;aid=ts-boosted-pla&amp;gclid=CP-K9ZOb1eICFSkerQYd46EA0Q#pid=46&amp;cid=2745&amp;sid=front">Get the SnapEDA T-Shirt!</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Product</h3>
+<ul>
+<li><a href="https://www.snapeda.com/parts/">Parts Library</a></li>
+<li><a href="https://www.snapeda.com/instapart/">InstaPart</a></li>
+<li><a href="https://www.snapeda.com/instabuild/">InstaBuild</a></li>
+
+<li><a href="https://www.snapeda.com/plugins/">Plugins</a></li>
+<li><a href="https://www.snapeda.com/get-api/">API</a></li>
+
+<li><a href="https://www.snapeda.com/pcb-manufacturing/">PCB Suppliers</a></li>
+<li><a href="https://support.snapeda.com/en/articles/5599920-snapeda-desktop-app">SnapEDA Desktop App</a></li>
+</ul>
+</div>
+
+<div class="footer-column">
+<h3>Tools</h3>
+<ul>
+<li><a href="https://www.snapeda.com/allegro/">Allegro</a></li>
+<li><a href="https://www.snapeda.com/altium-libraries/">Altium</a></li>
+<li><a href="https://www.snapeda.com/autodeskfusion360">Autodesk Fusion 360</a></li>
+<li><a href="https://www.snapeda.com/circuitstudio/">CircuitStudio</a></li>
+<li><a href="https://www.snapeda.com/cr-5000">CR-8000/CR-5000</a></li>
+<li><a href="https://www.snapeda.com/designspark/">DesignSpark</a></li>
+<li><a href="https://www.snapeda.com/diptrace/">DipTrace</a></li>
+<li><a href="https://www.snapeda.com/eagle/">Eagle</a></li>
+<li><a href="https://www.snapeda.com/easy-pc">Easy-PC</a></li>
+<li><a href="https://www.snapeda.com/ecadstar">eCADSTAR</a></li>
+<li><a href="https://www.snapeda.com/expresspcbplus">ExpressPCB Plus</a></li>
+<li><a href="https://www.snapeda.com/kicad/">KiCad</a></li>
+<li><a href="https://www.snapeda.com/orcad/">OrCAD</a></li>
+<li><a href="https://www.snapeda.com/pads/">PADS &amp; DxDesigner</a></li>
+<li><a href="https://www.snapeda.com/pcb123-libraries/">PCB123</a></li>
+<li><a href="https://www.snapeda.com/p-cad/">P-CAD</a></li>
+<li><a href="https://www.snapeda.com/proteus/">Proteus</a></li>
+<li><a href="https://www.snapeda.com/pulsonix">Pulsonix</a></li>
+<li><a href="https://www.snapeda.com/target-3001/">Target 3001!</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Support</h3>
+<ul>
+<li><a href="https://support.snapeda.com/" target="_blank">FAQ</a></li>
+<li><a href="https://www.snapeda.com/about/import/">How to Import</a></li>
+<li><a href="https://www.snapeda.com/standards/">Standards</a></li>
+<li><a href="mailto:info@snapeda.com">Contact Us</a></li>
+<li><a href="https://support.snapeda.com/en/articles/5948134-design-fundamentals">Design Resources</a></li>
+<li><a href="https://www.snapeda.com/about/terms/">Terms Of Service</a></li>
+<li><a href="https://www.snapeda.com/about/privacy/">Privacy</a></li>
+</ul>
+</div>
+</div>
+<div id="home-newsletter-signup" class="footer-column social">
+<div id="mc_embed_signup">
+<h3 style="display: none;" id="title-newsletter">Join Our Newsletter</h3>
+<form style="display: none;" action="https://092552f0.sibforms.com/serve/MUIEANXky0hiqpnWKig9cHQOdX7_HLNrniK4d-bmzT6cm7SqyaucLhG10uf5lupdoyWC7dfBaWvBmJJwVHZQ5gMV_1H74H9SDO-4ov-cvjDpCEhpJRc1E7rJD1iHtbmjPkY7c5X3WCQyK-DGmI9V9wcqkxTOAYjCNj_KI13-6LxhR6y1OBvWex7GZmQSjFyV7TaYr064RjBrhHvI" method="post" id="sib-form" class="validate" name="mc-embedded-subscribe-form" target="_blank" data-type="subscription" novalidate="true">
+<div id="sib-form-container" class="sib-form-container">
+<div id="error-message" class="sib-form-message-panel" style="margin-bottom:10px;">
+<div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+<svg style="display:none !important" viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+<path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z"></path>
+</svg>
+<span class="sib-form-message-panel__inner-text">Your subscription could not be saved. Please try again.</span>
+</div>
+</div>
+<div></div>
+<div id="success-message" class="sib-form-message-panel">
+<div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+<svg style="display:none !important" viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+<path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z"></path>
+</svg>
+<span class="sib-form-message-panel__inner-text">Thanks for subscribing to the SnapEDA newsletter. We're excited to have you as part of our community.</span>
+</div>
+</div>
+<div></div>
+
+<div class="sib-input sib-form-block">
+<div class="form__entry entry_block">
+<div class="form__label-row ">
+<div class="entry__field">
+<input type="email" value="" name="EMAIL" class="email input" id="mce-EMAIL" placeholder="email address" data-required="true" required="" style="-webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box;">
+</div>
+</div>
+<label class="entry__error entry__error--primary" style="font-size: 12px;text-align:left;color:#661d1d;background-color:#ffeded;border-radius:3px;border-color:#ff4949;padding: 0 5px;"></label>
+</div>
+</div>
+
+<div style="position: absolute; left: -5000px;">
+<input type="text" name="b_59ee0d7ec121b9b37313fd775_adb224cc06" tabindex="-1" value="">
+</div>
+<div class="sib-captcha sib-form-block">
+<div class="form__entry entry_block">
+<div class="form__label-row ">
+<script type="text/javascript">
+                                        function handleCaptchaResponse() {
+                                        var event = new Event('captchaChange');
+                                        document.getElementById('sib-captcha').dispatchEvent(event);
+                                        }
+                                    </script>
+<div class="g-recaptcha sib-visible-recaptcha" id="sib-captcha" data-sitekey="6LfDwKcUAAAAAF3aAYWzseFo_OIJwQXdHv6EIcCK" data-callback="handleCaptchaResponse" style="transform: scale(0.626);transform-origin: 0 0; margin: 0 auto -25px auto;"><div style="width: 304px; height: 78px;"><div><iframe title="reCAPTCHA" src="./Import Guide _ SnapEDA_files/anchor.html" width="304" height="78" role="presentation" name="a-4tbtxnce4nmz" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true" style="display: none;" src="./Import Guide _ SnapEDA_files/saved_resource(7).html"></iframe></div>
+</div>
+<label class="entry__error entry__error--primary" style="font-size: 12px;text-align:left;color:#661d1d;background-color:#ffeded;border-radius:3px;border-color:#ff4949;padding: 0 5px;"></label>
+</div>
+</div>
+<div class="clear">
+
+<button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit" id="mc-embedded-subscribe" style="font-size: 13px;font-weight: 400;line-height: 18px;">
+<svg style="display:none !important" class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
+<path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"></path>
+</svg>
+Subscribe
+</button>
+</div>
+</div>
+<input type="text" name="email_address_check" value="" class="input--hidden">
+<input type="hidden" name="locale" value="en">
+</form>
+<div class="contact-icons">
+<ul>
+<li class="social-facebook"><a rel="me" href="https://www.facebook.com/pages/SnapEDA/393047664096498">Facebook</a></li>
+<li class="social-linkedin"><a rel="me" href="https://www.linkedin.com/company/snapeda">LinkedIn</a></li>
+<li class="social-twitter"><a rel="me" href="https://twitter.com/SnapEDA">Twitter</a></li>
+</ul>
+</div>
+<div class="footer-row copyright">
+<p><i class="fa fa-phone"></i> 1-844-625-8890</p>
+<p><span class="copyright-symbol">©</span> 2013 - 2023 SnapEDA</p>
+</div>
+</div>
+</div>
+<div id="request-ids" style="clear: both; text-align: center; opacity: 0.25; font-size:.75em;color: #232323;">14f096955c4444f0b2ebfa859a3d6d60</div>
+</div>
+</footer>
+<script type="text/javascript">
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+
+  window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+
+  window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+
+
+
+
+  window.translation = {
+    common: {
+      selectedList: '{quantity} list selected',
+      selectedLists: '{quantity} lists selected'
+    }
+  };
+
+  var AUTOHIDE = Boolean(0);
+</script>
+<script src="./Import Guide _ SnapEDA_files/main.js" type="text/javascript"></script>
+<script async="" src="./Import Guide _ SnapEDA_files/api.js" defer="" type="text/javascript"></script>
+</div>
+<link rel="stylesheet" type="text/css" href="./Import Guide _ SnapEDA_files/font-awesome.css">
+<script type="text/javascript" src="./Import Guide _ SnapEDA_files/core.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+// $('.search-query').focus( function(){
+//     $(this).parent().css('backgroundColor', 'transparent');
+//     $(this).css('color', 'white');
+//     if( $(this).parent().attr('id') == $('#navbar-search').attr('id')){
+//         $('#navbar-search').css('borderColor', '#304e70');
+
+//     }
+// }).focusout(function(){
+//     $(this).parent().css('backgroundColor', 'white');
+//     $(this).css('color', '#082c48');
+//     if( $(this).parent().attr('id') == $('#navbar-search').attr('id')){
+//         $('#navbar-search').css('borderColor', '#d1d1d1');
+
+//     }
+// });
+</script>
+<script type="text/javascript">
+
+// ux for search button highlithing the btn just when search is valid
+// $("#navbar-search input[type='text']").bind("change paste keyup", function() {
+//     if( $(this).val().length > 0 ){
+//         $(this).next().css({
+//             'borderColor': '#304e70',
+//             'color': '#304e70'
+//         });
+//     }else{
+//         $(this).next().css({
+//             'borderColor': '#d1d1d1',
+//             'color': '#d1d1d1'
+//         });
+//     }
+// });
+
+</script>
+<script type="text/javascript">
+    var stop_mixpanel_logging = 10;
+    // var mixpanelWait = setInterval(function() {
+    //   if (mixpanel) {
+    //     mixpanel.track_forms("#navbar-search-form", "Navbar Search", search_form_data);
+    //     clearInterval(mixpanelWait);
+    //   }else{
+    //     stop_mixpanel_logging = stop_mixpanel_logging - 1;
+    //     if(stop_mixpanel_logging < 0){
+    //         clearInterval(mixpanelWait);
+    //     }
+    //   }
+    // }, 100);
+
+    // var search_form_data = function () {
+    //     d = {};
+    //     d["query"]=$("#navbar-serch-query").val();
+    //     return d;
+    // }
+</script>
+<script type="text/javascript">
+        $("a[rel*=leanModal]").leanModal(
+          {
+            top : 10,
+            closeButton: ".modal-close",
+            overlay : 0.4
+          }
+        );
+
+        $( "#lean_overlay" ).click(function() {
+          var vid_src = $("#s-video-home").attr('src');
+          $("#s-video-home").attr('src','');
+          $("#s-video-home").attr('src', vid_src);
+        });
+        $( ".modal-close" ).click(function() {
+          var vid_src = $("#s-video-home").attr('src');
+          $("#s-video-home").attr('src','');
+          $("#s-video-home").attr('src', vid_src);
+        });
+
+
+
+    
+
+    $(document).ready(function() {
+            
+        });
+
+    </script>
+<script type="text/javascript">
+            window.intercomSettings = {
+              app_id: "owbpizd5"
+            };
+        </script>
+<script type="text/javascript">(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/owbpizd5';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
+<script type="text/javascript">
+        adroll_adv_id = "E5JOHRIMLRBBZHMVKSEUGT";
+        adroll_pix_id = "OINORE6YJVH6XI52DJKCXZ";
+        
+        (function () {
+            var _onload = function(){
+                if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+                if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+                var scr = document.createElement("script");
+                var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+                scr.setAttribute('async', 'true');
+                scr.type = "text/javascript";
+                scr.src = host + "/j/roundtrip.js";
+                ((document.getElementsByTagName('head') || [null])[0] ||
+                    document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+            };
+            if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+            else {window.attachEvent('onload', _onload)}
+        }());
+
+
+    </script>
+
+<script src="./Import Guide _ SnapEDA_files/bundle.min.js" crossorigin="anonymous" type="text/javascript"></script>
+<script type="text/javascript">
+      Sentry.init({ dsn: 'https://d2019c20912d44c3b7ee0c0f42296c42@sentry.io/1286597' });
+    </script>
+
+<script defer="" src="./Import Guide _ SnapEDA_files/v2cb3a2ab87c5498db5ce7e6608cf55231689030342039" integrity="sha512-DI3rPuZDcpH/mSGyN22erN5QFnhl760f50/te7FTIYxodEF8jJnSFnfnmG/c+osmIQemvUrnBtxnMpNdzvx1/g==" data-cf-beacon="{&quot;rayId&quot;:&quot;7ec12d16fc2307c5&quot;,&quot;token&quot;:&quot;41b7609c4f5b4834a71003ce9ef38124&quot;,&quot;version&quot;:&quot;2023.4.0&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript" id="">var _ss=_ss||[];_ss.push(["_setDomain","https://koi-3QNTO467YK.marketingautomation.services/net"]);_ss.push(["_setAccount","KOI-4K30MJ3EQ0"]);_ss.push(["_trackPageView"]);window._pa=window._pa||{};(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"==document.location.protocol?"https://":"http://")+"koi-3QNTO467YK.marketingautomation.services/client/ss.js?ver\x3d2.4.0";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script>
+<script type="text/javascript" id="">(function(d,b){window.ldfdr=window.ldfdr||function(){(ldfdr._q=ldfdr._q||[]).push([].slice.call(arguments))};(function(a,c){fs=a.getElementsByTagName(c)[0];var e="https://sc.lfeeder.com/lftracker_v1_"+d+(b?"_"+b:"")+".js";a=a.createElement(c);a.src=e;a.async=1;fs.parentNode.insertBefore(a,fs)})(document,"script")})("JMvZ8gbVBqpa2pOd");</script><div id="someone-purchased"></div><div id="lean_overlay"></div><div id="lean_overlay"></div><iframe id="intercom-frame" style="position: absolute !important; opacity: 0 !important; width: 1px !important; height: 1px !important; top: 0 !important; left: 0 !important; border: none !important; display: block !important; z-index: -1 !important; pointer-events: none;" aria-hidden="true" tabindex="-1" title="Intercom" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true" src="./Import Guide _ SnapEDA_files/saved_resource(8).html"></iframe><div id="intercom-container" class="intercom-namespace"><style>html.intercom-mobile-messenger-active,html.intercom-mobile-messenger-active > body,html.intercom-modal-open,#intercom-container-body{overflow:hidden !important;}html.intercom-mobile-messenger-active,html.intercom-mobile-messenger-active > body{position:static !important;transform:none !important;}html.intercom-mobile-messenger-active > body{height:0 !important;margin:0 !important;}html.intercom-mobile-messenger-active.intercom-mobile-messenger-ios-15 > body{height:100vh !important;}iframe#intercom-frame{position:absolute !important;opacity:0 !important;width:1px !important;height:1px !important;top:0 !important;left:0 !important;border:none !important;display:block !important;z-index:-1 !important;}</style><div class="intercom-app" aria-live="polite"><div class="intercom-messenger-frame ed8ycz92 intercom-1f5fpe1 ed8ycz90"></div><div class="intercom-dfosxs e2u51n60"><iframe allowfullscreen="" class="intercom-launcher-frame intercom-146u2g6 efr23pf0" name="intercom-launcher-frame" title="Intercom live chat" data-intercom-frame="true" role="dialog" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true" src="./Import Guide _ SnapEDA_files/saved_resource(9).html"></iframe><div class="intercom-1o77lls e1g2dbjq0"><span data-testid="active-notifications" class="intercom-1ugnki8 e1lwd7c40">1</span></div></div><div id="intercom-modal-container"></div></div></div><div id="intercom-css-container"><style data-emotion="intercom-global"></style><style data-emotion="intercom"></style></div><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge expires in two minutes" src="./Import Guide _ SnapEDA_files/bframe.html" name="c-4tbtxnce4nmz" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" style="width: 100%; height: 100%;" data-lf-form-tracking-inspected-jmvz8gbvbqpa2pod="true" data-lf-yt-playback-inspected-jmvz8gbvbqpa2pod="true" data-lf-vimeo-playback-inspected-jmvz8gbvbqpa2pod="true"></iframe></div></div></body></html>

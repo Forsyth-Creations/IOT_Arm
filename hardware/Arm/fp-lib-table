@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name "Trinamic")(type "KiCad")(uri "${KIPRJMOD}/EasyEDA_Parts/Trinamic")(options "")(descr ""))
+  (lib (name "ESP")(type "KiCad")(uri "${KIPRJMOD}/EasyEDA_Parts/ESP")(options "")(descr ""))
+)
