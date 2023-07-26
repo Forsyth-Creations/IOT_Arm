@@ -1,3 +1,9 @@
+[![PlatformIO Firmware Builder](https://github.com/Forsyth-Creations/IOT_Arm/actions/workflows/PlatformIOAction.yml/badge.svg)](https://github.com/Forsyth-Creations/IOT_Arm/actions/workflows/PlatformIOAction.yml)
+
+[![Frontend Builder](https://github.com/Forsyth-Creations/IOT_Arm/actions/workflows/FrontendBuilder.yml/badge.svg)](https://github.com/Forsyth-Creations/IOT_Arm/actions/workflows/FrontendBuilder.yml)
+
+[![Backend Builder](https://github.com/Forsyth-Creations/IOT_Arm/actions/workflows/BackendBuilder.yml/badge.svg)](https://github.com/Forsyth-Creations/IOT_Arm/actions/workflows/BackendBuilder.yml)
+
 ## Members
 Henry Forsyth, Computer Engineering Student (2025)
 rhforsythjr@vt.edu
