@@ -1,0 +1,30 @@
+# Another github action to build the backend
+
+name: Backend Builder
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: 'true'
+    - name: Build backend
+      run: |
+        cd backend
+        docker build -t backend-builder .
+        docker run --rm -v $(pwd):/app backend-builder
