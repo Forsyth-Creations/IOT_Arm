@@ -42,7 +42,7 @@ export default function HeartbeatBars() {
     }, []);
 
     return (
-        <div className="flex flex-col">
+        <div>
             {Array.from(uidElementMap.values())}
         </div>
     );

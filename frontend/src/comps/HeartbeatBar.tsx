@@ -5,6 +5,9 @@ import { useEffect, useState } from 'react';
 import { AiFillHeart } from 'react-icons/ai';
 import { FaExclamationTriangle } from 'react-icons/fa';
 import { IoPencil } from 'react-icons/io5';
+import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Button from '@mui/material/Button';
 
 import axios from 'axios';
 
@@ -24,7 +27,7 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
 
   // Pull the name from the api based on the UID
   useEffect(() => {
-    axios.get('http://localhost:8000/api/v1/getName/' + props.uid , {
+    axios.get('http://localhost:8000/api/v1/getName/' + props.uid, {
     })
       .then(function (response) {
         console.log(response);
@@ -44,7 +47,7 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
     setIsOpen(!isOpen);
   };
 
-  const handleNameModal = () => { 
+  const handleNameModal = () => {
     setNameModalOpen(true);
     setIsOpen(false);
   }
@@ -150,62 +153,46 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
 
 
   return (
-    <div className="dropdown flex flex-col justify-center mt-2">
-      <div
-        className={`min-width-80 flex flex-row justify-between align-middle bg-gray-300 p-4 border-2 rounded-md border-stone-400 ${isOpen ? 'open' : ''
-          }`}
-        onClick={handleDropdownToggle}>
-        <div className = "flex flex-row items-center">
-          <text className="pointer-events-none">{name}</text>
-          <div onClick = {handleNameModal} className = "p-2 m-2 rounded bg-blue-500 z-10"><IoPencil ></IoPencil></div>
-
-        </div>
-        <div className="flex flex-row items-center">
-          <text className="text-xs pointer-events-none">Last Seen: {formattedTime}</text>
-          <div className="p-2">
-            {isStale ? (
-              <FaExclamationTriangle color="red"></FaExclamationTriangle>
-            ) : (
-              <AiFillHeart color="maroon"></AiFillHeart>
-            )}
-          </div>
-        </div>
-      </div>
-      {isOpen && (
-        <div className="dropdown-content bg-slate-900 text-white w-11/12 p-4 rounded">
-          {restartInProgress && <h1 className="text-yellow-600">Admin commanded restart... Standby</h1>}
-          <h1>UID: {props.uid}</h1>
-          <h1>Timestamp: {formattedTime}</h1>
-          <h1>Data:</h1>
+    <Accordion>
+      <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography>
+          <div>{name}</div>
+          <Typography sx={{ color: 'text.secondary', alignItems: "center", display : "flex" }}>
+          Last Seen: {formattedTime}
+          {isStale ? (
+            <FaExclamationTriangle color="red" style = {{marginLeft : "10px"}}></FaExclamationTriangle>
+          ) : (
+            <AiFillHeart color="maroon" style = {{marginLeft : "10px"}}></AiFillHeart>
+          )}
+          </Typography>
+        </Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography >
+          {restartInProgress && <Typography className="text-yellow-600">Admin commanded restart... Standby</Typography>}
+          <Typography>UID: {props.uid}</Typography>
+          <Typography>Timestamp: {formattedTime}</Typography>
+          <Typography>Data:</Typography>
+          <Typography>
           {props.data && Object.entries(props.data).map(([key, value]) => {
             return (
               <div key={key}
                 className="flex flex-row">
-                <h1>{key} - {value}</h1>
+                <Typography>{key} - {value}</Typography>
               </div>
             );
           })}
-          <button onClick={openModal} className="p-2 bg-blue-400 rounded mt-3 text-xs hover:bg-blue-500">Command</button>
-        </div>
-      )}
+          </Typography>
+          <Button variant="contained" onClick={openModal} className="p-2 bg-blue-400 rounded mt-3 text-xs hover:bg-blue-500">Command</Button>
+        </Typography>
+      </AccordionDetails>
       <GenericModal showModal={showModal} setShowModal={setShowModal} className="">
         <div className="flex flex-row">
-          <button onClick={toggleLED} className="m-2 p-2 bg-blue-400 rounded mt-3 text-xs hover:bg-blue-500">Toggle LED</button>
-          <button onClick={handleRestart} className="m-2 p-2 bg-red-400 rounded mt-3 text-xs hover:bg-red-500">Restart</button>
-          <button onClick={handleGetHealthData} className="m-2 p-2 bg-green-400 rounded mt-3 text-xs hover:bg-green-500">Get Health Data</button>
+          <Button variant="contained" onClick={toggleLED} className="m-2 p-2 bg-blue-400 rounded mt-3 text-xs hover:bg-blue-500">Toggle LED</Button>
+          <Button variant="contained" onClick={handleRestart} className="m-2 p-2 bg-red-400 rounded mt-3 text-xs hover:bg-red-500">Restart</Button>
+          <Button variant="contained" onClick={handleGetHealthData} className="m-2 p-2 bg-green-400 rounded mt-3 text-xs hover:bg-green-500">Get Health Data</Button>
         </div>
       </GenericModal>
-
-      <GenericModal showModal={nameModalOpen} setShowModal={setNameModalOpen} className="">
-          {/* Write a basic form that, on submit, makes an api call with the name provided in the text area */}
-          <div className="flex flex-col">
-            <h1 className="text-white">Enter a new name for {props.uid}</h1>
-            <form onSubmit={handleSubmit} className="text-black">
-              <textarea className="bg-white rounded p-2 m-2" value={name} onChange={(e) => setName(e.target.value)}></textarea>
-              <button type="submit" className="p-2 bg-blue-400 rounded mt-3 text-xs hover:bg-blue-500">Submit</button>
-            </form>
-          </div>
-        </GenericModal>
-    </div>
+    </Accordion>
   );
 };
