@@ -3,7 +3,7 @@
 FROM ubuntu:kinetic
 
 ENV NODE_VERSION 19.3.0
-ENV NPM_VERSION 9.8.0
+ENV NPM_VERSION 9.8.1
 
 
 # replace shell with bash so we can source files
