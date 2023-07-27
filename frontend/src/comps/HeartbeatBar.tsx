@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { AiFillHeart } from 'react-icons/ai';
 import { FaExclamationTriangle } from 'react-icons/fa';
-import { IoPencil } from 'react-icons/io5';
+import { IoPencil, IoCheckmark } from 'react-icons/io5';
 import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
@@ -21,13 +21,13 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [restartInProgress, setRestartInProgress] = useState(false);
-  const [nameModalOpen, setNameModalOpen] = useState(false);
+  const [nameEdit, setNameEdit] = useState(false);
   const [name, setName] = useState('');
 
 
   // Pull the name from the api based on the UID
   useEffect(() => {
-    axios.get('http://localhost:8000/api/v1/getName/' + props.uid, {
+    axios.get('http://0.0.0.0:8000/api/v1/getName/' + props.uid, {
     })
       .then(function (response) {
         console.log(response);
@@ -37,7 +37,7 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
         console.log(error);
         setName(props.uid);
       });
-  }, [props.uid]);
+  }, [props.uid, setName]);
 
   const openModal = () => {
     setShowModal(true);
@@ -47,20 +47,15 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
     setIsOpen(!isOpen);
   };
 
-  const handleNameModal = () => {
-    setNameModalOpen(true);
-    setIsOpen(false);
-  }
 
   const handleSubmit = () => {
     console.log("Submitting name change");
-    axios.post('http://localhost:8000/api/v1/assignName', {
+    axios.post('http://0.0.0.0:8000/api/v1/assignName', {
       uid: props.uid,
       name: name
     })
       .then(function (response) {
         console.log(response);
-        setNameModalOpen(false);
       })
       .catch(function (error) {
         console.log(error);
@@ -70,7 +65,7 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
   // Make a class to the backend to toggle an LED
   const toggleLED = () => {
     console.log("Toggling LED");
-    axios.post('http://localhost:8000/api/v1/toggleLED', {
+    axios.post('http://0.0.0.0:8000/api/v1/toggleLED', {
       uid: props.uid
     })
       .then(function (response) {
@@ -85,7 +80,7 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
     console.log("Restarting device");
     setIsStale(true);
     setRestartInProgress(true);
-    axios.post('http://localhost:8000/api/v1/restart', {
+    axios.post('http://0.0.0.0:8000/api/v1/restart', {
       uid: props.uid
     })
       .then(function (response) {
@@ -98,7 +93,7 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
 
   const handleGetHealthData = () => {
     console.log("Getting health data");
-    axios.post('http://localhost:8000/api/v1/health', {
+    axios.post('http://0.0.0.0:8000/api/v1/health', {
       uid: props.uid
     })
       .then(function (response) {
@@ -141,7 +136,6 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
     const interval = setInterval(() => {
       const now = new Date();
       const secondsSinceLastUpdate = (now.getTime() - props.timestamp) / 1000;
-      console.log(secondsSinceLastUpdate)
       if (secondsSinceLastUpdate > 8) {
         setIsStale(true);
       } else {
@@ -170,6 +164,14 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
       <AccordionDetails>
         <Typography >
           {restartInProgress && <Typography className="text-yellow-600">Admin commanded restart... Standby</Typography>}
+
+          { nameEdit ? 
+          <Typography>Name: 
+            <input type = "text" value = {name} onChange = {(e) => setName(e.target.value)}>
+              </input>
+              <IoCheckmark onClick = {() => {setNameEdit(false); handleSubmit();}}></IoCheckmark></Typography> : 
+          <Typography>Name: {name}<IoPencil onClick = {() => setNameEdit(true)}></IoPencil></Typography> 
+          }
           <Typography>UID: {props.uid}</Typography>
           <Typography>Timestamp: {formattedTime}</Typography>
           <Typography>Data:</Typography>
