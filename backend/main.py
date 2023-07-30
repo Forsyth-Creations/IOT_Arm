@@ -77,6 +77,15 @@ client = MongoClient("localhost", 27017)
 
 app = FastAPI()
 
+# Allow cross origin requests
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Create a class to define the data model
 class BasicPing(BaseModel):
     greeting: str
@@ -144,10 +153,10 @@ async def send_personal_message(message: str, uid : str):
 
 # -----------------------------------------------------------------------
 
-@app.get("/")
+@app.get("/api/")
 async def api_root():
     print(f"{Fore.GREEN}Hello from the API{Style.RESET_ALL}")
-    return {"message": "API Reached"}
+    return {"message": "API Reached. Have a cookie"}
 
 @app.get("/api/v1/hello")
 async def api_hello():

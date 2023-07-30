@@ -24,6 +24,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+  background-repeat: no-repeat;
+  margin: 0;
 }
 
 .modal-window {
@@ -55,11 +57,12 @@ body {
 
 
 main {
-  display: flex;
-  flex-direction: column;
+  display: block;
   flex-direction: column;
   min-height: 100vh;
-  padding: 2rem;
+  max-height: 100vh;
+  margin: 0px;
+  padding: 0px;
 }
 
 /* button {

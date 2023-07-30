@@ -29,3 +29,16 @@ services:
     network_mode: host
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
+# Mongo express but configured for localhost
+  mongo-express:
+    image: mongo-express
+    network_mode: host
+    environment:
+      ME_CONFIG_MONGODB_SERVER: localhost
+      ME_CONFIG_MONGODB_PORT: 27017
+      ME_CONFIG_BASICAUTH_USERNAME: admin
+      ME_CONFIG_BASICAUTH_PASSWORD: admin
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+
