@@ -1,82 +1,107 @@
-#include <Arduino.h>
-#include <SoftwareSerial.h>
-#include <ArduinoJson.h>
-#include <Preferences.h>
+/*
+ * Update firmware with external SD
+ * Check firmware.bin, if present start update then rename in firmware.bak
+ *
+ * Renzo Mischianti <www.mischianti.org>
+ *
+ * https://mischianti.org/
+ */
 
-#include <ArduinoWebsockets.h>
-#include <ESP8266WiFi.h>
+// include the SD library:
+#include <SPI.h>
+#include <SD.h>
 
-// Local Deps
-#include "ApiCaller/apiCaller.h"
-#include "CoreComp/CoreComp.h"
-#include "Configuration.h"
+// WeMos D1 esp8266: D8 as standard
+const int chipSelect = SS;
 
-// Create an instance of the ApiCaller class
-ApiCaller *apiCaller;
-CoreComp * coreComp;
-String uid;
-
-using namespace websockets;
-
-WebsocketsClient client;
-
-void attemptReconnect()
+void progressCallBack(size_t currSize, size_t totalSize)
 {
-  bool socket_connected = false;
-  Serial.println("Connecting to websocket");
-  while (!socket_connected)
-  {
-    // change the '-' to a '_' in the uid
-    // The full address needs to append the uid to the end of the WEBSOCKET_ADDRESS_PROPER
-    String fullAddress = String(WEBSOCKET_ADDRESS_PROPER) + "/" + uid;
-    socket_connected = client.connect(fullAddress);
-    delay(2000);
-    Serial.print(".");
-  }
-  
-  Serial.println("\nConnected to websocket");
+    Serial.printf("CALLBACK:  Update process at %d of %d bytes...\n", currSize, totalSize);
 }
+
+#define FIRMWARE_VERSION 0.2
 
 void setup()
 {
-  // Start the apiCaller
-  Serial.begin(9600);
-  Serial.println("------------ Starting up ------------");
-  apiCaller = new ApiCaller(NETWORK_SSID, NETWORK_PASSWORD, API_ENDPOINT);
-  coreComp = new CoreComp(apiCaller);
-  coreComp->hardsaveUID();
+    // Open serial communications and wait for port to open:
+    Serial.begin(9600);
+    Serial.println("Firmware version: " + String(FIRMWARE_VERSION));
+    while (!Serial)
+    {
+        ; // wait for serial port to connect. Needed for native USB port only
+    }
 
-  uid = coreComp->getUID();
+    Serial.print("\nInitializing SD card...");
 
-  // Setup callbacks
-  client.onMessage([&](WebsocketsMessage message)
-                   {
-      String status = coreComp->UserCommandHandler(message.data());
-      if (status != "heartbeat")
-        client.send("{'outcome' : '" + status + "'}");
-  });
+    // we'll use the initialization code from the utility libraries
+    // since we're just testing if the card is working!
+    if (!SD.begin(SS))
+    {
+        Serial.println("initialization failed. Things to check:");
+        Serial.println("* is a card inserted?");
+        Serial.println("* is your wiring correct?");
+        Serial.println("* did you change the chipSelect pin to match your shield or module?");
+        while (1)
+            ;
+    }
+    else
+    {
+        Serial.println("Wiring is correct and a card is present.");
+    }
 
+    FSInfo fs_info;
+    SDFS.info(fs_info);
 
-  // access the client of websockets
-  attemptReconnect();
-  client.send("Hello Server from ESP8266");
+    Serial.print("Total bytes: ");
+    Serial.println(fs_info.totalBytes);
 
-  // Testing websocket things
+    Serial.print("Used bytes: ");
+    Serial.println(fs_info.usedBytes);
+
+    Serial.print(F("\nCurrent firmware version: "));
+    Serial.println(FIRMWARE_VERSION);
+
+    Serial.print(F("\nSearch for firmware.."));
+    File firmware = SD.open("/firmware.bin");
+    if (firmware)
+    {
+        Serial.println(F("found!"));
+        Serial.println(F("Try to update!"));
+
+        Update.onProgress(progressCallBack);
+
+        Update.begin(firmware.size(), U_FLASH);
+        Update.writeStream(firmware);
+        if (Update.end())
+        {
+            Serial.println(F("Update finished!"));
+        }
+        else
+        {
+            Serial.println(F("Update error!"));
+            Serial.println(Update.getError());
+        }
+
+        firmware.close();
+
+        if (SD.rename("/firmware.bin", "/firmware.bak"))
+        {
+            Serial.println(F("Firmware rename sucessfully!"));
+        }
+        else
+        {
+            Serial.println(F("Firmware rename error!"));
+        }
+        delay(2000);
+
+        ESP.reset();
+    }
+    else
+    {
+        Serial.println(F("not found!"));
+    }
 }
 
-void loop()
+void loop(void)
 {
-  if (client.available())
-  {
-    client.poll();
-  }
-  // If I lose connection, reconnect
-  if (!client.available())
-  {
-    Serial.println("Lost connection, reconnecting");
-    attemptReconnect();
-  }
-  coreComp->heartbeat();
-  coreComp->needsUpdate();
-  delay(50);
 }
