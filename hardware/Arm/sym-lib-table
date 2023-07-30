@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name "TMC2209_SILENTSTEPSTICK")(type "KiCad")(uri "${KIPRJMOD}/EasyEDA_Parts/Trinamic/TMC2209_SILENTSTEPSTICK.kicad_sym")(options "")(descr ""))
+  (lib (name "ESP32_NODEMCU")(type "KiCad")(uri "${KIPRJMOD}/EasyEDA_Parts/ESP/ESP32_NODEMCU.kicad_sym")(options "")(descr ""))
+)

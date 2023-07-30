@@ -1,0 +1,3 @@
+_pa.setPartners({goo:true,rbcn:true,opx:true,yah:true,crw:["cd"],twtr:true})
+_pa.setUserMap('pa_8lkmm3hclIPJV3rho');
+_pa.looperReady();
