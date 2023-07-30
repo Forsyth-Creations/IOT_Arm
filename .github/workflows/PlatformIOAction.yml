@@ -37,3 +37,8 @@ jobs:
       run: |
           cd firmware 
           platformio run
+    - name: Publish firmware
+      uses: actions/upload-artifact@v2
+      with:
+        name: firmware
+        path: firmware/.pio/build/nodemcuv2/firmware.bin
