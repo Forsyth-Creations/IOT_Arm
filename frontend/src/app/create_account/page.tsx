@@ -32,27 +32,24 @@ function Copyright(props: any) {
 const defaultTheme = createTheme();
 
 export default function SignUp() {
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    console.log("------------ Data --------------");
+    // get the json from all keys in data
+    const json = Object.fromEntries(data.entries());
 
     axios.post('http://localhost:8000/api/v1/create_account', {
-      email: data.get('email'),
-      password: data.get('password'),
-      first_name: data.get('firstName'),
-      last_name: data.get('lastName'),
+      data: json
     })
       .then(function (response) {
         console.log(response);
-        window.location.href = '/login';
+        // window.location.href = '/login';
       })
       .catch(function (error) {
         console.log(error);
-        alert('Account creation failed');
+        alert('Account creation failed: ' + error.response.data.detail);
       });
   };
 
@@ -120,7 +117,12 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  control={
+                  <Checkbox 
+                  name="allowExtraEmails"
+                  id="allowExtraEmails"                    
+                  value="allowExtraEmails" 
+                  color="primary" />}
                   label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid>

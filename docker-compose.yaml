@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-
+# -------------------- Backend --------------------
   backend:
     build:
       context: ./backend
@@ -11,7 +11,7 @@ services:
     command: uvicorn main:app --reload --port=8000
     volumes:
       - ./backend:/app
-
+# -------------------- Frontend --------------------
   frontend:
     build:
       context: ./frontend
@@ -20,41 +20,13 @@ services:
     volumes:
       - ./frontend:/app
     command: npm run dev
-
-  db:
-    image: amazon/dynamodb-local:latest
-    container_name: dynamodb-local
-    ports:
-      - "8080:8080"
-    volumes:
-      - ./docker/dynamodb:/home/dynamodblocal/data
-    environment:
-      AWS_ACCESS_KEY_ID: "local"
-      AWS_SECRET_ACCESS_KEY: "local"
-    #   AWS_SESSION_TOKEN: "local"
-      # AWS_DEFAULT_REGION: "us-east-1"
-    command: '-jar DynamoDBLocal.jar -port 8080 --cors "*" -sharedDb'
-
-  db-admin:
-    image: aaronshaf/dynamodb-admin
-    ports:
-      - "8001:8001"
-    environment:
-      DYNAMO_ENDPOINT: "http://dynamodb-local:8080"
-      # AWS_ACCESS_KEY_ID: "local"
-      # AWS_SECRET_ACCESS_KEY: "local"
-      # AWS_SESSION_TOKEN: "local"
-      # AWS_DEFAULT_REGION: "us-east-1"
-    depends_on:
-      - db
-
+# -------------------- Nginx --------------------
   nginx:
     image: nginx
     network_mode: host
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
-
-
+# -------------------- MongoDB --------------------
   mongodb:
     image: mongo:latest
     restart: always
@@ -62,7 +34,7 @@ services:
       - "27017:27017"
     volumes:
       - ~/mongoData:/data/db
-
+# -------------------- Mongo-Express --------------------
   mongo-express:
     image: mongo-express:latest
     container_name: mongo-express

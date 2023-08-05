@@ -15,31 +15,42 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
+import Alert from '@mui/material/Alert';
 
 function Copyright(props: any) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
+      <Link color="inherit" href="https://www.forsythcreations.com">
+        Forsyth Creations LLC
       </Link>{' '}
       {new Date().getFullYear()}
-      {'.'}
     </Typography>
   );
 }
+
 
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+
+  const [showError, setShowError] = React.useState(false);
+  
+  const alert = (message: string) => {
+    console.log(message);
+    setShowError(true);
+    // Set a timeout to hide the alert again
+    setTimeout(() => {
+      setShowError(false);
+    }
+    , 5000);
+  };
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    
     axios.post('http://localhost:8000/api/v1/login', {
       email: data.get('email'),
       password: data.get('password'),
@@ -97,6 +108,7 @@ export default function SignIn() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
+            {showError && <Alert severity="error">Login failed. Please try again</Alert>}
             <Button
               type="submit"
               fullWidth

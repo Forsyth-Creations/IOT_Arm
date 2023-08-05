@@ -325,53 +325,56 @@ async def login(request: Request):
     print(f"{Fore.GREEN}Login request received{Style.RESET_ALL}")
     # Pull the username and password from the request
     data = await request.json()
-    username = data["username"]
+    email = data["email"]
     password = data["password"]
 
-    # Check if the username and password are correct
-    if username == "admin" and password == "admin":
+    # Check if the email and password are in the database and correct
+    # All users are stored in the database in the Users collection
+
+    foundDatabase = client.database.Users.find_one({"email": email, "password": password})
+
+    if foundDatabase is None:
+        print(f"{Fore.RED}email or password incorrect for : {email}{Style.RESET_ALL}")
+        raise HTTPException(status_code=500, detail="email or password incorrect")
+    else:
         # Create a new session
         session_id = str(uuid4())
         # Store the session in the database
-        db = client["database"]
-        collection = db["sessions"]
         epoch_time = int(time.time())
-        collection.insert_one({"session_id": session_id, "username": username, "epoch_time": epoch_time})
+        client.database.sessions.insert_one({"session_id": session_id, "email": email, "epoch_time": epoch_time})
+        print(f"{Fore.GREEN}Login successful{Style.RESET_ALL}")
         return {"message": "Login successful", "session_id": session_id}
-    else:
-        return {"message": "Login failed"}
 
 # Create new account 
 @app.post("/api/v1/create_account")
 async def createAccount(request: Request):
     # Pull the username and password from the request
-    try:
-        data = await request.json()
-        username = data["username"]
-        password = data["password"]
+    print(f"{Fore.GREEN}Create account request received{Style.RESET_ALL}")
+    data = await request.json()
+    data = data['data']
+    print(f"{Fore.YELLOW}{data}{Style.RESET_ALL}")
+    email = data["email"]
 
-        # Check if the username is already taken
-        # All users are stored in the database in the Users collection
+    # Check if the email is already taken
+    # All users are stored in the database in the Users collection
 
-        found_name = client.database.Users.find_one({"username": username})
+    found_name = client.database.Users.find_one({"email": email})
 
-        if found_name is None:
-            # Create a new session
-            session_id = str(uuid4())
-            # Store the session in the database
-            db = client["database"]
-            collection = db["sessions"]
-            epoch_time = int(time.time())
-            collection.insert_one({"session_id": session_id, "username": username, "epoch_time": epoch_time})
-            # Store the username and password in the database
-            collection = db["Users"]
-            collection.insert_one({"username": username, "password": password})
-            print(f"{Fore.GREEN}Created account{Style.RESET_ALL}")
-            return {"message": "Account created", "session_id": session_id}
-        else:
-            print(f"{Fore.RED}Username already taken{Style.RESET_ALL}")
-            return {"message": "Username already taken"}
+    if found_name is None:
+        # Create a new session
+        session_id = str(uuid4())
+        # Store the session in the database
+        epoch_time = int(time.time())
+        client.database.sessions.insert_one({"session_id": session_id, "email": email, "epoch_time": epoch_time})
+        # Store the data in the database by creating a new entry
 
-    except Exception as e:
-        print(f"{Fore.RED}Failed to create account{Style.RESET_ALL}")
-        return {"message": "Failed to create account", "reason" : str(e)}
+        db = client["database"]
+        collection = db["Users"]
+
+        collection.insert_one(data)
+
+        print(f"{Fore.GREEN}Created account{Style.RESET_ALL}")
+        return {"message": "Account created", "session_id": session_id}
+    else:
+        print(f"{Fore.RED}email already taken{Style.RESET_ALL}")
+        raise HTTPException(status_code=500, detail="Username already taken")
