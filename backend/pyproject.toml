@@ -13,6 +13,7 @@ uuid = "^1.30"
 websockets = "^11.0.3"
 requests = "^2.31.0"
 pymongo = "^4.4.1"
+boto3 = "^1.28.15"
 
 [tool.poetry.dev-dependencies]
 ipykernel = "^6.24.0"

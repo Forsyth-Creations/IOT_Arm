@@ -14,6 +14,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import axios from 'axios';
 
 function Copyright(props: any) {
   return (
@@ -38,6 +39,21 @@ export default function SignUp() {
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    axios.post('http://localhost:8000/api/v1/create_account', {
+      email: data.get('email'),
+      password: data.get('password'),
+      first_name: data.get('firstName'),
+      last_name: data.get('lastName'),
+    })
+      .then(function (response) {
+        console.log(response);
+        window.location.href = '/login';
+      })
+      .catch(function (error) {
+        console.log(error);
+        alert('Account creation failed');
+      });
   };
 
   return (

@@ -2,19 +2,19 @@
 
 from fastapi import FastAPI, WebSocket, Request, WebSocketDisconnect, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-
 # ConnectionClosedError
 from websockets.exceptions import ConnectionClosedError
-
 from colorama import Fore, Back, Style
 from pydantic import BaseModel
 from uuid import uuid4
 import json
-
 import requests
 import datetime
+import time    
 
 from pymongo import MongoClient
+
+from dbHelper import dbHelper
 
 class Cacher:
     def __init__(self):
@@ -93,7 +93,7 @@ app.add_middleware(
 # --------- Deal with anyone that connects to the websocket ------------
 # https://fastapi.tiangolo.com/advanced/websockets/
 
-# This enpoint is intended for the client, as in a web browser
+# This endpoint is intended for the client, as in a web browser
 @app.websocket("/ws/{client_id}")
 async def websocket_endpoint(websocket: WebSocket, client_id: str):
     await manager.connect(websocket, client_id)
@@ -122,7 +122,6 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
         print(f"{Fore.RED}Client #{client_id} left the chat{Style.RESET_ALL}")
     finally:
         print(f"{Fore.RED}NOTE{Fore.WHITE}:     Client disconnected{Style.RESET_ALL}")
-
 
 async def broadcast_message(message: str):
     # Use the manager to broadcast the message
@@ -154,32 +153,78 @@ async def api_hello():
     print(f"{Fore.GREEN}Hello from the API{Style.RESET_ALL}")
     return {"message": "Hello from the API"}
 
-@app.post("/api/v1/hello")
-async def api_hello(greeting: BasicPing):
-    # Print the greeting to the console
-    print(f"{Fore.GREEN}{greeting}{Style.RESET_ALL}")
-    # Return the greeting to the client
-    return {"greeting": "Hey gorgeous!"}
+@app.post("/api/v1/register_device")
+async def api_register_device(request: Request):
+    try:
+        # Pull the uid from the request, which is stored in the body
+        data = await request.json()
+        # Try to add it to the mongo database
+        uid = data["uid"]
+        client.database.Devices.insert_one({"uid": uid})
+        print(f"{Fore.GREEN}Device registered: {uid}{Style.RESET_ALL}")
+        return {"message": "Device registered"}
+    except Exception as e:
+        print(f"{Fore.RED}Device registration failed{Style.RESET_ALL}")
+        return {"message": "Device registration failed", "reason" : str(e)}
 
 @app.get("/api/v1/uid")
 async def api_uuid():
     uid = uuid4()
     print(f"{Fore.GREEN}UUID Generated: {uid}{Style.RESET_ALL}")
+    # Add the uid to the database
     return {"uid": uid}
+
+# uid and auto-register the device in the database
+@app.post("/api/v1/uid/register")
+async def api_uuid_register():
+    try:
+        # Check to see if the uid is already in the database
+        # If it is, generate a new one and try again
+        # If it isn't, add it to the database
+        # try 10 times, then give up and throw an error
+        for i in range(10):
+            uid = str(uuid4())
+            if client.database.Devices.find_one({"uid": uid}):
+                print(f"{Fore.YELLOW}UID {uid} already exists. Attempting to generate a new one{Style.RESET_ALL}")
+                uid = str(uuid4())
+            else:
+                break
+            uid = None
+        
+        if uid is None:
+            raise Exception("Failed to generate a unique uid")
+
+        print(f"{Fore.GREEN}UUID Generated: {uid}{Style.RESET_ALL}")
+        # Add the uid to the database
+        client.database.Devices.insert_one({"uid": uid})
+        return {"uid": uid}
+    except Exception as e:
+        return {"message": "Device registration/uid generation failed", "reason" : str(e)}
 
 @app.post("/api/v1/heartbeat/{uid}")
 async def heartbeat(uid, request: Request):
     # Emit a message on the websocket
     # get data from the request
-    data = await request.json()
+    try:
+        data = await request.json()
 
-    messageDict = \
-            {"type": "heartbeat",
-            "uid" : uid, 
-            "status": "alive",
-            "data": data,}
-    await manager.broadcast_to_clients(json.dumps(messageDict))
-    return {"message": f"Heartbeat accepted"}
+        messageDict = \
+                {"type": "heartbeat",
+                "uid" : uid, 
+                "status": "alive",
+                "data": data,}
+        await manager.broadcast_to_clients(json.dumps(messageDict))
+
+        epoch_time = int(time.time())
+
+        # Store the data in the database by updating an entry
+        client.database.Devices.update_one({"uid": uid}, {"$set": {"last_heartbeat": epoch_time}})
+        client.database.Devices.update_one({"uid": uid}, {"$set": {"data": data}})
+
+        return {"message": f"Heartbeat accepted"}
+    except Exception as e:
+        print(f"{Fore.RED}Heartbeat failed for {uid}{Style.RESET_ALL}")
+        return {"message": f"Heartbeat failed", "reason" : str(e)}
 
 # Toggle LED
 @app.post("/api/v1/toggleLED")
@@ -253,38 +298,80 @@ async def firmware(version: str):
 # Assign a name to a specific uid and store it in the database
 @app.post("/api/v1/assignName")
 async def assignName(request: Request):
-    # pull the uid from the request
-    data = await request.json()
-    print(data)
-    uid = data["uid"]
-    name = data["name"]
-
-    print(f"{Fore.GREEN}Assigning name {name} to {uid}{Style.RESET_ALL}")
-
-    # Store the name and uid in the mongodb database
-    db = client["database"]
-    collection = db["uidMapping"]
-
-    # Check if the uid is already in the database
-    if collection.find_one({"uid": uid}) is None:
-        # Create a new entry
-        collection.insert_one({"uid": uid, "name": name})
-    else:
-        # Update the entry
-        collection.update_one({"uid": uid}, {"$set": {"name": name}})
-
-    print(f"{Fore.GREEN}Assigned name {name} to {uid}{Style.RESET_ALL}")
+    try:
+        # Pull the uid and name from the request
+        data = await request.json()
+        uid = data["uid"]
+        name = data["name"]
+        # Add the uid and name to the database. updating the Device collection
+        client.database.Devices.update_one({"uid": uid}, {"$set": {"name": name}})
+        print(f"{Fore.GREEN}Assigned name to uid{Style.RESET_ALL}")
+        return {"message": f"'{name}' was assigned to {uid}"}
+    except Exception as e:
+        print(f"{Fore.RED}Failed to assign name to uid{Style.RESET_ALL}")
+        return {"message": f"Failed to assign name to uid", "reason" : str(e)}
 
 # Get the name of a specific uid from the database
 @app.get("/api/v1/getName/{uid}")
 async def getName(uid: str):
-    print(f"{Fore.GREEN}Getting name for {uid}{Style.RESET_ALL}")
-    collection = client["database"]["uidMapping"]
-    # Check if the uid is already in the database
-    if collection.find_one({"uid": uid}) is None:
-        # Create a new entry
-        raise HTTPException(status_code=404, detail="Item not found")
+    # Get the name of the uid from the database
+    name = client.database.Devices.find_one({"uid": uid})["name"]
+    print(f"{Fore.GREEN}Got name of uid{Style.RESET_ALL}")
+    return {"name": f"{name}"}
+
+# Login
+@app.post("/api/v1/login")
+async def login(request: Request):
+    print(f"{Fore.GREEN}Login request received{Style.RESET_ALL}")
+    # Pull the username and password from the request
+    data = await request.json()
+    username = data["username"]
+    password = data["password"]
+
+    # Check if the username and password are correct
+    if username == "admin" and password == "admin":
+        # Create a new session
+        session_id = str(uuid4())
+        # Store the session in the database
+        db = client["database"]
+        collection = db["sessions"]
+        epoch_time = int(time.time())
+        collection.insert_one({"session_id": session_id, "username": username, "epoch_time": epoch_time})
+        return {"message": "Login successful", "session_id": session_id}
     else:
-        # Update the entry
-        return {"name": collection.find_one({"uid": uid})["name"]}
-    
+        return {"message": "Login failed"}
+
+# Create new account 
+@app.post("/api/v1/create_account")
+async def createAccount(request: Request):
+    # Pull the username and password from the request
+    try:
+        data = await request.json()
+        username = data["username"]
+        password = data["password"]
+
+        # Check if the username is already taken
+        # All users are stored in the database in the Users collection
+
+        found_name = client.database.Users.find_one({"username": username})
+
+        if found_name is None:
+            # Create a new session
+            session_id = str(uuid4())
+            # Store the session in the database
+            db = client["database"]
+            collection = db["sessions"]
+            epoch_time = int(time.time())
+            collection.insert_one({"session_id": session_id, "username": username, "epoch_time": epoch_time})
+            # Store the username and password in the database
+            collection = db["Users"]
+            collection.insert_one({"username": username, "password": password})
+            print(f"{Fore.GREEN}Created account{Style.RESET_ALL}")
+            return {"message": "Account created", "session_id": session_id}
+        else:
+            print(f"{Fore.RED}Username already taken{Style.RESET_ALL}")
+            return {"message": "Username already taken"}
+
+    except Exception as e:
+        print(f"{Fore.RED}Failed to create account{Style.RESET_ALL}")
+        return {"message": "Failed to create account", "reason" : str(e)}

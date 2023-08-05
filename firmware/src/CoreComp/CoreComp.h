@@ -19,6 +19,7 @@ class CoreComp {
         String getUID();
         void forceRestart();
         bool needsUpdate();
+        void keepTryingForUID();
     private:
         Preferences* preferences;
         ApiCaller * apiCaller;

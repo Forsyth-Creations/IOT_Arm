@@ -33,6 +33,19 @@ void CoreComp::hardsaveUID()
     }
 }
 
+void CoreComp::keepTryingForUID()
+{
+    uid = preferences->getString("uid", "empty");
+    while (uid == "null" || uid == "empty") // This means it didn't get it properly from the api
+    {
+        StaticJsonDocument<200> response = apiCaller->get("/v1/uid");
+        uid = response["uid"].as<String>();
+        Serial.println("Got a new UID from the API: " + uid);
+        delay(3000);
+    }
+    Serial.println("Success!");
+}
+
 // refactor the above code to only make a heartbeat request every 10 seconds
 // hint: use the millis() function
 

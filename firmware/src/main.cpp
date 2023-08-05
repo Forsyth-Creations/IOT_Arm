@@ -44,7 +44,7 @@ void setup()
   Serial.println("------------ Starting up ------------");
   apiCaller = new ApiCaller(NETWORK_SSID, NETWORK_PASSWORD, API_ENDPOINT);
   coreComp = new CoreComp(apiCaller);
-  coreComp->hardsaveUID();
+  coreComp->keepTryingForUID();
 
   uid = coreComp->getUID();
 
