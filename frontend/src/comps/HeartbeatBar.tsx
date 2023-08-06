@@ -13,12 +13,13 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 
 import axios from 'axios';
 
 import GenericModal from './GenericModal';
 
-export default function HeartbeatBar(props: { uid: string, timestamp: number, data: JSON }) {
+export default function HeartbeatBar(props: { uid: string, timestamp: number}) {
 
   // see if the timestamp is older than 5 seconds
   // if it is, show a warning
@@ -28,6 +29,8 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
   const [restartInProgress, setRestartInProgress] = useState(false);
   const [nameModalOpen, setNameModalOpen] = useState(false);
   const [name, setName] = useState('');
+  const [data, setData] = useState({});
+  const [isStale, setIsStale] = useState<boolean>(true);
 
 
   // Pull the name from the api based on the UID
@@ -114,8 +117,6 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
       });
   };
 
-  const [isStale, setIsStale] = useState<boolean>(false);
-
   // Write a useeffect that refreshes every 5 seconds
   // if the timestamp is older than 5 seconds, set isStale to true
   function padZero(value: number) {
@@ -156,7 +157,6 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
     return () => clearInterval(interval);
   }, [props.timestamp, setIsStale, setRestartInProgress]);
 
-
   return (
     <Accordion>
       <AccordionSummary
@@ -181,7 +181,7 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
         <Typography>UID: {props.uid}</Typography>
         <Typography>Timestamp: {formattedTime}</Typography>
         <Typography>Data:
-          {props.data && Object.entries(props.data).map(([key, value]) => {
+          {data && Object.entries(data).map(([key, value]) => {
             return (
               <Typography key={key}
                 className="flex flex-row">
@@ -190,7 +190,11 @@ export default function HeartbeatBar(props: { uid: string, timestamp: number, da
             );
           })}
         </Typography>
-        <Button onClick={openModal}>Command</Button>
+        <Stack direction= "row" justifyContent={"flex-start"}>
+          <Button onClick={openModal}>Command</Button>
+          <Button>Edit name</Button>
+          </Stack>
+
       </AccordionDetails>
 
       <GenericModal showModal={showModal} setShowModal={setShowModal} className="">

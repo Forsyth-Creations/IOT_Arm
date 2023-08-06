@@ -341,6 +341,7 @@ async def login(request: Request):
         token = str(uuid4())
         # Store the session in the database
         epoch_time = int(time.time())
+        print("Registering session")
         client.database.sessions.insert_one({"token": token, "email": email, "epoch_time": epoch_time})
         print(f"{Fore.GREEN}Login successful{Style.RESET_ALL}")
         return {"message": "Login successful", "token": token}
@@ -378,3 +379,75 @@ async def createAccount(request: Request):
     else:
         print(f"{Fore.RED}email already taken{Style.RESET_ALL}")
         raise HTTPException(status_code=500, detail="Username already taken")
+    
+@app.get("/api/v1/device/{uid}")
+async def get_device(uid: str):
+    # Get the device from the database
+    print(f"Attempting to find device with uid: {uid} ")
+    device = client.database.Devices.find_one({"uid": uid})
+    if device is None:
+        print(f"{Fore.RED}Device not found{Style.RESET_ALL}")
+        raise HTTPException(status_code=500, detail="Device not found")
+    # remove the _id field
+    device.pop("_id")
+    return device
+
+@app.post("/api/v1/registerDevice")
+async def register_device(request: Request):
+    # Get the device from the database
+    
+    requestJson = await request.json()
+    uid = requestJson["uid"]
+    token = requestJson["token"]
+
+    device = client.database.Devices.find_one({"uid": uid})
+    if device is None:
+        print(f"{Fore.RED}Device not found{Style.RESET_ALL}")
+        raise HTTPException(status_code=500, detail="Device not found")
+
+
+    # Get the email from the request
+    outputData = client.database.sessions.find_one({"token": token})
+
+    # Add the device to the collection called AccountToDevices
+    # This collection is used to map devices to accounts
+    # check to make sure the device isn't already registered
+
+    if (client.database.AccountToDevices.find_one({"uid": uid})):
+        print(f"{Fore.RED}Device already registered{Style.RESET_ALL}")
+        raise HTTPException(status_code=500, detail="Device already registered")
+
+    db = client["database"]
+    collection = db["AccountToDevices"]
+    collection.insert_one({"email": outputData["email"], "uid": uid})
+
+    device.pop("_id")
+    
+    return device
+
+
+@app.post("/api/v1/devices/")
+async def get_devices(request: Request):
+    # Requires a token
+    # Get a list of uid from the database that are associated with the devices
+
+    # Get the email from the request
+    requestedJson = await request.json()
+    token = requestedJson["token"]
+    outputData = client.database.sessions.find_one({"token": token})
+
+    email = outputData["email"]
+
+    # Find all database entries in AccountToDevices collection that have the email in them
+
+    data = client.database.AccountToDevices.find({"email": email})
+
+    # Create a list of uids
+    uids = []
+    for entry in data:
+        uids.append(entry["uid"])
+
+    print(f"{Fore.GREEN}Devices found{Style.RESET_ALL}")
+    print(uids)
+    return {"devices": uids}
+    
