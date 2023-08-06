@@ -16,6 +16,10 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
 import Alert from '@mui/material/Alert';
+import Cookies from 'js-cookie';
+import { redirect } from 'next/navigation';
+import { WindowRounded } from '@mui/icons-material';
+
 
 function Copyright(props: any) {
   return (
@@ -36,7 +40,8 @@ const defaultTheme = createTheme();
 export default function SignIn() {
 
   const [showError, setShowError] = React.useState(false);
-  
+  const [showRemeberMeNote, setShowRemeberMeNote] = React.useState(false);
+
   const alert = (message: string) => {
     console.log(message);
     setShowError(true);
@@ -46,6 +51,10 @@ export default function SignIn() {
     }
     , 5000);
   };
+
+  const handleRememberMe = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setShowRemeberMeNote(event.target.checked);
+  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -57,7 +66,20 @@ export default function SignIn() {
     })
       .then(function (response) {
         console.log(response);
-        window.location.href = '/';
+        // Store the token in a cookie
+        // TODO: set the cookie to expire after 2 days
+        if (showRemeberMeNote)
+        {
+          Cookies.set('token', response.data.token, { expires: 7 });
+        }
+        else
+        {
+          Cookies.set('token', response.data.token, { expires: 1 });
+        }
+      })
+      .then(function (response) {
+        // Redirect to the console, redirect with window.location.href
+        window.location.href = '/console';
       })
       .catch(function (error) {
         console.log(error);
@@ -66,18 +88,16 @@ export default function SignIn() {
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
+      <Container maxWidth="xs"  sx={{minHeight : "100vh"}}>
         <Box
           sx={{
-            marginTop: 8,
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            paddingTop : "12vh"
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ bgcolor: 'secondary.main' }}>
             <FavoriteIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -105,10 +125,11 @@ export default function SignIn() {
               autoComplete="current-password"
             />
             <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              control={<Checkbox value="remember" color="primary" onClick = {handleRememberMe}/>}
+              label="Remember me for 7 days"
             />
             {showError && <Alert severity="error">Login failed. Please try again</Alert>}
+            {showRemeberMeNote && <Alert severity="info">Note: Credentials will be saved for 7 days</Alert>}
             <Button
               type="submit"
               fullWidth
@@ -133,6 +154,5 @@ export default function SignIn() {
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
-    </ThemeProvider>
   );
 }

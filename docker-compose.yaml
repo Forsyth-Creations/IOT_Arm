@@ -18,7 +18,7 @@ services:
       dockerfile: Dockerfile
     network_mode: host
     volumes:
-      - ./frontend:/app
+      - ./frontend:/frontend
     command: npm run dev
 # -------------------- Nginx --------------------
   nginx:

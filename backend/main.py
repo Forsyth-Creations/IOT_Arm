@@ -338,12 +338,12 @@ async def login(request: Request):
         raise HTTPException(status_code=500, detail="email or password incorrect")
     else:
         # Create a new session
-        session_id = str(uuid4())
+        token = str(uuid4())
         # Store the session in the database
         epoch_time = int(time.time())
-        client.database.sessions.insert_one({"session_id": session_id, "email": email, "epoch_time": epoch_time})
+        client.database.sessions.insert_one({"token": token, "email": email, "epoch_time": epoch_time})
         print(f"{Fore.GREEN}Login successful{Style.RESET_ALL}")
-        return {"message": "Login successful", "session_id": session_id}
+        return {"message": "Login successful", "token": token}
 
 # Create new account 
 @app.post("/api/v1/create_account")
