@@ -9,9 +9,6 @@ import Container from '@mui/material/Container';
 // Nextjs link
 import Link from 'next/link';
 
-
-
-
 export default function Admin() {
     return (
         <Container component="main" maxWidth="xs" sx = {{display : "flex"}}>
